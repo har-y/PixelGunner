@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
 
     [Header("Player Weapon")]
     [SerializeField] private Transform _weapon;
+    private Camera _camera;
     private Vector3 _mousePosition;
     private Vector3 _screenPoint;
     private Vector2 _offset;
@@ -21,20 +22,41 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        _camera = Camera.main;
     }
 
     // Update is called once per frame
     void Update()
     {
         PlayerMove();
+        PlayerWeaponMove();
+    }
 
+    private void PlayerWeaponMove()
+    {
         _mousePosition = Input.mousePosition;
-        _screenPoint = Camera.main.WorldToScreenPoint(transform.localPosition);
+        _screenPoint = _camera.WorldToScreenPoint(transform.localPosition);
+
+        PlayerFlipPosition(_mousePosition, _screenPoint);
 
         _offset = new Vector2(_mousePosition.x - _screenPoint.x, _mousePosition.y - _screenPoint.y);
         _angle = Mathf.Atan2(_offset.y, _offset.x) * Mathf.Rad2Deg;
+
         _weapon.rotation = Quaternion.Euler(0f, 0f, _angle);
+    }
+
+    private void PlayerFlipPosition(Vector3 _mousePosition, Vector3 _screenPoint)
+    {
+        if (_mousePosition.x < _screenPoint.x)
+        {
+            transform.localScale = new Vector3(-1f, 1f, 1f);
+            _weapon.localScale = new Vector3(-1f, -1f, 1f);
+        }
+        else
+        {
+            transform.localScale = new Vector3(1f, 1f, 1f);
+            _weapon.localScale = new Vector3(1f, 1f, 1f);
+        }
     }
 
     private void PlayerMove()
