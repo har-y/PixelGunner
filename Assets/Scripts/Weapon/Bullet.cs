@@ -26,4 +26,9 @@ public class Bullet : MonoBehaviour
     {
         _rigidbody2D.velocity = transform.right * _moveSpeed;
     }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        Destroy(gameObject);
+    }
 }
