@@ -5,7 +5,8 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     [Header("Player")]
-    [SerializeField] private Rigidbody2D _rigidbody2D;
+    private Rigidbody2D _rigidbody2D;
+    private Animator _animator;
 
     [Header("Player Movement")]
     [SerializeField] private float _moveSpeed;
@@ -22,6 +23,8 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        _rigidbody2D = GetComponent<Rigidbody2D>();
+        _animator = GetComponent<Animator>();
         _camera = Camera.main;
     }
 
@@ -30,6 +33,7 @@ public class PlayerController : MonoBehaviour
     {
         PlayerMove();
         PlayerWeaponMove();
+        PlayerAnimation();
     }
 
     private void PlayerWeaponMove()
@@ -65,5 +69,17 @@ public class PlayerController : MonoBehaviour
         _moveInput.y = Input.GetAxisRaw("Vertical");
 
         _rigidbody2D.velocity = _moveInput * _moveSpeed;
+    }
+
+    private void PlayerAnimation()
+    {
+        if (_moveInput != Vector2.zero)
+        {
+            _animator.SetBool("isMove", true);
+        }
+        else
+        {
+            _animator.SetBool("isMove", false);
+        }
     }
 }
