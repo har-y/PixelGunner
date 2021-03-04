@@ -67,6 +67,7 @@ public class PlayerController : MonoBehaviour
     {
         _moveInput.x = Input.GetAxisRaw("Horizontal");
         _moveInput.y = Input.GetAxisRaw("Vertical");
+        _moveInput.Normalize();
 
         _rigidbody2D.velocity = _moveInput * _moveSpeed;
     }
