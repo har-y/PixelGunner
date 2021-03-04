@@ -20,6 +20,10 @@ public class PlayerController : MonoBehaviour
     private Vector2 _offset;
     private float _angle;
 
+    [Header("Player Bullet")]
+    [SerializeField] private GameObject _bulletPrefab;
+    [SerializeField] private Transform _bulletPoint;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,6 +37,7 @@ public class PlayerController : MonoBehaviour
     {
         PlayerMove();
         PlayerWeaponMove();
+        PlayerShoot();
         PlayerAnimation();
     }
 
@@ -81,6 +86,14 @@ public class PlayerController : MonoBehaviour
         else
         {
             _animator.SetBool("isMove", false);
+        }
+    }
+
+    private void PlayerShoot()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            Instantiate(_bulletPrefab, _bulletPoint.position, _bulletPoint.rotation);
         }
     }
 }
