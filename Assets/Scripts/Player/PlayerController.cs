@@ -23,6 +23,8 @@ public class PlayerController : MonoBehaviour
     [Header("Player Bullet")]
     [SerializeField] private GameObject _bulletPrefab;
     [SerializeField] private Transform _bulletPoint;
+    [SerializeField] private float _bulletDelay;
+    private float _bulletCounter;
 
     // Start is called before the first frame update
     void Start()
@@ -94,6 +96,21 @@ public class PlayerController : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             Instantiate(_bulletPrefab, _bulletPoint.position, _bulletPoint.rotation);
+
+            _bulletCounter = _bulletDelay;
+        }
+
+
+        if (Input.GetMouseButton(0))
+        {
+            _bulletCounter -= Time.deltaTime;
+
+            if (_bulletCounter <= 0)
+            {
+                Instantiate(_bulletPrefab, _bulletPoint.position, _bulletPoint.rotation);
+
+                _bulletCounter = _bulletDelay;
+            }
         }
     }
 }

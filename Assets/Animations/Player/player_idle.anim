@@ -89,10 +89,10 @@ AnimationClip:
   - curve:
     - time: 0
       value: {fileID: -4254059877319897387, guid: 48d85d1ef51430e42b6aef57f02c863d, type: 3}
-    - time: 1
+    - time: 1.0166667
       value: {fileID: -4254059877319897387, guid: 48d85d1ef51430e42b6aef57f02c863d, type: 3}
     attribute: m_Sprite
-    path: player_weapon/weapon_body
+    path: player_weapon/weapon_shape
     classID: 212
     script: {fileID: 0}
   m_SampleRate: 60
@@ -117,7 +117,7 @@ AnimationClip:
       customType: 0
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 2225702730
+      path: 1846117498
       attribute: 0
       script: {fileID: 0}
       typeID: 212
@@ -131,7 +131,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 1.0166667
+    m_StopTime: 1.0333333
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0

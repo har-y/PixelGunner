@@ -107,10 +107,10 @@ AnimationClip:
   - curve:
     - time: 0
       value: {fileID: 3542127132570728493, guid: a47294d8f066c634d90ee371916313ff, type: 3}
-    - time: 0.5
+    - time: 0.51666665
       value: {fileID: 3542127132570728493, guid: a47294d8f066c634d90ee371916313ff, type: 3}
     attribute: m_Sprite
-    path: player_body
+    path: player_body/body_shape
     classID: 212
     script: {fileID: 0}
   m_SampleRate: 60
@@ -135,7 +135,7 @@ AnimationClip:
       customType: 4
       isPPtrCurve: 0
     - serializedVersion: 2
-      path: 2041731969
+      path: 3248893147
       attribute: 0
       script: {fileID: 0}
       typeID: 212
@@ -149,7 +149,7 @@ AnimationClip:
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.51666665
+    m_StopTime: 0.5333333
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0
