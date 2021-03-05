@@ -7,6 +7,10 @@ public class Bullet : MonoBehaviour
     [Header("Bullet")]
     private Rigidbody2D _rigidbody2D;
 
+    [Header("Visual Effects")]
+    [SerializeField] private GameObject _effectPrefab;
+    private GameObject _effectSlot;
+
     [Header("Bullet Movement")]
     [SerializeField] private float _moveSpeed;
 
@@ -14,6 +18,7 @@ public class Bullet : MonoBehaviour
     void Start()
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
+        _effectSlot = GameObject.FindGameObjectWithTag("Misc");
     }
 
     // Update is called once per frame
@@ -29,6 +34,9 @@ public class Bullet : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        GameObject bulletEffect = Instantiate(_effectPrefab, transform.position, transform.rotation);
+        bulletEffect.transform.parent = _effectSlot.transform;
+
         Destroy(gameObject);
     }
 }
