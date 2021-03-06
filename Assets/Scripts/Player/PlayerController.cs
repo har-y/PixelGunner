@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    public static PlayerController instance;
+
     [Header("Player")]
     private Rigidbody2D _rigidbody2D;
     private Animator _animator;
@@ -26,6 +28,11 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _bulletDelay;
     private float _bulletCounter;
     private GameObject _bulletSlot;
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
     // Start is called before the first frame update
     void Start()
