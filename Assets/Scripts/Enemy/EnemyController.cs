@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,6 +7,7 @@ public class EnemyController : MonoBehaviour
 {
     [Header("Enemy")]
     private Rigidbody2D _rigidbody2D;
+    private Animator _animator;
 
     [Header("Enemy Movement")]
     [SerializeField] private float _moveSpeed;
@@ -18,12 +20,26 @@ public class EnemyController : MonoBehaviour
     void Start()
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
+        _animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
     void Update()
     {
         EnemyMove();
+        EnemyAnimation();
+    }
+
+    private void EnemyAnimation()
+    {
+        if (_moveDirection != Vector3.zero)
+        {
+            _animator.SetBool("isMove", true);
+        }
+        else
+        {
+            _animator.SetBool("isMove", false);
+        }
     }
 
     private void EnemyMove()
