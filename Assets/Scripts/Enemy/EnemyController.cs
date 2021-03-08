@@ -20,13 +20,17 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private float _enemyRange;
 
     [Header("Enemy - Visual Effects")]
+    [SerializeField] private GameObject _enemyHitEffect;
     [SerializeField] private GameObject _enemyDeathEffect;
+    private GameObject _effectSlot;
 
     // Start is called before the first frame update
     void Start()
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
+
+        _effectSlot = GameObject.FindGameObjectWithTag("Misc");
     }
 
     // Update is called once per frame
@@ -67,6 +71,9 @@ public class EnemyController : MonoBehaviour
     public void EnemyDamage(int damage)
     {
         _enemyHealth -= damage;
+
+        GameObject hitEffect = Instantiate(_enemyHitEffect, transform.position, transform.rotation);
+        hitEffect.transform.parent = _effectSlot.transform;
 
         if (_enemyHealth <= 0)
         {
