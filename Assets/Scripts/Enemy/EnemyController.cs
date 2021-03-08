@@ -18,6 +18,14 @@ public class EnemyController : MonoBehaviour
 
     [Header("Enemy - Enemy vs. Player")]
     [SerializeField] private float _enemyRange;
+    [SerializeField] private bool _shootEnemy;
+
+    [Header("Enemy - Bullet")]
+    [SerializeField] private GameObject _bulletPrefab;
+    [SerializeField] private Transform _bulletPoint;
+    [SerializeField] private float _bulletDelay;
+    private float _bulletCounter;
+    private GameObject _bulletSlot;
 
     [Header("Enemy - Visual Effects")]
     [SerializeField] private GameObject _enemyHitEffect;
@@ -31,6 +39,7 @@ public class EnemyController : MonoBehaviour
         _animator = GetComponent<Animator>();
 
         _effectSlot = GameObject.FindGameObjectWithTag("Misc");
+        _bulletSlot = GameObject.FindGameObjectWithTag("Misc");
     }
 
     // Update is called once per frame
@@ -38,6 +47,19 @@ public class EnemyController : MonoBehaviour
     {
         EnemyMove();
         EnemyAnimation();
+
+        if (_shootEnemy)
+        {
+            _bulletCounter -= Time.deltaTime;
+
+            if (_bulletCounter <= 0)
+            {
+                _bulletCounter = _bulletDelay;
+
+                GameObject bullet = Instantiate(_bulletPrefab, _bulletPoint.position, _bulletPoint.rotation);
+                bullet.transform.parent = _bulletSlot.transform;
+            }
+        }
     }
 
     private void EnemyMove()
