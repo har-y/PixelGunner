@@ -9,11 +9,14 @@ public class EnemyController : MonoBehaviour
     private Rigidbody2D _rigidbody2D;
     private Animator _animator;
 
-    [Header("Enemy Movement")]
+    [Header("Enemy - Health")]
+    [SerializeField] private int _enemyHealth;
+
+    [Header("Enemy - Movement")]
     [SerializeField] private float _moveSpeed;
     private Vector3 _moveDirection;
 
-    [Header("Enemy vs. Player")]
+    [Header("Enemy - Enemy vs. Player")]
     [SerializeField] private float _enemyRange;
 
     // Start is called before the first frame update
@@ -30,18 +33,6 @@ public class EnemyController : MonoBehaviour
         EnemyAnimation();
     }
 
-    private void EnemyAnimation()
-    {
-        if (_moveDirection != Vector3.zero)
-        {
-            _animator.SetBool("isMove", true);
-        }
-        else
-        {
-            _animator.SetBool("isMove", false);
-        }
-    }
-
     private void EnemyMove()
     {
         if (Vector3.Distance(transform.position, PlayerController.instance.transform.position) <= _enemyRange)
@@ -56,5 +47,27 @@ public class EnemyController : MonoBehaviour
         }
 
         _rigidbody2D.velocity = _moveDirection * _moveSpeed;
+    }
+
+    private void EnemyAnimation()
+    {
+        if (_moveDirection != Vector3.zero)
+        {
+            _animator.SetBool("isMove", true);
+        }
+        else
+        {
+            _animator.SetBool("isMove", false);
+        }
+    }
+
+    public void EnemyDamage(int damage)
+    {
+        _enemyHealth -= damage;
+
+        if (_enemyHealth <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 }

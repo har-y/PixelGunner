@@ -7,11 +7,14 @@ public class Bullet : MonoBehaviour
     [Header("Bullet")]
     private Rigidbody2D _rigidbody2D;
 
-    [Header("Visual Effects")]
+    [Header("Bullet - Damage")]
+    [SerializeField] private int _bulletDamage;
+
+    [Header("Bullet - Visual Effects")]
     [SerializeField] private GameObject _effectPrefab;
     private GameObject _effectSlot;
 
-    [Header("Bullet Movement")]
+    [Header("Bullet - Movement")]
     [SerializeField] private float _moveSpeed;
 
     // Start is called before the first frame update
@@ -33,6 +36,16 @@ public class Bullet : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D other)
+    {
+        BulletHitObject();
+
+        if (other.tag == "Enemy")
+        {
+            other.GetComponent<EnemyController>().EnemyDamage(_bulletDamage);
+        }
+    }
+
+    private void BulletHitObject()
     {
         GameObject bulletEffect = Instantiate(_effectPrefab, transform.position, transform.rotation);
         bulletEffect.transform.parent = _effectSlot.transform;

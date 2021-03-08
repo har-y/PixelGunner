@@ -176,6 +176,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f50733d7081b4d74a99e3a0311d6e8bf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _bulletDamage: 50
   _effectPrefab: {fileID: 8473250600612712116, guid: 62b04dfd332d50d4496c59655213eb7f, type: 3}
   _moveSpeed: 10
 --- !u!114 &-5715322737751691652

@@ -10,11 +10,11 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D _rigidbody2D;
     private Animator _animator;
 
-    [Header("Player Movement")]
+    [Header("Player - Movement")]
     [SerializeField] private float _moveSpeed;
     private Vector2 _moveInput;
 
-    [Header("Player Weapon")]
+    [Header("Player - Weapon")]
     [SerializeField] private Transform _weapon;
     private Camera _camera;
     private Vector3 _mousePosition;
@@ -22,7 +22,7 @@ public class PlayerController : MonoBehaviour
     private Vector2 _offset;
     private float _angle;
 
-    [Header("Player Bullet")]
+    [Header("Player - Bullet")]
     [SerializeField] private GameObject _bulletPrefab;
     [SerializeField] private Transform _bulletPoint;
     [SerializeField] private float _bulletDelay;

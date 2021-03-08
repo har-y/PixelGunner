@@ -250,7 +250,7 @@ GameObject:
   - component: {fileID: 380628201}
   m_Layer: 0
   m_Name: Enemy - Skeleton
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -329,8 +329,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7600731b1c426c4c8e4ce51b58cca10, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _enemyHealth: 150
   _moveSpeed: 3
-  _enemyRange: 3
+  _enemyRange: 5
 --- !u!95 &380628202
 Animator:
   serializedVersion: 3
