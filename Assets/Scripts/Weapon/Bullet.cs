@@ -53,12 +53,12 @@ public class Bullet : MonoBehaviour
     {
         BulletHitObject();
 
-        if (other.tag == "Enemy" && _playerBullet)
+        if (other.tag == "Enemy")
         {
             other.GetComponent<EnemyController>().EnemyDamage(_bulletDamage);
         }
 
-        if (other.tag == "Player" && _enemyBullet)
+        if (other.tag == "Player")
         {
 
         }

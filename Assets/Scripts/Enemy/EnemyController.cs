@@ -18,6 +18,7 @@ public class EnemyController : MonoBehaviour
 
     [Header("Enemy - Enemy vs. Player")]
     [SerializeField] private float _enemyRange;
+    [SerializeField] private float _enemyShootRange;
     [SerializeField] private bool _shootEnemy;
 
     [Header("Enemy - Bullet")]
@@ -48,16 +49,19 @@ public class EnemyController : MonoBehaviour
         EnemyMove();
         EnemyAnimation();
 
-        if (_shootEnemy)
+        if (Vector3.Distance(transform.position, PlayerController.instance.transform.position) <= _enemyShootRange)
         {
-            _bulletCounter -= Time.deltaTime;
-
-            if (_bulletCounter <= 0)
+            if (_shootEnemy)
             {
-                _bulletCounter = _bulletDelay;
+                _bulletCounter -= Time.deltaTime;
 
-                GameObject bullet = Instantiate(_bulletPrefab, _bulletPoint.position, _bulletPoint.rotation);
-                bullet.transform.parent = _bulletSlot.transform;
+                if (_bulletCounter <= 0)
+                {
+                    _bulletCounter = _bulletDelay;
+
+                    GameObject bullet = Instantiate(_bulletPrefab, _bulletPoint.position, _bulletPoint.rotation);
+                    bullet.transform.parent = _bulletSlot.transform;
+                }
             }
         }
     }

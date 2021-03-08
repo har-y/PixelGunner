@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1577428283687401259}
   - component: {fileID: 1577428283687401258}
   - component: {fileID: 1577428283687401253}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Enemy - Skeleton
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -115,9 +115,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemyHealth: 150
-  _moveSpeed: 4
+  _moveSpeed: 3
   _enemyRange: 5
-  _shootEnemy: 0
+  _enemyShootRange: 7
+  _shootEnemy: 1
   _bulletPrefab: {fileID: 3004662319792165324, guid: 83c9cdf48f660c74fabc59b2c2b4cd72, type: 3}
   _bulletPoint: {fileID: 9016169520289208218}
   _bulletDelay: 1
@@ -133,7 +134,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1577428283721649477}
   - component: {fileID: 1577428283721649478}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: body_shape
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -214,7 +215,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1577428283759284197}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: enemy_body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -245,7 +246,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9016169520289208218}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: weapon_point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -275,7 +276,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6947578036044115356}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: enemy_weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}

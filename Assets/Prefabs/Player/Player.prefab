@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3023613578220639401}
   - component: {fileID: 3023613578220639400}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: shadow_shape
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -91,7 +91,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3023613578484774540}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: player_shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -123,7 +123,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3023613578801031532}
   - component: {fileID: 3023613578801031535}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: hand_shape
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -205,7 +205,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3023613578991587734}
   - component: {fileID: 3023613578991587729}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: body_shape
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -286,7 +286,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3023613579038391660}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: player_body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -317,7 +317,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3023613579129349965}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: weapon_point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -351,7 +351,7 @@ GameObject:
   - component: {fileID: 3023613579336465374}
   - component: {fileID: 3023613579336465375}
   - component: {fileID: 3023613579336465372}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Player
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -469,7 +469,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3023613579482404531}
   - component: {fileID: 3023613579482404530}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: weapon_shape
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -550,7 +550,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3023613579576902653}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: player_hand
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -581,7 +581,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3023613579936395258}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: player_weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}

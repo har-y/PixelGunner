@@ -287,10 +287,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1577428283687401253, guid: 720b7ff85363a3547a3bf1254cc7ab65, type: 3}
-      propertyPath: _shootEnemy
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 1577428283687401257, guid: 720b7ff85363a3547a3bf1254cc7ab65, type: 3}
       propertyPath: m_Name
       value: Enemy - Skeleton
