@@ -11,7 +11,7 @@ public class Bullet : MonoBehaviour
     [SerializeField] private int _bulletDamage;
 
     [Header("Bullet - Visual Effects")]
-    [SerializeField] private GameObject _effectPrefab;
+    [SerializeField] private GameObject _bulletHitEffect;
     private GameObject _effectSlot;
 
     [Header("Bullet - Movement")]
@@ -47,7 +47,7 @@ public class Bullet : MonoBehaviour
 
     private void BulletHitObject()
     {
-        GameObject bulletEffect = Instantiate(_effectPrefab, transform.position, transform.rotation);
+        GameObject bulletEffect = Instantiate(_bulletHitEffect, transform.position, transform.rotation);
         bulletEffect.transform.parent = _effectSlot.transform;
 
         Destroy(gameObject);

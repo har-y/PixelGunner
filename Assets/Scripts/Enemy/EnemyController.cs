@@ -19,6 +19,9 @@ public class EnemyController : MonoBehaviour
     [Header("Enemy - Enemy vs. Player")]
     [SerializeField] private float _enemyRange;
 
+    [Header("Enemy - Visual Effects")]
+    [SerializeField] private GameObject _enemyDeathEffect;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -68,6 +71,8 @@ public class EnemyController : MonoBehaviour
         if (_enemyHealth <= 0)
         {
             Destroy(gameObject);
+
+            Instantiate(_enemyDeathEffect, transform.position, transform.rotation);
         }
     }
 }
