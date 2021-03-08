@@ -8,6 +8,7 @@ public class EnemyController : MonoBehaviour
     [Header("Enemy")]
     private Rigidbody2D _rigidbody2D;
     private Animator _animator;
+    [SerializeField] private SpriteRenderer _enemy;
 
     [Header("Enemy - Health")]
     [SerializeField] private int _enemyHealth;
@@ -46,23 +47,16 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        EnemyMove();
-        EnemyAnimation();
+        Enemy();
+    }
 
-        if (Vector3.Distance(transform.position, PlayerController.instance.transform.position) <= _enemyShootRange)
+    private void Enemy()
+    {
+        if (_enemy.isVisible)
         {
-            if (_shootEnemy)
-            {
-                _bulletCounter -= Time.deltaTime;
-
-                if (_bulletCounter <= 0)
-                {
-                    _bulletCounter = _bulletDelay;
-
-                    GameObject bullet = Instantiate(_bulletPrefab, _bulletPoint.position, _bulletPoint.rotation);
-                    bullet.transform.parent = _bulletSlot.transform;
-                }
-            }
+            EnemyMove();
+            EnemyShoot();
+            EnemyAnimation();
         }
     }
 
@@ -91,6 +85,22 @@ public class EnemyController : MonoBehaviour
         else
         {
             _animator.SetBool("isMove", false);
+        }
+    }
+
+    private void EnemyShoot()
+    {
+        if (_shootEnemy && (Vector3.Distance(transform.position, PlayerController.instance.transform.position) <= _enemyShootRange))
+        {
+            _bulletCounter -= Time.deltaTime;
+
+            if (_bulletCounter <= 0)
+            {
+                _bulletCounter = _bulletDelay;
+
+                GameObject bullet = Instantiate(_bulletPrefab, _bulletPoint.position, _bulletPoint.rotation);
+                bullet.transform.parent = _bulletSlot.transform;
+            }
         }
     }
 
