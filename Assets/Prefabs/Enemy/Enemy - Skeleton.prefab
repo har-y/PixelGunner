@@ -115,10 +115,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemyHealth: 150
-  _moveSpeed: 3
+  _moveSpeed: 4
   _enemyRange: 5
   _shootEnemy: 0
-  _bulletPrefab: {fileID: 0}
+  _bulletPrefab: {fileID: 3004662319792165324, guid: 83c9cdf48f660c74fabc59b2c2b4cd72, type: 3}
   _bulletPoint: {fileID: 9016169520289208218}
   _bulletDelay: 1
   _enemyHitEffect: {fileID: 8616068166855531587, guid: 7b220f59de4428e4e9938ed2e513340e, type: 3}
