@@ -47,6 +47,11 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        PlayerControl();
+    }
+
+    private void PlayerControl()
+    {
         PlayerMove();
         PlayerWeaponMove();
         PlayerShoot();

@@ -170,7 +170,7 @@ MonoBehaviour:
   _enemyBullet: 1
   _bulletDamage: 0
   _bulletHitEffect: {fileID: 0}
-  _moveSpeed: 3
+  _moveSpeed: 4
 --- !u!114 &6337841590934926101
 MonoBehaviour:
   m_ObjectHideFlags: 0
