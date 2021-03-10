@@ -124,7 +124,7 @@ MonoBehaviour:
   _bulletPoint: {fileID: 9016169520289208218}
   _bulletDelay: 1
   _enemyHitEffect: {fileID: 8616068166855531587, guid: 7b220f59de4428e4e9938ed2e513340e, type: 3}
-  _enemyDeathEffect: {fileID: 6620792860880824176, guid: 826e1e2001ea4b04688aae33b005946e, type: 3}
+  _enemyHitMaterial: {fileID: 2100000, guid: 887acfb23b04a954d980515d66ea51cb, type: 2}
 --- !u!1 &1577428283721649476
 GameObject:
   m_ObjectHideFlags: 0

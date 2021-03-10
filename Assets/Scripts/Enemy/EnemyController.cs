@@ -30,8 +30,9 @@ public class EnemyController : MonoBehaviour
     private GameObject _bulletSlot;
 
     [Header("Enemy - Visual Effects")]
+    private Material _enemyDefaultMaterial;
+    [SerializeField] private Material _enemyHitMaterial;
     [SerializeField] private GameObject _enemyHitEffect;
-    [SerializeField] private GameObject _enemyDeathEffect;
     private GameObject _effectSlot;
 
     // Start is called before the first frame update
@@ -40,8 +41,12 @@ public class EnemyController : MonoBehaviour
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
 
+        _enemyDefaultMaterial = _enemy.material;
+
         _effectSlot = GameObject.FindGameObjectWithTag("Misc");
         _bulletSlot = GameObject.FindGameObjectWithTag("Misc");
+
+        
     }
 
     // Update is called once per frame
@@ -107,15 +112,23 @@ public class EnemyController : MonoBehaviour
     public void EnemyDamage(int damage)
     {
         _enemyHealth -= damage;
+        _enemy.material = _enemyHitMaterial;
 
         GameObject hitEffect = Instantiate(_enemyHitEffect, transform.position, transform.rotation);
         hitEffect.transform.parent = _effectSlot.transform;
 
         if (_enemyHealth <= 0)
         {
-            Destroy(gameObject);
-
-            Instantiate(_enemyDeathEffect, transform.position, transform.rotation);
+            Destroy(gameObject);            
         }
+        else
+        {
+            Invoke("ResetEnemyMaterial", 0.25f);
+        }
+    }
+
+    private void ResetEnemyMaterial()
+    {
+        _enemy.material = _enemyDefaultMaterial;
     }
 }
