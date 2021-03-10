@@ -60,7 +60,7 @@ public class Bullet : MonoBehaviour
 
         if (other.tag == "Player")
         {
-
+            PlayerHealthController.instance.PlayerDamage();
         }
     }
 
