@@ -117,14 +117,14 @@ MonoBehaviour:
   _enemy: {fileID: 1577428283721649478}
   _enemyHealth: 150
   _moveSpeed: 3
-  _enemyRange: 7
-  _enemyShootRange: 5
+  _enemyRange: 5
+  _enemyShootRange: 7
   _shootEnemy: 1
   _bulletPrefab: {fileID: 3004662319792165324, guid: 83c9cdf48f660c74fabc59b2c2b4cd72, type: 3}
   _bulletPoint: {fileID: 9016169520289208218}
   _bulletDelay: 1
-  _enemyHitEffect: {fileID: 8616068166855531587, guid: 7b220f59de4428e4e9938ed2e513340e, type: 3}
   _enemyHitMaterial: {fileID: 2100000, guid: 887acfb23b04a954d980515d66ea51cb, type: 2}
+  _enemyHitEffect: {fileID: 8616068166855531587, guid: 7b220f59de4428e4e9938ed2e513340e, type: 3}
 --- !u!1 &1577428283721649476
 GameObject:
   m_ObjectHideFlags: 0
