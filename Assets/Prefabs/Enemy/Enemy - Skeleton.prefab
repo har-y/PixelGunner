@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1577428283687401259}
   - component: {fileID: 1577428283687401258}
   - component: {fileID: 1577428283687401253}
+  - component: {fileID: 7121045285189664163}
   m_Layer: 10
   m_Name: Enemy - Skeleton
   m_TagString: Enemy
@@ -125,6 +126,18 @@ MonoBehaviour:
   _bulletDelay: 1
   _enemyHitMaterial: {fileID: 2100000, guid: 887acfb23b04a954d980515d66ea51cb, type: 2}
   _enemyHitEffect: {fileID: 8616068166855531587, guid: 7b220f59de4428e4e9938ed2e513340e, type: 3}
+--- !u!114 &7121045285189664163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1577428283687401257}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fae2b19bd5ebe534eb38c5788cd59b26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1577428283721649476
 GameObject:
   m_ObjectHideFlags: 0
