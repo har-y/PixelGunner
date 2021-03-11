@@ -19,14 +19,18 @@ public class UIController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _healthSlider.maxValue = PlayerHealthController.instance.MaxHealth;
-        _healthSlider.value = PlayerHealthController.instance.CurrentHealth;
-        _healthText.text = PlayerHealthController.instance.CurrentHealth.ToString() + " " + "/" + " " + PlayerHealthController.instance.MaxHealth.ToString();
+        UISliderUpdate();
     }
 
     // Update is called once per frame
     void Update()
     {
+        UISliderUpdate();
+    }
+
+    private void UISliderUpdate()
+    {
+        _healthSlider.maxValue = PlayerHealthController.instance.MaxHealth;
         _healthSlider.value = PlayerHealthController.instance.CurrentHealth;
         _healthText.text = PlayerHealthController.instance.CurrentHealth.ToString() + " " + "/" + " " + PlayerHealthController.instance.MaxHealth.ToString();
     }

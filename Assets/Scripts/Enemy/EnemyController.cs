@@ -112,7 +112,8 @@ public class EnemyController : MonoBehaviour
     public void EnemyDamage(int damage)
     {
         _enemyHealth -= damage;
-        _enemy.material = _enemyHitMaterial;
+
+        StartCoroutine(EnemyMaterialCoroutine());
 
         GameObject hitEffect = Instantiate(_enemyHitEffect, transform.position, transform.rotation);
         hitEffect.transform.parent = _effectSlot.transform;
@@ -121,14 +122,14 @@ public class EnemyController : MonoBehaviour
         {
             Destroy(gameObject);            
         }
-        else
-        {
-            Invoke("ResetEnemyMaterial", 0.25f);
-        }
     }
 
-    private void ResetEnemyMaterial()
+    private IEnumerator EnemyMaterialCoroutine()
     {
+        _enemy.material = _enemyHitMaterial;
+
+        yield return new WaitForSeconds(0.25f);
+
         _enemy.material = _enemyDefaultMaterial;
     }
 }
