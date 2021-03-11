@@ -44,9 +44,7 @@ public class EnemyController : MonoBehaviour
         _enemyDefaultMaterial = _enemy.material;
 
         _effectSlot = GameObject.FindGameObjectWithTag("Misc");
-        _bulletSlot = GameObject.FindGameObjectWithTag("Misc");
-
-        
+        _bulletSlot = GameObject.FindGameObjectWithTag("Misc");       
     }
 
     // Update is called once per frame
@@ -57,11 +55,15 @@ public class EnemyController : MonoBehaviour
 
     private void EnemyControl()
     {
-        if (_enemy.isVisible)
+        if (_enemy.isVisible && PlayerController.instance.gameObject.activeInHierarchy)
         {
             EnemyMove();
             EnemyShoot();
             EnemyAnimation();
+        }
+        else
+        {
+            _rigidbody2D.velocity = Vector2.zero;
         }
     }
 
