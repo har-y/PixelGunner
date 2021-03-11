@@ -454,6 +454,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21784f4e6ff94a94bbd4081eca256bb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _bodySpriteRenderer: {fileID: 3023613578991587729}
+  _handSpriteRenderer: {fileID: 3023613578801031535}
+  _gunSpriteRenderer: {fileID: 3023613579482404530}
   _moveSpeed: 5
   _weapon: {fileID: 3023613579936395258}
   _bulletPrefab: {fileID: 5686117156105817253, guid: eab6409f22bce6c4a9a0356b8762f560, type: 3}

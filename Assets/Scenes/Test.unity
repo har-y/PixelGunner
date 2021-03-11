@@ -198,6 +198,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _maxHealth: 5
   _currentHealth: 0
+  _invincibleTime: 1
 --- !u!1 &176226475
 GameObject:
   m_ObjectHideFlags: 0
@@ -1422,6 +1423,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3023613578991587729, guid: 7915242057b20054c915c29dc5bfe14f, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3023613579336465362, guid: 7915242057b20054c915c29dc5bfe14f, type: 3}
       propertyPath: m_Name
       value: Player

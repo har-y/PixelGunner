@@ -9,6 +9,10 @@ public class PlayerController : MonoBehaviour
     [Header("Player")]
     private Rigidbody2D _rigidbody2D;
     private Animator _animator;
+    [SerializeField] private SpriteRenderer _bodySpriteRenderer;
+    [SerializeField] private SpriteRenderer _handSpriteRenderer;
+    [SerializeField] private SpriteRenderer _gunSpriteRenderer;
+
 
     [Header("Player - Movement")]
     [SerializeField] private float _moveSpeed;
@@ -131,5 +135,41 @@ public class PlayerController : MonoBehaviour
         bullet.transform.parent = _bulletSlot.transform;
 
         _bulletCounter = _bulletDelay;
+    }
+
+    public SpriteRenderer PlayerBodySprite
+    {
+        get
+        {
+            return _bodySpriteRenderer;
+        }
+        set
+        {
+            _bodySpriteRenderer = value;
+        }
+    }
+
+    public SpriteRenderer PlayerHandSprite
+    {
+        get
+        {
+            return _handSpriteRenderer;
+        }
+        set
+        {
+            _handSpriteRenderer = value;
+        }
+    }
+
+    public SpriteRenderer PlayerGunSprite
+    {
+        get
+        {
+            return _gunSpriteRenderer;
+        }
+        set
+        {
+            _gunSpriteRenderer = value;
+        }
     }
 }
