@@ -31,13 +31,13 @@ public class PlayerHealthController : MonoBehaviour
         _currentHealth = _maxHealth;
 
         _bodyDefaultColor = PlayerController.instance.PlayerBodySprite.color;
-        _bodyInvincibleColor = new Color(PlayerController.instance.PlayerBodySprite.color.r, PlayerController.instance.PlayerBodySprite.color.g, PlayerController.instance.PlayerBodySprite.color.b, 0.5f);
+        _bodyInvincibleColor = new Color(_bodyDefaultColor.r, _bodyDefaultColor.g, _bodyDefaultColor.b, 0.5f);
 
         _handDefaultColor = PlayerController.instance.PlayerHandSprite.color; 
-        _handInvincibleColor = new Color(PlayerController.instance.PlayerHandSprite.color.r, PlayerController.instance.PlayerHandSprite.color.g, PlayerController.instance.PlayerHandSprite.color.b, 0.5f);
+        _handInvincibleColor = new Color(_handDefaultColor.r, _handDefaultColor.g, _handDefaultColor.b, 0.5f);
 
         _gunDefaultColor = PlayerController.instance.PlayerGunSprite.color;
-        _gunInvincibleColor = new Color(PlayerController.instance.PlayerGunSprite.color.r, PlayerController.instance.PlayerGunSprite.color.g, PlayerController.instance.PlayerGunSprite.color.b, 0.5f);
+        _gunInvincibleColor = new Color(_gunDefaultColor.r, _gunDefaultColor.g, _gunDefaultColor.b, 0.5f);
     }
 
 
@@ -67,11 +67,7 @@ public class PlayerHealthController : MonoBehaviour
         {
             _currentHealth--;
 
-            _invincibleCounter = _invincibleTime;
-
-            PlayerController.instance.PlayerBodySprite.color = _bodyInvincibleColor;
-            PlayerController.instance.PlayerHandSprite.color = _handInvincibleColor;
-            PlayerController.instance.PlayerGunSprite.color = _gunInvincibleColor;
+            ActivateInvincible(_invincibleTime);
 
             if (_currentHealth <= 0)
             {
@@ -79,6 +75,15 @@ public class PlayerHealthController : MonoBehaviour
                 UIController.instance.LostScreenOn();
             }
         }      
+    }
+
+    public void ActivateInvincible(float time)
+    {
+        _invincibleCounter = time;
+
+        PlayerController.instance.PlayerBodySprite.color = _bodyInvincibleColor;
+        PlayerController.instance.PlayerHandSprite.color = _handInvincibleColor;
+        PlayerController.instance.PlayerGunSprite.color = _gunInvincibleColor;
     }
 
     public int MaxHealth

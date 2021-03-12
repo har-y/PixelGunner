@@ -460,7 +460,7 @@ MonoBehaviour:
   _moveSpeed: 5
   _dashSpeed: 20
   _dashTime: 0.35
-  _dashInvincible: 0.5
+  _dashInvincible: 0.35
   _dashCooldown: 3
   _weapon: {fileID: 3023613579936395258}
   _bulletPrefab: {fileID: 5686117156105817253, guid: eab6409f22bce6c4a9a0356b8762f560, type: 3}

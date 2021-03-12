@@ -118,6 +118,10 @@ public class PlayerController : MonoBehaviour
             {
                 _activeMoveSpeed = _dashSpeed;
                 _dashCounter = _dashTime;
+
+                _animator.SetTrigger("isDash");
+
+                PlayerHealthController.instance.ActivateInvincible(_dashInvincible);
             }
         }
 
