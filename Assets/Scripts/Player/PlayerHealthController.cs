@@ -49,7 +49,7 @@ public class PlayerHealthController : MonoBehaviour
 
     private void PlayerInvincible()
     {
-        if (_invincibleCounter >= 0)
+        if (_invincibleCounter > 0)
         {
             _invincibleCounter -= Time.deltaTime;
         }

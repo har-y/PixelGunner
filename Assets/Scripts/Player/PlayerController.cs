@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,8 +16,15 @@ public class PlayerController : MonoBehaviour
 
 
     [Header("Player - Movement")]
-    [SerializeField] private float _moveSpeed;
     private Vector2 _moveInput;
+    [SerializeField] private float _moveSpeed;
+    private float _activeMoveSpeed;
+    [SerializeField] private float _dashSpeed;
+    [SerializeField] private float _dashTime;
+    [SerializeField] private float _dashInvincible;
+    [SerializeField] private float _dashCooldown;
+    private float _dashCounter;
+    private float _dashCooldownCounter;
 
     [Header("Player - Weapon")]
     [SerializeField] private Transform _weapon;
@@ -44,6 +52,8 @@ public class PlayerController : MonoBehaviour
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
         _camera = Camera.main;
+
+        _activeMoveSpeed = _moveSpeed;
 
         _bulletSlot = GameObject.FindGameObjectWithTag("Misc");
     }
@@ -95,7 +105,37 @@ public class PlayerController : MonoBehaviour
         _moveInput.y = Input.GetAxisRaw("Vertical");
         _moveInput.Normalize();
 
-        _rigidbody2D.velocity = _moveInput * _moveSpeed;
+        _rigidbody2D.velocity = _moveInput * _activeMoveSpeed;
+
+        PlayerDash();
+    }
+
+    private void PlayerDash()
+    {
+        if (Input.GetKeyDown(KeyCode.Space) )
+        {
+            if (_dashCounter <= 0 && _dashCooldownCounter <= 0)
+            {
+                _activeMoveSpeed = _dashSpeed;
+                _dashCounter = _dashTime;
+            }
+        }
+
+        if (_dashCounter > 0)
+        {
+            _dashCounter -= Time.deltaTime;
+
+            if (_dashCounter <= 0)
+            {
+                _activeMoveSpeed = _moveSpeed;
+                _dashCooldownCounter = _dashCooldown;
+            }
+        }
+
+        if (_dashCooldownCounter > 0)
+        {
+            _dashCooldownCounter -= Time.deltaTime;
+        }
     }
 
     private void PlayerAnimation()
