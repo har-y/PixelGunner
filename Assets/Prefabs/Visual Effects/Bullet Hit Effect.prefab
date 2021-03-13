@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8473250600612712118}
   - component: {fileID: 8473250600612712117}
   m_Layer: 0
-  m_Name: Bullet Effect
+  m_Name: Bullet Hit Effect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4834,9 +4834,9 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: 349126201
+  m_SortingLayer: 6
+  m_SortingOrder: 3
   m_RenderMode: 0
   m_SortMode: 0
   m_MinParticleSize: 0

@@ -1414,58 +1414,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 303918320344350667, guid: 2c7638ce8a49ba24a98a2c7a60d5f90a, type: 3}
-      propertyPath: _brokenPieces.Array.size
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 303918320344350667, guid: 2c7638ce8a49ba24a98a2c7a60d5f90a, type: 3}
-      propertyPath: _brokenPieces.Array.data[0]
-      value: 
-      objectReference: {fileID: 6369478283513959239, guid: a5d7679ed71cec944bf0d3912fa929a2, type: 3}
-    - target: {fileID: 303918320344350667, guid: 2c7638ce8a49ba24a98a2c7a60d5f90a, type: 3}
-      propertyPath: _brokenPieces.Array.data[1]
-      value: 
-      objectReference: {fileID: 803107146106393340, guid: 2be780d087b827c41839703865294253, type: 3}
-    - target: {fileID: 303918320344350667, guid: 2c7638ce8a49ba24a98a2c7a60d5f90a, type: 3}
-      propertyPath: _brokenPieces.Array.data[2]
-      value: 
-      objectReference: {fileID: 5500584515442434745, guid: 5d474189eedc78b40b17f2cef113b941, type: 3}
-    - target: {fileID: 303918320344350667, guid: 2c7638ce8a49ba24a98a2c7a60d5f90a, type: 3}
-      propertyPath: _brokenPieces.Array.data[3]
-      value: 
-      objectReference: {fileID: 5459819631367378889, guid: 8ac6112bf1c3efc458cd3d479f661d5a, type: 3}
-    - target: {fileID: 303918320344350667, guid: 2c7638ce8a49ba24a98a2c7a60d5f90a, type: 3}
-      propertyPath: _brokenPieces.Array.data[4]
-      value: 
-      objectReference: {fileID: 2839058161511421897, guid: baf5714bc4cfd9d41bbabbbd6c48c932, type: 3}
-    - target: {fileID: 303918320344350667, guid: 2c7638ce8a49ba24a98a2c7a60d5f90a, type: 3}
-      propertyPath: _brokenPieces.Array.data[5]
-      value: 
-      objectReference: {fileID: 4258703005726770372, guid: efd0d0a2f41be8d459209f23bee27f66, type: 3}
-    - target: {fileID: 303918320344350667, guid: 2c7638ce8a49ba24a98a2c7a60d5f90a, type: 3}
-      propertyPath: _brokenPieces.Array.data[6]
-      value: 
-      objectReference: {fileID: 6369478283513959239, guid: a5d7679ed71cec944bf0d3912fa929a2, type: 3}
-    - target: {fileID: 303918320344350667, guid: 2c7638ce8a49ba24a98a2c7a60d5f90a, type: 3}
-      propertyPath: _brokenPieces.Array.data[7]
-      value: 
-      objectReference: {fileID: 803107146106393340, guid: 2be780d087b827c41839703865294253, type: 3}
-    - target: {fileID: 303918320344350667, guid: 2c7638ce8a49ba24a98a2c7a60d5f90a, type: 3}
-      propertyPath: _brokenPieces.Array.data[8]
-      value: 
-      objectReference: {fileID: 5500584515442434745, guid: 5d474189eedc78b40b17f2cef113b941, type: 3}
-    - target: {fileID: 303918320344350667, guid: 2c7638ce8a49ba24a98a2c7a60d5f90a, type: 3}
-      propertyPath: _brokenPieces.Array.data[9]
-      value: 
-      objectReference: {fileID: 5459819631367378889, guid: 8ac6112bf1c3efc458cd3d479f661d5a, type: 3}
-    - target: {fileID: 303918320344350667, guid: 2c7638ce8a49ba24a98a2c7a60d5f90a, type: 3}
-      propertyPath: _brokenPieces.Array.data[10]
-      value: 
-      objectReference: {fileID: 2839058161511421897, guid: baf5714bc4cfd9d41bbabbbd6c48c932, type: 3}
-    - target: {fileID: 303918320344350667, guid: 2c7638ce8a49ba24a98a2c7a60d5f90a, type: 3}
-      propertyPath: _brokenPieces.Array.data[11]
-      value: 
-      objectReference: {fileID: 4258703005726770372, guid: efd0d0a2f41be8d459209f23bee27f66, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2c7638ce8a49ba24a98a2c7a60d5f90a, type: 3}
 --- !u!1001 &974047837355394639
