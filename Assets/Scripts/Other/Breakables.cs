@@ -15,4 +15,15 @@ public class Breakables : MonoBehaviour
     {
         
     }
+
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if (other.tag == "Player")
+        {
+            if (PlayerController.instance.DashCounter > 0)
+            {
+                Destroy(gameObject);
+            }
+        }
+    }
 }

@@ -216,4 +216,12 @@ public class PlayerController : MonoBehaviour
             _gunSpriteRenderer = value;
         }
     }
+
+    public float DashCounter
+    {
+        get
+        {
+            return _dashCounter;
+        }       
+    }
 }
