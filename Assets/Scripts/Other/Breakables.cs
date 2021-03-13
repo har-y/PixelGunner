@@ -30,13 +30,18 @@ public class Breakables : MonoBehaviour
             {
                 Destroy(gameObject);
 
-                for (int i = 0; i < _brokenPieces.Length; i++)
-                {
-                    GameObject piece = Instantiate(_brokenPieces[i], transform.position, transform.rotation);
-                    _brokenPiece[i] = piece;
-                    _brokenPiece[i].transform.parent = _pieceSlot.transform;
-                }
+                InstantiatePieces();
             }
+        }
+    }
+
+    private void InstantiatePieces()
+    {
+        for (int i = 0; i < _brokenPieces.Length; i++)
+        {
+            GameObject piece = Instantiate(_brokenPieces[i], transform.position, transform.rotation);
+            _brokenPiece[i] = piece;
+            _brokenPiece[i].transform.parent = _pieceSlot.transform;
         }
     }
 }
