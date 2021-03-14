@@ -6,11 +6,13 @@ public class HealthPickup : MonoBehaviour
 {
     [Header("Health Pickup")]
     [SerializeField] private int _healthValue;
+    [SerializeField] private bool _isCollectable;
+    [SerializeField] private float _collectableTime;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        StartCoroutine(CollectableCoroutine(_collectableTime));
     }
 
     // Update is called once per frame
@@ -21,7 +23,7 @@ public class HealthPickup : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Player")
+        if (other.tag == "Player" && _isCollectable)
         {
             Pickup();
         }
@@ -31,5 +33,11 @@ public class HealthPickup : MonoBehaviour
     {
         PlayerHealthController.instance.PlayerHeal(_healthValue);
         Destroy(gameObject);
+    }
+
+    IEnumerator CollectableCoroutine(float time)
+    {
+        yield return new WaitForSeconds(time);
+        _isCollectable = true;
     }
 }

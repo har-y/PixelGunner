@@ -9,10 +9,23 @@ public class Breakables : MonoBehaviour
     private GameObject[] _brokenPiece;
     private GameObject _pieceSlot;
 
+    [Header("Breakable - Drop")]
+    [SerializeField] private bool _drop;
+    [SerializeField] GameObject[] _dropPrefab;
+    [SerializeField] private float _dropChance;
+    private float _dropValue;
+    private int _dropItem;
+    private GameObject _dropSlot;
+
     // Start is called before the first frame update
     void Start()
     {
         _pieceSlot = GameObject.FindGameObjectWithTag("Misc");
+        _dropSlot = GameObject.FindGameObjectWithTag("Misc");
+
+        _dropValue = Random.Range(0f, 100f);
+        _dropItem = Random.Range(0, _dropPrefab.Length);
+
         _brokenPiece = new GameObject[_brokenPieces.Length];
     }
 
@@ -31,6 +44,7 @@ public class Breakables : MonoBehaviour
                 Destroy(gameObject);
 
                 InstantiatePieces();
+                InstantiateDrop();
             }
         }
     }
@@ -42,6 +56,18 @@ public class Breakables : MonoBehaviour
             GameObject piece = Instantiate(_brokenPieces[i], transform.position, transform.rotation);
             _brokenPiece[i] = piece;
             _brokenPiece[i].transform.parent = _pieceSlot.transform;
+        }
+    }
+
+    private void InstantiateDrop()
+    {
+        if (_drop)
+        {
+            if (_dropValue <= _dropChance)
+            {
+                GameObject drop = Instantiate(_dropPrefab[_dropItem], transform.position, transform.rotation);
+                drop.transform.parent = _dropSlot.transform;
+            }
         }
     }
 }

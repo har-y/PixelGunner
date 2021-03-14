@@ -154,3 +154,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _healthValue: 1
+  _isCollectable: 0
+  _collectableTime: 0.5
