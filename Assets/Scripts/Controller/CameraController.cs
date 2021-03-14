@@ -4,6 +4,18 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
+    public static CameraController instance;
+
+    [Header("Camera")]
+    [SerializeField] private float _moveSpeed;
+    [SerializeField] private Transform _target;
+
+
+    private void Awake()
+    {
+        instance = this;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -13,6 +25,9 @@ public class CameraController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (_target != null)
+        {
+            transform.position = Vector3.MoveTowards(transform.position, new Vector3(_target.position.x, _target.position.y, transform.position.z), _moveSpeed * Time.deltaTime);
+        }
     }
 }
