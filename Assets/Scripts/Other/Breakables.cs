@@ -8,6 +8,8 @@ public class Breakables : MonoBehaviour
     [SerializeField] private GameObject[] _brokenPieces;
     private GameObject[] _brokenPiece;
     private GameObject _pieceSlot;
+    [SerializeField] private int _boxSound;
+
 
     [Header("Breakable - Drop")]
     [SerializeField] private bool _drop;
@@ -39,13 +41,20 @@ public class Breakables : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            if (PlayerController.instance.DashCounter > 0)
-            {
-                Destroy(gameObject);
+            BoxDestroy();
+        }
+    }
 
-                InstantiatePieces();
-                InstantiateDrop();
-            }
+    private void BoxDestroy()
+    {
+        if (PlayerController.instance.DashCounter > 0)
+        {
+            Destroy(gameObject);
+
+            AudioManager.instance.PlaySoundClip(_boxSound);
+
+            InstantiatePieces();
+            InstantiateDrop();
         }
     }
 

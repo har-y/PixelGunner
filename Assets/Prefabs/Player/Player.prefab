@@ -463,10 +463,12 @@ MonoBehaviour:
   _dashTime: 0.4
   _dashInvincible: 0.5
   _dashCooldown: 3
+  _playerDashSound: 9
   _weapon: {fileID: 3023613579936395258}
   _bulletPrefab: {fileID: 5686117156105817253, guid: eab6409f22bce6c4a9a0356b8762f560, type: 3}
   _bulletPoint: {fileID: 3023613579129349965}
   _bulletDelay: 0.2
+  _bulletSound: 18
 --- !u!114 &7830605837322633082
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -482,6 +484,8 @@ MonoBehaviour:
   _maxHealth: 5
   _currentHealth: 0
   _invincibleTime: 1
+  _playerHurtSound: 12
+  _playerDeathSound: 11
 --- !u!1 &3023613579482404528
 GameObject:
   m_ObjectHideFlags: 0

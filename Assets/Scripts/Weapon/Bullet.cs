@@ -13,9 +13,10 @@ public class Bullet : MonoBehaviour
     [Header("Bullet - Damage")]
     [SerializeField] private int _bulletDamage;
 
-    [Header("Bullet - Visual Effects")]
+    [Header("Bullet - Effects")]
     [SerializeField] private GameObject _bulletHitEffect;
     private GameObject _effectSlot;
+    [SerializeField] private int _bulletSound;
 
     [Header("Bullet - Movement")]
     [SerializeField] private float _moveSpeed;
@@ -68,6 +69,8 @@ public class Bullet : MonoBehaviour
     {
         if (_playerBullet)
         {
+            AudioManager.instance.PlaySoundClip(_bulletSound);
+
             GameObject bulletEffect = Instantiate(_bulletHitEffect, transform.position, transform.rotation);
             bulletEffect.transform.parent = _effectSlot.transform;
         }

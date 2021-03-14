@@ -1346,9 +1346,9 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 4836dc59ed6ae824ea8e893c325e9f11, type: 3}
   - {fileID: 8300000, guid: 80feaacdc0276f84085abce852e5c3a6, type: 3}
   _audioVolume: 0.25
-  _afxVolume: 0.5
-  _audio: 1
-  _afx: 1
+  _sfxVolume: 0.5
+  _audio: 0
+  _sfx: 1
   _playMusicClip: 3
 --- !u!1 &2089511672
 GameObject:

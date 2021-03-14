@@ -14,9 +14,9 @@ public class AudioManager : MonoBehaviour
     [SerializeField] private AudioClip[] _musicClip;
     [SerializeField] private AudioClip[] _soundClip;
     [Range(0f, 1f)][SerializeField] private float _audioVolume;
-    [Range(0f, 1f)][SerializeField] private float _afxVolume;
+    [Range(0f, 1f)][SerializeField] private float _sfxVolume;
     [SerializeField] private bool _audio;
-    [SerializeField] private bool _afx;
+    [SerializeField] private bool _sfx;
 
     [Header("Audio - Clip")]
     [SerializeField] private int _playMusicClip;
@@ -56,10 +56,12 @@ public class AudioManager : MonoBehaviour
 
     public void PlaySoundClip(int clip)
     {
-        if (_afx)
+        if (!_sfx)
         {
-            AudioSource.PlayClipAtPoint(_soundClip[clip], _camera.transform.position, Mathf.Clamp(_afxVolume, 0.5f, 1f));
+            return;
         }
+
+        AudioSource.PlayClipAtPoint(_soundClip[clip], _camera.transform.position, Mathf.Clamp(_sfxVolume, 0.05f, 1f));
     }
 
     public void ToggleAudio()
@@ -78,6 +80,6 @@ public class AudioManager : MonoBehaviour
 
     public void ToggleAFX()
     {
-        _afx = !_afx;
+        _sfx = !_sfx;
     }
 }

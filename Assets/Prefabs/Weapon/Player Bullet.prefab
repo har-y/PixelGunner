@@ -180,6 +180,7 @@ MonoBehaviour:
   _enemyBullet: 0
   _bulletDamage: 50
   _bulletHitEffect: {fileID: 8473250600612712116, guid: 62b04dfd332d50d4496c59655213eb7f, type: 3}
+  _bulletSound: 5
   _moveSpeed: 10
 --- !u!114 &-5715322737751691652
 MonoBehaviour:

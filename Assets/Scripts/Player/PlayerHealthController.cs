@@ -19,6 +19,8 @@ public class PlayerHealthController : MonoBehaviour
     private Color _handInvincibleColor;
     private Color _gunDefaultColor;
     private Color _gunInvincibleColor;
+    [SerializeField] private int _playerHurtSound;
+    [SerializeField] private int _playerDeathSound;
 
     private void Awake()
     {
@@ -67,10 +69,14 @@ public class PlayerHealthController : MonoBehaviour
         {
             _currentHealth--;
 
+            AudioManager.instance.PlaySoundClip(_playerHurtSound);
+
             ActivateInvincible(_invincibleTime);
 
             if (_currentHealth <= 0)
             {
+                AudioManager.instance.PlaySoundClip(_playerDeathSound);
+
                 PlayerController.instance.gameObject.SetActive(false);
 
                 UIController.instance.LostScreenOn();

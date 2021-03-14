@@ -25,6 +25,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _dashCooldown;
     private float _dashCounter;
     private float _dashCooldownCounter;
+    [SerializeField] private int _playerDashSound;
 
     [Header("Player - Weapon")]
     [SerializeField] private Transform _weapon;
@@ -38,6 +39,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private GameObject _bulletPrefab;
     [SerializeField] private Transform _bulletPoint;
     [SerializeField] private float _bulletDelay;
+    [SerializeField] private int _bulletSound;
     private float _bulletCounter;
     private GameObject _bulletSlot;
 
@@ -119,6 +121,8 @@ public class PlayerController : MonoBehaviour
                 _activeMoveSpeed = _dashSpeed;
                 _dashCounter = _dashTime;
 
+                AudioManager.instance.PlaySoundClip(_playerDashSound);
+
                 _animator.SetTrigger("isDash");
 
                 PlayerHealthController.instance.ActivateInvincible(_dashInvincible);
@@ -175,6 +179,8 @@ public class PlayerController : MonoBehaviour
 
     private void InstantiateBullet()
     {
+        AudioManager.instance.PlaySoundClip(_bulletSound);
+
         GameObject bullet = Instantiate(_bulletPrefab, _bulletPoint.position, _bulletPoint.rotation);
         bullet.transform.parent = _bulletSlot.transform;
 
@@ -222,6 +228,6 @@ public class PlayerController : MonoBehaviour
         get
         {
             return _dashCounter;
-        }       
+        }
     }
 }

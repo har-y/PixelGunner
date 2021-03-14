@@ -126,6 +126,9 @@ MonoBehaviour:
   _bulletDelay: 1
   _enemyHitMaterial: {fileID: 2100000, guid: 887acfb23b04a954d980515d66ea51cb, type: 2}
   _enemyHitEffect: {fileID: 8616068166855531587, guid: 7b220f59de4428e4e9938ed2e513340e, type: 3}
+  _enemyShootSound: 15
+  _enemyHurtSound: 3
+  _enemyDeathSound: 2
 --- !u!114 &7121045285189664163
 MonoBehaviour:
   m_ObjectHideFlags: 0

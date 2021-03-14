@@ -78,6 +78,7 @@ MonoBehaviour:
   - {fileID: 5459819631367378889, guid: 8ac6112bf1c3efc458cd3d479f661d5a, type: 3}
   - {fileID: 2839058161511421897, guid: baf5714bc4cfd9d41bbabbbd6c48c932, type: 3}
   - {fileID: 4258703005726770372, guid: efd0d0a2f41be8d459209f23bee27f66, type: 3}
+  _boxSound: 1
   _drop: 1
   _dropPrefab:
   - {fileID: 1222901592076658969, guid: 779f7621d99a3204dbc1cfa4b8e27405, type: 3}

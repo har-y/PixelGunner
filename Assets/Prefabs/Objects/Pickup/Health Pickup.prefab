@@ -156,3 +156,4 @@ MonoBehaviour:
   _healthValue: 1
   _isCollectable: 0
   _collectableTime: 0.5
+  _pickupSound: 8

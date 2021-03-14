@@ -29,11 +29,15 @@ public class EnemyController : MonoBehaviour
     private float _bulletCounter;
     private GameObject _bulletSlot;
 
-    [Header("Enemy - Visual Effects")]
+    [Header("Enemy - Effects")]
     private Material _enemyDefaultMaterial;
     [SerializeField] private Material _enemyHitMaterial;
     [SerializeField] private GameObject _enemyHitEffect;
     private GameObject _effectSlot;
+    [SerializeField] private int _enemyShootSound;
+    [SerializeField] private int _enemyHurtSound;
+    [SerializeField] private int _enemyDeathSound;
+
 
     // Start is called before the first frame update
     void Start()
@@ -105,6 +109,8 @@ public class EnemyController : MonoBehaviour
             {
                 _bulletCounter = _bulletDelay;
 
+                AudioManager.instance.PlaySoundClip(_enemyShootSound);
+
                 GameObject bullet = Instantiate(_bulletPrefab, _bulletPoint.position, _bulletPoint.rotation);
                 bullet.transform.parent = _bulletSlot.transform;
             }
@@ -115,6 +121,8 @@ public class EnemyController : MonoBehaviour
     {
         _enemyHealth -= damage;
 
+        AudioManager.instance.PlaySoundClip(_enemyHurtSound);
+
         StartCoroutine(EnemyMaterialCoroutine());
 
         GameObject hitEffect = Instantiate(_enemyHitEffect, transform.position, transform.rotation);
@@ -122,6 +130,8 @@ public class EnemyController : MonoBehaviour
 
         if (_enemyHealth <= 0)
         {
+            AudioManager.instance.PlaySoundClip(_enemyDeathSound);
+
             Destroy(gameObject);            
         }
     }

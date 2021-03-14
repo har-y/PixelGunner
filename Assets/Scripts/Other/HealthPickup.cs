@@ -8,6 +8,7 @@ public class HealthPickup : MonoBehaviour
     [SerializeField] private int _healthValue;
     [SerializeField] private bool _isCollectable;
     [SerializeField] private float _collectableTime;
+    [SerializeField] private int _pickupSound;
 
     // Start is called before the first frame update
     void Start()
@@ -32,6 +33,7 @@ public class HealthPickup : MonoBehaviour
     private void Pickup()
     {
         PlayerHealthController.instance.PlayerHeal(_healthValue);
+        AudioManager.instance.PlaySoundClip(_pickupSound);
         Destroy(gameObject);
     }
 
