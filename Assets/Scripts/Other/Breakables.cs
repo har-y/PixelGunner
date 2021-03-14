@@ -41,21 +41,25 @@ public class Breakables : MonoBehaviour
     {
         if (other.tag == "Player")
         {
+            if (PlayerController.instance.DashCounter > 0)
+            {
+                BoxDestroy();
+            }
+        }
+        else if (other.tag == "Player Bullet")
+        {
             BoxDestroy();
         }
     }
 
     private void BoxDestroy()
     {
-        if (PlayerController.instance.DashCounter > 0)
-        {
-            Destroy(gameObject);
+        Destroy(gameObject);
 
-            AudioManager.instance.PlaySoundClip(_boxSound);
+        AudioManager.instance.PlaySoundClip(_boxSound);
 
-            InstantiatePieces();
-            InstantiateDrop();
-        }
+        InstantiatePieces();
+        InstantiateDrop();
     }
 
     private void InstantiatePieces()

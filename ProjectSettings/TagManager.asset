@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Misc
   - Enemy
+  - Player Bullet
   layers:
   - Default
   - TransparentFX
@@ -19,9 +20,9 @@ TagManager:
   - Player Bullet
   - Enemy
   - Enemy Bullet
-  - 
-  - 
-  - 
+  - Breakable
+  - Ignore Bullet
+  - Pickup
   - 
   - 
   - 
