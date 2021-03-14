@@ -86,6 +86,14 @@ public class PlayerHealthController : MonoBehaviour
         PlayerController.instance.PlayerGunSprite.color = _gunInvincibleColor;
     }
 
+    public void PlayerHeal(int value)
+    {
+        if (_currentHealth < _maxHealth)
+        {
+            _currentHealth += value;
+        }
+    }
+
     public int MaxHealth
     {
         get
@@ -100,10 +108,6 @@ public class PlayerHealthController : MonoBehaviour
         get
         {
             return _currentHealth;
-        }
-        set
-        {
-            _currentHealth = value;
         }
     }
 }
