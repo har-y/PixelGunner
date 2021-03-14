@@ -72,7 +72,10 @@ public class PlayerHealthController : MonoBehaviour
             if (_currentHealth <= 0)
             {
                 PlayerController.instance.gameObject.SetActive(false);
+
                 UIController.instance.LostScreenOn();
+
+                AudioManager.instance.PlayMusic(2);
             }
         }      
     }
