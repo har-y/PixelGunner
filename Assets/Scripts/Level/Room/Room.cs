@@ -9,6 +9,7 @@ public class Room : MonoBehaviour
     [SerializeField] private bool _closeDoorsEnter;
     [SerializeField] private bool _openDoorsEnemy;
     private bool _activeRoom;
+    private bool _roomClear;
 
     [Header("Room - Doors")]
     [SerializeField] private GameObject[] _doors;
@@ -25,6 +26,11 @@ public class Room : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        RoomClear();
+    }
+
+    private void RoomClear()
+    {
         if (_activeRoom && _openDoorsEnemy && _enemy.Count > 0)
         {
             for (int i = 0; i < _enemy.Count; i++)
@@ -39,8 +45,10 @@ public class Room : MonoBehaviour
 
             if (_enemy.Count == 0)
             {
-                OpenRoomDoor();
+                _roomClear = true;
             }
+
+            OpenRoomDoor();
         }
     }
 
@@ -77,11 +85,14 @@ public class Room : MonoBehaviour
 
     private void OpenRoomDoor()
     {
-        foreach (GameObject item in _doors)
+        if (_roomClear)
         {
-            item.SetActive(false);
+            foreach (GameObject item in _doors)
+            {
+                item.SetActive(false);
 
-            _closeDoorsEnter = false;
+                _closeDoorsEnter = false;
+            }
         }
     }
 
