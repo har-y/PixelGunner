@@ -236,7 +236,7 @@ GameObject:
   - component: {fileID: 1637567335400706090}
   - component: {fileID: 2632662734153565271}
   m_Layer: 13
-  m_Name: Grid Room
+  m_Name: room_entrance
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -501,6 +501,36 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.7, y: 2}
   m_EdgeRadius: 0
+--- !u!1 &3386762642666444964
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7630776650176101765}
+  m_Layer: 0
+  m_Name: room_enemy
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7630776650176101765
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3386762642666444964}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4549970192870937415}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4549970192524274737
 GameObject:
   m_ObjectHideFlags: 0
@@ -577,6 +607,7 @@ Transform:
   - {fileID: 4549970192524274739}
   - {fileID: 940327819}
   - {fileID: 4634988030020673803}
+  - {fileID: 7630776650176101765}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -614,10 +645,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _firstRoom: 0
-  _enterCloseDoors: 1
+  _closeDoors: 1
+  _roomClear: 0
   _doors:
   - {fileID: 916813234}
   - {fileID: 1754874044}
+  _enemy:
+  - {fileID: 0}
 --- !u!1 &4549970193189892186
 GameObject:
   m_ObjectHideFlags: 0
@@ -5094,7 +5128,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4634988030020673803}
   m_Layer: 0
-  m_Name: Grid Doors
+  m_Name: room_doors
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
