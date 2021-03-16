@@ -6,20 +6,20 @@ public class AudioManager : MonoBehaviour
 {
     public static AudioManager instance;
 
-    [Header("Audio - Source")]
+    [Header("Audio Manager")]
     [SerializeField] private AudioSource _audioSource;
     private Camera _camera;
 
-    [Header("Audio")]
-    [SerializeField] private AudioClip[] _musicClip;
-    [SerializeField] private AudioClip[] _soundClip;
+    [Header("Audio Manager - Audio")]
     [Range(0f, 1f)][SerializeField] private float _audioVolume;
     [Range(0f, 1f)][SerializeField] private float _sfxVolume;
     [SerializeField] private bool _audio;
     [SerializeField] private bool _sfx;
 
-    [Header("Audio - Clip")]
+    [Header("Audio Manager Clip")]
     [SerializeField] private int _playMusicClip;
+    [SerializeField] private AudioClip[] _musicClip;
+    [SerializeField] private AudioClip[] _soundClip;
 
     private void Awake()
     {
