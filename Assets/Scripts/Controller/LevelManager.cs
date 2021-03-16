@@ -32,16 +32,10 @@ public class LevelManager : MonoBehaviour
     {
         AudioManager.instance.PlayMusic(7);
 
+        PlayerController.instance.CanMove = false;
+
         yield return new WaitForSeconds(_waitTime);
 
         SceneManager.LoadScene(_nextLevel);
-    }
-
-    public string NextLevel
-    {
-        get
-        {
-            return _nextLevel;
-        }
     }
 }

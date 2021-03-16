@@ -21,7 +21,7 @@ public class LevelExit : MonoBehaviour
     {
         if (other.tag == "Player")
         {
-            StartCoroutine(LevelManager.instance.NextLevel);
+            StartCoroutine(LevelManager.instance.LevelEndCoroutine());
         }
     }
 }

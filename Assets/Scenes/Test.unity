@@ -262,6 +262,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6dfa37ec1bceb1b4d9cbad9a1c28b5da, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _waitTime: 4
+  _nextLevel: Test
 --- !u!4 &141698801 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4634988030020673803, guid: 3f6b036cfa6cd63439a4013dc7da44be, type: 3}
@@ -15936,6 +15938,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _audioSource: {fileID: 1829208538}
+  _audioVolume: 0.25
+  _sfxVolume: 0.5
+  _audio: 0
+  _sfx: 1
+  _playMusicClip: 3
   _musicClip:
   - {fileID: 8300000, guid: 5595d1601a7c81741acd59091363fd0b, type: 3}
   - {fileID: 8300000, guid: caaf01da9b489de4e8141a439de04c6b, type: 3}
@@ -15968,11 +15975,6 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 4748714ac39bba245ac5339217aa9986, type: 3}
   - {fileID: 8300000, guid: 4836dc59ed6ae824ea8e893c325e9f11, type: 3}
   - {fileID: 8300000, guid: 80feaacdc0276f84085abce852e5c3a6, type: 3}
-  _audioVolume: 0.25
-  _sfxVolume: 0.5
-  _audio: 0
-  _sfx: 1
-  _playMusicClip: 3
 --- !u!1001 &1859564748
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -23,9 +23,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _dashTime;
     [SerializeField] private float _dashInvincible;
     [SerializeField] private float _dashCooldown;
-    private float _dashCounter;
+    [SerializeField] private float _dashCounter;
     private float _dashCooldownCounter;
     [SerializeField] private int _playerDashSound;
+    [SerializeField] private bool _canMove;
 
     [Header("Player - Weapon")]
     [SerializeField] private Transform _weapon;
@@ -103,13 +104,26 @@ public class PlayerController : MonoBehaviour
 
     private void PlayerMove()
     {
-        _moveInput.x = Input.GetAxisRaw("Horizontal");
-        _moveInput.y = Input.GetAxisRaw("Vertical");
-        _moveInput.Normalize();
+        if (_canMove)
+        {
+            _moveInput.x = Input.GetAxisRaw("Horizontal");
+            _moveInput.y = Input.GetAxisRaw("Vertical");
+            _moveInput.Normalize();
 
-        _rigidbody2D.velocity = _moveInput * _activeMoveSpeed;
+            _rigidbody2D.velocity = _moveInput * _activeMoveSpeed;
 
-        PlayerDash();
+            PlayerDash();
+        }
+        else
+        {
+            PlayerStop();
+        }
+    }
+
+    private void PlayerStop()
+    {
+        _rigidbody2D.velocity = Vector2.zero;
+        _moveInput = Vector2.zero;
     }
 
     private void PlayerDash()
@@ -228,6 +242,18 @@ public class PlayerController : MonoBehaviour
         get
         {
             return _dashCounter;
+        }
+    }
+
+    public bool CanMove
+    {
+        get
+        {
+            return _canMove;
+        }
+        set
+        {
+            _canMove = value;
         }
     }
 }

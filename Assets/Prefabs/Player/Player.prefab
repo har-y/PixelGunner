@@ -464,6 +464,7 @@ MonoBehaviour:
   _dashInvincible: 0.5
   _dashCooldown: 3
   _playerDashSound: 9
+  _canMove: 1
   _weapon: {fileID: 3023613579936395258}
   _bulletPrefab: {fileID: 5686117156105817253, guid: eab6409f22bce6c4a9a0356b8762f560, type: 3}
   _bulletPoint: {fileID: 3023613579129349965}
