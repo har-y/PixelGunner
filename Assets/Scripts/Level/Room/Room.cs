@@ -26,10 +26,10 @@ public class Room : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        RoomClear();
+        ActiveRoom();
     }
 
-    private void RoomClear()
+    private void ActiveRoom()
     {
         if (_activeRoom && _openDoorsEnemy && _enemy.Count > 0)
         {
@@ -47,9 +47,9 @@ public class Room : MonoBehaviour
             {
                 _roomClear = true;
             }
-
-            OpenRoomDoor();
         }
+
+        OpenRoomDoor();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -57,8 +57,6 @@ public class Room : MonoBehaviour
         if (other.tag == "Player")
         {
             CameraController.instance.ChangeTarget(transform);
-
-            _activeRoom = false;
         }
     }
 
@@ -66,10 +64,14 @@ public class Room : MonoBehaviour
     {
         if (other.tag == "Player")
         {
+            ActivateRoom();
             CloseRoomDoor();
-
-            _activeRoom = true;
         }
+    }
+
+    private void ActivateRoom()
+    {
+        _activeRoom = !_activeRoom;
     }
 
     private void CloseRoomDoor()
