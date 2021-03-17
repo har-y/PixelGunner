@@ -21,6 +21,9 @@ public class UIController : MonoBehaviour
     [SerializeField] private bool _fadeOn;
     [SerializeField] private bool _fadeOff;
 
+    [Header("UI - Pause Menu")]
+    [SerializeField] private GameObject _pauseMenu;
+
     [Header("UI - Lost Screen")]
     [SerializeField] private string _mainMenu;
     [SerializeField] private string _newGame;
@@ -107,11 +110,28 @@ public class UIController : MonoBehaviour
 
     public void MainMenu()
     {
+        Time.timeScale = 1;
+
         SceneManager.LoadScene(_mainMenu);
     }
 
     public void NewGame()
     {
+        Time.timeScale = 1;
+
         SceneManager.LoadScene(_newGame);
+    }
+
+    public void Resume()
+    {
+        LevelManager.instance.Pause();
+    }
+
+    public GameObject PauseMenu
+    {
+        get
+        {
+            return _pauseMenu;
+        }
     }
 }

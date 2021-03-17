@@ -69,10 +69,13 @@ public class PlayerController : MonoBehaviour
 
     private void PlayerControl()
     {
-        PlayerMove();
-        PlayerWeaponMove();
-        PlayerShoot();
-        PlayerAnimation();
+        if (!LevelManager.instance.IsPause)
+        {
+            PlayerMove();
+            PlayerWeaponMove();
+            PlayerShoot();
+            PlayerAnimation();
+        }
     }
 
     private void PlayerWeaponMove()
