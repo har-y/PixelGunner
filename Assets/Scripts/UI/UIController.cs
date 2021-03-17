@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class UIController : MonoBehaviour
@@ -19,6 +20,10 @@ public class UIController : MonoBehaviour
     [SerializeField] private float _fadeSpeed;
     [SerializeField] private bool _fadeOn;
     [SerializeField] private bool _fadeOff;
+
+    [Header("UI - Lost Screen")]
+    [SerializeField] private string _mainMenu;
+    [SerializeField] private string _newGame;
 
     private void Awake()
     {
@@ -98,5 +103,15 @@ public class UIController : MonoBehaviour
     {
         _fadeOn = false;
         _fadeOff = true;
+    }
+
+    public void MainMenu()
+    {
+        SceneManager.LoadScene(_mainMenu);
+    }
+
+    public void NewGame()
+    {
+        SceneManager.LoadScene(_newGame);
     }
 }
