@@ -19477,6 +19477,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 146233641733519333, guid: 457e15f28f56be34da4f183f20cf0f6d, type: 3}
+      propertyPath: _waitTime
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 146233641733519333, guid: 457e15f28f56be34da4f183f20cf0f6d, type: 3}
+      propertyPath: _nextLevel
+      value: TestVictory
+      objectReference: {fileID: 0}
     - target: {fileID: 146233641733519339, guid: 457e15f28f56be34da4f183f20cf0f6d, type: 3}
       propertyPath: m_Name
       value: Level Manager
@@ -19805,6 +19813,10 @@ PrefabInstance:
     - target: {fileID: 7569058465321782189, guid: 5b2dc3a3aa0b7c94e8b4a8a2baaaa1bf, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7569058465321782191, guid: 5b2dc3a3aa0b7c94e8b4a8a2baaaa1bf, type: 3}
+      propertyPath: _audio
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b2dc3a3aa0b7c94e8b4a8a2baaaa1bf, type: 3}
