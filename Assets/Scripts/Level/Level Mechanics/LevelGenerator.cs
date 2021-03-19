@@ -11,6 +11,7 @@ public class LevelGenerator : MonoBehaviour
     [SerializeField] private Color _endColor;
 
     [Header("Level Generator - Room")]
+    [SerializeField] private LayerMask _roomLayer;
     [SerializeField] private Direction _direction;
     [SerializeField] private float _xOffset = 18f;
     [SerializeField] private float _yOffset = 10f;
@@ -32,6 +33,12 @@ public class LevelGenerator : MonoBehaviour
         for (int i = 0; i < _roomValue; i++)
         {
             RoomGenerator();
+
+            while (Physics2D.OverlapCircle(_generatorPoint.position, 0.2f, _roomLayer))
+            {
+                //GeneratorPointMove();
+                RandomRandomDirection();
+            }
         }
     }
 
