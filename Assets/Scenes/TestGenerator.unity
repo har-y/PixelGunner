@@ -198,10 +198,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _layoutRoom: {fileID: 8560523427325460433, guid: 42747e9817b667b4a8e01f5188c7fda3, type: 3}
-  _distanceToEnd: 10
+  _generatorPoint: {fileID: 803552189}
   _startColor: {r: 0, g: 1, b: 1, a: 1}
   _endColor: {r: 1, g: 0, b: 0, a: 1}
-  _generatorPoint: {fileID: 803552189}
+  _layoutSpace: 10
 --- !u!1 &1875919741
 GameObject:
   m_ObjectHideFlags: 0

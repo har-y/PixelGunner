@@ -6,22 +6,57 @@ public class LevelGenerator : MonoBehaviour
 {
     [Header("Level Generator")]
     [SerializeField] private GameObject _layoutRoom;
-    [SerializeField] private int _layoutSpace;
-
+    [SerializeField] private Transform _generatorPoint;
     [SerializeField] private Color _startColor;
     [SerializeField] private Color _endColor;
 
-    [SerializeField] private Transform _generatorPoint;
+    [Header("Level Generator")]
+
+    [SerializeField] private int _layoutSpace;
+    [SerializeField] private Direction _direction;
+    [SerializeField] private float _xOffset = 18f;
+    [SerializeField] private float _yOffset = 10f;
+
+    private enum Direction
+    {
+        up,
+        right,
+        down,
+        left
+    }
 
     // Start is called before the first frame update
     void Start()
     {
         Instantiate(_layoutRoom, _generatorPoint.position, _generatorPoint.rotation).GetComponent<SpriteRenderer>().color = _startColor;
+        _direction = (Direction) Random.Range(0, 4);
+        GeneratorPointMove();
     }
 
     // Update is called once per frame
     void Update()
     {
         
+    }
+
+    public void GeneratorPointMove()
+    {
+        switch (_direction)
+        {
+            case Direction.up:
+                _generatorPoint.position += new Vector3(0f, _yOffset, 0f);
+                break;
+            case Direction.right:
+                _generatorPoint.position += new Vector3(_xOffset, 0f, 0f);
+                break;
+            case Direction.down:
+                _generatorPoint.position += new Vector3(0f, -_yOffset, 0f);
+                break;
+            case Direction.left:
+                _generatorPoint.position += new Vector3(-_xOffset, 0f, 0f);
+                break;
+            default:
+                break;
+        }
     }
 }
