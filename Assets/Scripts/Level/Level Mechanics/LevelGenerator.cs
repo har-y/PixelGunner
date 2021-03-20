@@ -7,15 +7,20 @@ public class LevelGenerator : MonoBehaviour
     [Header("Level Generator")]
     [SerializeField] private GameObject _layoutRoom;
     [SerializeField] private Transform _generatorPoint;
-    [SerializeField] private Color _startColor;
-    [SerializeField] private Color _endColor;
-
-    [Header("Level Generator - Room")]
     [SerializeField] private LayerMask _roomLayer;
     [SerializeField] private Direction _direction;
+
+    [Header("Level Generator - Room")]
+    [SerializeField] private int _roomValue;
+    [SerializeField] private Color _startColor;
+    [SerializeField] private Color _endColor;
     [SerializeField] private float _xOffset = 18f;
     [SerializeField] private float _yOffset = 10f;
-    [SerializeField] private int _roomValue;
+
+    [Header("Level Generator - Rooms")]
+    private GameObject _endRoom;
+    private List<GameObject> _roomObject;
+    private GameObject _roomSlot;
 
     private enum Direction
     {
@@ -28,36 +33,57 @@ public class LevelGenerator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        StartRoomGenerator();
+        _roomObject = new List<GameObject>();
+        _roomSlot = GameObject.FindGameObjectWithTag("Misc");
 
-        for (int i = 0; i < _roomValue; i++)
-        {
-            RoomGenerator();
-
-            while (Physics2D.OverlapCircle(_generatorPoint.position, 0.2f, _roomLayer))
-            {
-                //GeneratorPointMove();
-                RandomRandomDirection();
-            }
-        }
-    }
-
-    private void StartRoomGenerator()
-    {
-        Instantiate(_layoutRoom, _generatorPoint.position, _generatorPoint.rotation).GetComponent<SpriteRenderer>().color = _startColor;
-        RandomRandomDirection();
+        InstantiateRoom();
+        RoomGenerator();
     }
 
     private void RoomGenerator()
     {
-        Instantiate(_layoutRoom, _generatorPoint.position, _generatorPoint.rotation);
-        RandomRandomDirection();
+        for (int i = 0; i < _roomValue; i++)
+        {
+            InstantiateRoom(i);
+
+            while (Physics2D.OverlapCircle(_generatorPoint.position, 0.2f, _roomLayer))
+            {
+                PointMoveGenerator();
+            }
+        }
     }
 
-    private void RandomRandomDirection()
+    private void InstantiateRoom()
+    {
+        GameObject newRoom = Instantiate(_layoutRoom, _generatorPoint.position, _generatorPoint.rotation);
+        newRoom.GetComponent<SpriteRenderer>().color = _startColor;
+        newRoom.transform.parent = _roomSlot.transform;
+
+        RandomDirection();
+    }
+
+    private void InstantiateRoom(int value)
+    {
+        GameObject newRoom = Instantiate(_layoutRoom, _generatorPoint.position, _generatorPoint.rotation);
+
+        _roomObject.Add(newRoom);
+
+        if (value + 1 == _roomValue)
+        {
+            newRoom.GetComponent<SpriteRenderer>().color = _endColor;
+            _endRoom = newRoom;
+            _roomObject.RemoveAt(_roomObject.Count - 1);
+        }
+
+        newRoom.transform.parent = _roomSlot.transform;
+
+        RandomDirection();
+    }
+
+    private void RandomDirection()
     {
         _direction = (Direction)Random.Range(0, 4);
-        GeneratorPointMove();
+        PointMoveGenerator();
     }
 
     // Update is called once per frame
@@ -66,7 +92,7 @@ public class LevelGenerator : MonoBehaviour
         
     }
 
-    public void GeneratorPointMove()
+    public void PointMoveGenerator()
     {
         switch (_direction)
         {
