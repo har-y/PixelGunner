@@ -20,8 +20,8 @@ public class LevelGenerator : MonoBehaviour
     [Header("Level Generator - Rooms")]
     private GameObject _endRoom;
     private List<GameObject> _roomObject;
-    private GameObject _roomSlot;
     [SerializeField] private List<RoomPrefab> _roomPrefab;
+    private GameObject _roomSlot;
 
     private enum Direction
     {
@@ -59,10 +59,12 @@ public class LevelGenerator : MonoBehaviour
     private void RoomOutlineGenerator()
     {
         InstantiateRoomOutline(Vector3.zero);
+
         foreach (GameObject room in _roomObject)
         {
             InstantiateRoomOutline(room.transform.position);
         }
+
         InstantiateRoomOutline(_endRoom.transform.position);
     }
 
@@ -91,7 +93,6 @@ public class LevelGenerator : MonoBehaviour
         newRoom.transform.parent = _roomSlot.transform;
 
         RandomDirection();
-
     }
 
     private void RandomDirection()
