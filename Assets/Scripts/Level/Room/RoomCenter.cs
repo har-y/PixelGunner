@@ -1,0 +1,39 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class RoomCenter : MonoBehaviour
+{
+    [Header("Room Center")]
+    [SerializeField] private List<GameObject> _enemy = new List<GameObject>();
+    [SerializeField] private bool _openDoors;
+    [SerializeField] private Room _theRoom;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        if (_theRoom.RoomActive && _openDoors && _enemy.Count > 0)
+        {
+            for (int i = 0; i < _enemy.Count; i++)
+            {
+                if (_enemy[i] == null)
+                {
+                    _enemy.RemoveAt(i);
+
+                    i--;
+                }
+            }
+
+            if (_enemy.Count == 0)
+            {
+                _theRoom.OpenRoomDoor();
+            }
+        }
+    }
+}

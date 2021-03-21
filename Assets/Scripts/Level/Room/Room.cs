@@ -7,15 +7,11 @@ public class Room : MonoBehaviour
     [Header("Room")]
     [SerializeField] private bool _firstRoom;
     [SerializeField] private bool _closeDoorsEnter;
-    [SerializeField] private bool _openDoorsEnemy;
-    private bool _activeRoom;
+    [SerializeField] private bool _activeRoom;
     private bool _roomClear;
 
     [Header("Room - Doors")]
     [SerializeField] private GameObject[] _doors;
-
-    [Header("Room - Enemy")]
-    [SerializeField] private List<GameObject> _enemy = new List<GameObject>();
 
     // Start is called before the first frame update
     void Start()
@@ -26,30 +22,7 @@ public class Room : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        ActiveRoom();
-    }
 
-    private void ActiveRoom()
-    {
-        if (_activeRoom && _openDoorsEnemy && _enemy.Count > 0)
-        {
-            for (int i = 0; i < _enemy.Count; i++)
-            {
-                if (_enemy[i] == null)
-                {
-                    _enemy.RemoveAt(i);
-
-                    i--;
-                }
-            }
-
-            if (_enemy.Count == 0)
-            {
-                _roomClear = true;
-            }
-        }
-
-        OpenRoomDoor();
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -85,16 +58,13 @@ public class Room : MonoBehaviour
         }
     }
 
-    private void OpenRoomDoor()
+    public void OpenRoomDoor()
     {
-        if (_roomClear)
+        foreach (GameObject item in _doors)
         {
-            foreach (GameObject item in _doors)
-            {
-                item.SetActive(false);
+            item.SetActive(false);
 
-                _closeDoorsEnter = false;
-            }
+            _closeDoorsEnter = false;
         }
     }
 
@@ -105,6 +75,14 @@ public class Room : MonoBehaviour
             CloseRoomDoor();
 
             _activeRoom = true;
+        }
+    }
+
+    public bool RoomActive
+    {
+        get
+        {
+            return _activeRoom;
         }
     }
 }
