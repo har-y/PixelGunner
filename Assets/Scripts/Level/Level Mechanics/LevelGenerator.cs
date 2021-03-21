@@ -77,13 +77,13 @@ public class LevelGenerator : MonoBehaviour
         RandomDirection();
     }
 
-    private void InstantiateRoom(int value)
+    private void InstantiateRoom(int loopValue)
     {
         GameObject newRoom = Instantiate(_layoutRoom, _generatorPoint.position, _generatorPoint.rotation);
 
         _roomObject.Add(newRoom);
 
-        if (value + 1 == _roomValue)
+        if (loopValue + 1 == _roomValue)
         {
             newRoom.GetComponent<SpriteRenderer>().color = _endColor;
             _endRoom = newRoom;
@@ -132,7 +132,7 @@ public class LevelGenerator : MonoBehaviour
     {
         foreach (RoomPrefab rp in _roomPrefab)
         {
-            if (rp.up == up && rp.down == down && rp.right == right && rp.left == left)
+            if (rp.Up == up && rp.Down == down && rp.Right == right && rp.Left == left)
             {
                 return rp;
             }
@@ -151,7 +151,7 @@ public class LevelGenerator : MonoBehaviour
 
         if (roomPrefab != null)
         {
-            GameObject room = Instantiate(roomPrefab.prefab, position, transform.rotation, transform);
+            GameObject room = Instantiate(roomPrefab.OutlinePrefab, position, transform.rotation, transform);
             room.transform.parent = _roomSlot.transform;
         }
     }
