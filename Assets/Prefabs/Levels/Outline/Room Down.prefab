@@ -149,7 +149,7 @@ GameObject:
   - component: {fileID: 8920114755842946537}
   - component: {fileID: 8920114755842946534}
   - component: {fileID: 8920114755842946535}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Room Down
   m_TagString: Untagged
   m_Icon: {fileID: 0}

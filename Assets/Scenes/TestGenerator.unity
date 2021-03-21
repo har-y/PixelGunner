@@ -238,22 +238,88 @@ MonoBehaviour:
   _endColor: {r: 1, g: 0, b: 0, a: 1}
   _xOffset: 18
   _yOffset: 10
+  _roomPrefab:
+  - up: 0
+    down: 1
+    right: 0
+    left: 0
+    prefab: {fileID: 8920114755842946532, guid: f24513a5d1b75434aaa243743ca88104, type: 3}
+  - up: 0
+    down: 1
+    right: 0
+    left: 1
+    prefab: {fileID: 144922540740544761, guid: c8dfaf4c327be954fa265f0070c70357, type: 3}
+  - up: 0
+    down: 1
+    right: 1
+    left: 1
+    prefab: {fileID: 4588700509540407924, guid: 7f6239015528d894e8543c01f597e059, type: 3}
+  - up: 0
+    down: 1
+    right: 1
+    left: 0
+    prefab: {fileID: 6708020759586873668, guid: 8d01d08b36cbfc34bbd3eb164270fa5b, type: 3}
+  - up: 0
+    down: 0
+    right: 0
+    left: 1
+    prefab: {fileID: 1110431047745933897, guid: 0c9a24dd304c2b345b68fd74d2c1dcdf, type: 3}
+  - up: 0
+    down: 0
+    right: 1
+    left: 1
+    prefab: {fileID: 3006577912397924938, guid: 9223063db5288eb46a989e4510c0e861, type: 3}
+  - up: 0
+    down: 0
+    right: 1
+    left: 0
+    prefab: {fileID: 2353755049445071240, guid: 2a6af76f2d5fcf44f84946e937dda086, type: 3}
+  - up: 1
+    down: 0
+    right: 0
+    left: 0
+    prefab: {fileID: 6623498496096394896, guid: ee51565c971cfda40b1b3abc67086c02, type: 3}
+  - up: 1
+    down: 1
+    right: 0
+    left: 0
+    prefab: {fileID: 4332932027882939951, guid: 52055219794e42d4588118e28d03c0cc, type: 3}
+  - up: 1
+    down: 1
+    right: 0
+    left: 1
+    prefab: {fileID: 4806518178921789398, guid: 4b04287e99aee474787fde09f4b9c01b, type: 3}
+  - up: 1
+    down: 1
+    right: 1
+    left: 1
+    prefab: {fileID: 8885914391540624566, guid: c68af367054028540acdad683ef83aa1, type: 3}
+  - up: 1
+    down: 1
+    right: 1
+    left: 0
+    prefab: {fileID: 1782358360111682382, guid: 523af093eb04b714186dbabd47e6691b, type: 3}
+  - up: 1
+    down: 0
+    right: 0
+    left: 1
+    prefab: {fileID: 2970056935137504503, guid: dc04b6bc0b9d50f428609feeaed08b1e, type: 3}
+  - up: 1
+    down: 0
+    right: 1
+    left: 1
+    prefab: {fileID: 3412839695892806790, guid: d348f32abbf29fa4aa2ed415500d3504, type: 3}
+  - up: 1
+    down: 0
+    right: 1
+    left: 0
+    prefab: {fileID: 5598075361547720369, guid: 1db9aab8c3c31834d961cfd54a6ac644, type: 3}
   _room:
-    _singleUp: {fileID: 6623498496096394896, guid: ee51565c971cfda40b1b3abc67086c02, type: 3}
-    _singleDown: {fileID: 8920114755842946532, guid: f24513a5d1b75434aaa243743ca88104, type: 3}
-    _singleLeft: {fileID: 1110431047745933897, guid: 0c9a24dd304c2b345b68fd74d2c1dcdf, type: 3}
-    _singleRight: {fileID: 2353755049445071240, guid: 2a6af76f2d5fcf44f84946e937dda086, type: 3}
-    _doubleUpDown: {fileID: 4332932027882939951, guid: 52055219794e42d4588118e28d03c0cc, type: 3}
-    _doubleLeftRight: {fileID: 3006577912397924938, guid: 9223063db5288eb46a989e4510c0e861, type: 3}
-    _doubleUpLeft: {fileID: 2970056935137504503, guid: dc04b6bc0b9d50f428609feeaed08b1e, type: 3}
-    _doubleUpRight: {fileID: 5598075361547720369, guid: 1db9aab8c3c31834d961cfd54a6ac644, type: 3}
-    _doubleDownLeft: {fileID: 144922540740544761, guid: c8dfaf4c327be954fa265f0070c70357, type: 3}
-    _doubleDownRight: {fileID: 6708020759586873668, guid: 8d01d08b36cbfc34bbd3eb164270fa5b, type: 3}
-    _tripleUpLeftRight: {fileID: 3412839695892806790, guid: d348f32abbf29fa4aa2ed415500d3504, type: 3}
-    _tripleDownLeftRight: {fileID: 4588700509540407924, guid: 7f6239015528d894e8543c01f597e059, type: 3}
-    _tripleUpDownLeft: {fileID: 4806518178921789398, guid: 4b04287e99aee474787fde09f4b9c01b, type: 3}
-    _tripleUpDownRight: {fileID: 1782358360111682382, guid: 523af093eb04b714186dbabd47e6691b, type: 3}
-    _quadrupleUpDownLeftRight: {fileID: 8885914391540624566, guid: c68af367054028540acdad683ef83aa1, type: 3}
+    up: 0
+    down: 0
+    right: 0
+    left: 0
+    prefab: {fileID: 0}
 --- !u!1 &1875919741
 GameObject:
   m_ObjectHideFlags: 0

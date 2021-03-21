@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5598075360975891428}
   - component: {fileID: 5598075360975891451}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: room_shape
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -91,7 +91,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5598075361157539068}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: room_doors
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -123,7 +123,7 @@ GameObject:
   - component: {fileID: 5598075361547720374}
   - component: {fileID: 5598075361547720375}
   - component: {fileID: 5598075361547720368}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Room Up_Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -199,7 +199,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5598075361763069121}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: room_enemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -229,7 +229,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5598075361995440034}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: room_body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -264,7 +264,7 @@ GameObject:
   - component: {fileID: 5598075362718891707}
   - component: {fileID: 5598075362718891684}
   - component: {fileID: 5598075362718891685}
-  m_Layer: 13
+  m_Layer: 15
   m_Name: room_entrance
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -398,7 +398,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5598075362930291314}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: room_spikes
   m_TagString: Untagged
   m_Icon: {fileID: 0}

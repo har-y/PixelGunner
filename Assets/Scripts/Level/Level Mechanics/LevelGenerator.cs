@@ -21,8 +21,7 @@ public class LevelGenerator : MonoBehaviour
     private GameObject _endRoom;
     private List<GameObject> _roomObject;
     private GameObject _roomSlot;
-
-    public RoomPrefab _room;
+    [SerializeField] private List<RoomPrefab> _roomPrefab;
 
     private enum Direction
     {
@@ -53,6 +52,18 @@ public class LevelGenerator : MonoBehaviour
                 PointMoveGenerator();
             }
         }
+
+        RoomOutlineGenerator();
+    }
+
+    private void RoomOutlineGenerator()
+    {
+        InstantiateRoomOutline(Vector3.zero);
+        foreach (GameObject room in _roomObject)
+        {
+            InstantiateRoomOutline(room.transform.position);
+        }
+        InstantiateRoomOutline(_endRoom.transform.position);
     }
 
     private void InstantiateRoom()
@@ -80,6 +91,7 @@ public class LevelGenerator : MonoBehaviour
         newRoom.transform.parent = _roomSlot.transform;
 
         RandomDirection();
+
     }
 
     private void RandomDirection()
@@ -94,7 +106,7 @@ public class LevelGenerator : MonoBehaviour
         
     }
 
-    public void PointMoveGenerator()
+    private void PointMoveGenerator()
     {
         switch (_direction)
         {
@@ -112,6 +124,34 @@ public class LevelGenerator : MonoBehaviour
                 break;
             default:
                 break;
+        }
+    }
+
+    private RoomPrefab PickRoom(bool up, bool down, bool right, bool left)
+    {
+        foreach (RoomPrefab rp in _roomPrefab)
+        {
+            if (rp.up == up && rp.down == down && rp.right == right && rp.left == left)
+            {
+                return rp;
+            }
+        }
+        return null;
+    }
+
+    private void InstantiateRoomOutline(Vector3 position)
+    {
+        bool up = Physics2D.OverlapCircle(position + new Vector3(0f, _yOffset, 0f), 0.2f, _roomLayer);
+        bool down = Physics2D.OverlapCircle(position + new Vector3(0f, -_yOffset, 0f), 0.2f, _roomLayer);
+        bool right = Physics2D.OverlapCircle(position + new Vector3(_xOffset, 0f, 0f), 0.2f, _roomLayer);
+        bool left = Physics2D.OverlapCircle(position + new Vector3(-_xOffset, 0f, 0f), 0.2f, _roomLayer);
+
+        RoomPrefab roomPrefab = PickRoom(up, down, right, left);
+
+        if (roomPrefab != null)
+        {
+            GameObject room = Instantiate(roomPrefab.prefab, position, transform.rotation, transform);
+            room.transform.parent = _roomSlot.transform;
         }
     }
 }

@@ -291,7 +291,7 @@ GameObject:
   - component: {fileID: 4588700509540407923}
   - component: {fileID: 4588700509540407922}
   - component: {fileID: 4588700509540407925}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: Room Down_Left_Right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
