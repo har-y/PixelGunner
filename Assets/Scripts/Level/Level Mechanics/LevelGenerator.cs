@@ -22,6 +22,8 @@ public class LevelGenerator : MonoBehaviour
     private List<GameObject> _roomObject;
     private GameObject _roomSlot;
 
+    public RoomPrefab _room;
+
     private enum Direction
     {
         up,
