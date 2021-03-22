@@ -17,6 +17,7 @@ public class Room : MonoBehaviour
     void Start()
     {
         FirstRoom();
+        OpenRoomDoor();
     }
 
     // Update is called once per frame
@@ -72,8 +73,6 @@ public class Room : MonoBehaviour
     {
         if (_firstRoom)
         {
-            CloseRoomDoor();
-
             _activeRoom = true;
         }
     }
@@ -99,6 +98,14 @@ public class Room : MonoBehaviour
         set
         {
             _closeDoorsEnter = value;
+        }
+    }
+
+    public bool FirstRoomActive
+    {
+        set
+        {
+            _firstRoom = value;
         }
     }
 }

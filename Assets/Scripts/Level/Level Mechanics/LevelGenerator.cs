@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelGenerator : MonoBehaviour
 {
@@ -80,6 +81,7 @@ public class LevelGenerator : MonoBehaviour
             {
                 RoomCenter centerStartOutline = Instantiate(_centerStart, outline.transform.position, transform.rotation);
                 centerStartOutline.TheRoom = outline.GetComponent<Room>();
+                centerStartOutline.TheRoom.FirstRoomActive = true;
                 centerStartOutline.transform.parent = _roomSlot.transform;
                 generateCenter = false;
             }
@@ -137,7 +139,12 @@ public class LevelGenerator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+#if UNITY_EDITOR
+        if (Input.GetKey(KeyCode.R))
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        }
+#endif
     }
 
     private void PointMoveGenerator()

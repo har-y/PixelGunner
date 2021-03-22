@@ -1264,6 +1264,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Doors Horizontal
       objectReference: {fileID: 0}
+    - target: {fileID: 4634330427255506927, guid: 7a16f74cca7192c41a0d79e6fdfb0893, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a16f74cca7192c41a0d79e6fdfb0893, type: 3}
 --- !u!1 &7196206019474804783 stripped

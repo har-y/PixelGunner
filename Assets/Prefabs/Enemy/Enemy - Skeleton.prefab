@@ -118,8 +118,8 @@ MonoBehaviour:
   _enemy: {fileID: 1577428283721649478}
   _enemyHealth: 150
   _moveSpeed: 3
-  _enemyRange: 7
-  _enemyShootRange: 5
+  _enemyRange: 4
+  _enemyShootRange: 3
   _shootEnemy: 1
   _bulletPrefab: {fileID: 3004662319792165324, guid: 83c9cdf48f660c74fabc59b2c2b4cd72, type: 3}
   _bulletPoint: {fileID: 9016169520289208218}

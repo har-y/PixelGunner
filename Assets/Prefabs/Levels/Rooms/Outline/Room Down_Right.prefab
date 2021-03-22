@@ -1325,6 +1325,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Doors Horizontal
       objectReference: {fileID: 0}
+    - target: {fileID: 4634330427255506927, guid: 7a16f74cca7192c41a0d79e6fdfb0893, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7a16f74cca7192c41a0d79e6fdfb0893, type: 3}
 --- !u!4 &6335735011622930923 stripped
@@ -1347,6 +1351,10 @@ PrefabInstance:
     - target: {fileID: 1986682691395672192, guid: 64645e72a59dc89438c9d978b632ceb9, type: 3}
       propertyPath: m_Name
       value: Doors Vertical
+      objectReference: {fileID: 0}
+    - target: {fileID: 1986682691395672192, guid: 64645e72a59dc89438c9d978b632ceb9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1986682691395672194, guid: 64645e72a59dc89438c9d978b632ceb9, type: 3}
       propertyPath: m_RootOrder

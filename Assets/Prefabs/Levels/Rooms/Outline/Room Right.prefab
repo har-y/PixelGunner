@@ -1255,6 +1255,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Doors Vertical
       objectReference: {fileID: 0}
+    - target: {fileID: 1986682691395672192, guid: 64645e72a59dc89438c9d978b632ceb9, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1986682691395672194, guid: 64645e72a59dc89438c9d978b632ceb9, type: 3}
       propertyPath: m_RootOrder
       value: 0
