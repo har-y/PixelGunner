@@ -314,6 +314,11 @@ MonoBehaviour:
     _right: 1
     _left: 0
     _prefab: {fileID: 5598075361547720369, guid: 1db9aab8c3c31834d961cfd54a6ac644, type: 3}
+  _generateOutline: []
+  _centerStart: {fileID: 4538312568543780567, guid: 0c332ba80974fdc42b469ae4158abfe3, type: 3}
+  _centerEnd: {fileID: 7347243735464558871, guid: 9fde04e6a68a03c4182bc6f205a36672, type: 3}
+  _center:
+  - {fileID: 7195697288795711819, guid: 7829b206a9d6e8b4a9843225c2d1945c, type: 3}
 --- !u!1 &1875919741
 GameObject:
   m_ObjectHideFlags: 0

@@ -12,7 +12,15 @@ public class RoomCenter : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        RoomNotEmpty();
+    }
+
+    private void RoomNotEmpty()
+    {
+        if (_openDoors)
+        {
+            _theRoom.CloseDoorEnter = true;
+        }
     }
 
     // Update is called once per frame
@@ -34,6 +42,19 @@ public class RoomCenter : MonoBehaviour
             {
                 _theRoom.OpenRoomDoor();
             }
+        }
+    }
+
+    public Room TheRoom
+    {
+        get
+        {
+            return _theRoom;
+        }
+
+        set
+        {
+            _theRoom = value;
         }
     }
 }

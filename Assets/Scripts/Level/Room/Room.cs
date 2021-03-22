@@ -84,5 +84,21 @@ public class Room : MonoBehaviour
         {
             return _activeRoom;
         }
+        set
+        {
+            _activeRoom = value;
+        }
+    }
+
+    public bool CloseDoorEnter
+    {
+        get
+        {
+            return _closeDoorsEnter;
+        }
+        set
+        {
+            _closeDoorsEnter = value;
+        }
     }
 }

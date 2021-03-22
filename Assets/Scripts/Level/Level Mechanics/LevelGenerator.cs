@@ -19,9 +19,15 @@ public class LevelGenerator : MonoBehaviour
 
     [Header("Level Generator - Rooms")]
     private GameObject _endRoom;
-    private List<GameObject> _roomObject;
+    private List<GameObject> _roomObject = new List<GameObject>();
     [SerializeField] private List<RoomPrefab> _roomPrefab;
+    [SerializeField] private List<GameObject> _generateOutline = new List<GameObject>();
     private GameObject _roomSlot;
+
+    [Header("Level Generator - Rooms Center")]
+    [SerializeField] private RoomCenter _centerStart;
+    [SerializeField] private RoomCenter _centerEnd;
+    [SerializeField] private RoomCenter[] _center;
 
     private enum Direction
     {
@@ -34,7 +40,6 @@ public class LevelGenerator : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _roomObject = new List<GameObject>();
         _roomSlot = GameObject.FindGameObjectWithTag("Misc");
 
         InstantiateRoom();
@@ -66,6 +71,35 @@ public class LevelGenerator : MonoBehaviour
         }
 
         InstantiateRoomOutline(_endRoom.transform.position);
+
+        foreach (GameObject outline in _generateOutline)
+        {
+            bool generateCenter = true;
+
+            if (outline.transform.position == Vector3.zero)
+            {
+                RoomCenter centerStartOutline = Instantiate(_centerStart, outline.transform.position, transform.rotation);
+                centerStartOutline.TheRoom = outline.GetComponent<Room>();
+                centerStartOutline.transform.parent = _roomSlot.transform;
+                generateCenter = false;
+            }
+
+            if (outline.transform.position == _endRoom.transform.position)
+            {
+                RoomCenter centerEndOutline = Instantiate(_centerEnd, outline.transform.position, transform.rotation);
+                centerEndOutline.TheRoom = outline.GetComponent<Room>();
+                centerEndOutline.transform.parent = _roomSlot.transform;
+                generateCenter = false;
+            }
+
+            if (generateCenter)
+            {
+                int centerSelect = Random.Range(0, _center.Length);
+                RoomCenter centerOutline = Instantiate(_center[centerSelect], outline.transform.position, transform.rotation);
+                centerOutline.TheRoom = outline.GetComponent<Room>();
+                centerOutline.transform.parent = _roomSlot.transform;
+            }
+        }
     }
 
     private void InstantiateRoom()
@@ -80,6 +114,7 @@ public class LevelGenerator : MonoBehaviour
     private void InstantiateRoom(int loopValue)
     {
         GameObject newRoom = Instantiate(_layoutRoom, _generatorPoint.position, _generatorPoint.rotation);
+        newRoom.transform.parent = _roomSlot.transform;
 
         _roomObject.Add(newRoom);
 
@@ -89,8 +124,6 @@ public class LevelGenerator : MonoBehaviour
             _endRoom = newRoom;
             _roomObject.RemoveAt(_roomObject.Count - 1);
         }
-
-        newRoom.transform.parent = _roomSlot.transform;
 
         RandomDirection();
     }
@@ -153,6 +186,7 @@ public class LevelGenerator : MonoBehaviour
         {
             GameObject room = Instantiate(roomPrefab.OutlinePrefab, position, transform.rotation, transform);
             room.transform.parent = _roomSlot.transform;
+            _generateOutline.Add(room);
         }
     }
 }
