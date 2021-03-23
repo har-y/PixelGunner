@@ -26,6 +26,11 @@ public class RoomCenter : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        RoomWithEnemy();
+    }
+
+    private void RoomWithEnemy()
+    {
         if (_theRoom.RoomActive && _openDoors && _enemy.Count > 0)
         {
             for (int i = 0; i < _enemy.Count; i++)
