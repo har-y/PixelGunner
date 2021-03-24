@@ -1,6 +1,4 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyController : MonoBehaviour
@@ -18,9 +16,13 @@ public class EnemyController : MonoBehaviour
     private Vector3 _moveDirection;
 
     [Header("Enemy - Enemy vs. Player")]
-    [SerializeField] private float _enemyRange;
-    [SerializeField] private float _enemyShootRange;
+    [SerializeField] private bool _chaseEnemy;
+    [SerializeField] private float _chaseRange;
     [SerializeField] private bool _shootEnemy;
+    [SerializeField] private float _shootRange;
+    [SerializeField] private bool _runEnemy;
+    [SerializeField] private float _runRange;
+
 
     [Header("Enemy - Bullet")]
     [SerializeField] private GameObject _bulletPrefab;
@@ -59,6 +61,8 @@ public class EnemyController : MonoBehaviour
 
     private void EnemyControl()
     {
+        _rigidbody2D.velocity = Vector2.zero;
+
         if (_enemy.isVisible && PlayerController.instance.gameObject.activeInHierarchy)
         {
             EnemyMove();
@@ -73,17 +77,19 @@ public class EnemyController : MonoBehaviour
 
     private void EnemyMove()
     {
-        if (Vector3.Distance(transform.position, PlayerController.instance.transform.position) <= _enemyRange)
+        _rigidbody2D.velocity = Vector2.zero;
+
+        if (Vector3.Distance(transform.position, PlayerController.instance.transform.position) <= _chaseRange && _chaseEnemy)
         {
             _moveDirection = PlayerController.instance.transform.position - transform.position;
-            _moveDirection.Normalize();
-
         }
-        else
+
+        if (Vector3.Distance(transform.position, PlayerController.instance.transform.position) <= _runRange && _runEnemy)
         {
-            _moveDirection = Vector3.zero;
+            _moveDirection = transform.position - PlayerController.instance.transform.position;
         }
 
+        _moveDirection.Normalize();
         _rigidbody2D.velocity = _moveDirection * _moveSpeed;
     }
 
@@ -101,7 +107,7 @@ public class EnemyController : MonoBehaviour
 
     private void EnemyShoot()
     {
-        if (_shootEnemy && (Vector3.Distance(transform.position, PlayerController.instance.transform.position) <= _enemyShootRange))
+        if (_shootEnemy && (Vector3.Distance(transform.position, PlayerController.instance.transform.position) <= _shootRange))
         {
             _bulletCounter -= Time.deltaTime;
 
