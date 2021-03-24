@@ -14,14 +14,24 @@ public class EnemyController : MonoBehaviour
     [Header("Enemy - Movement")]
     [SerializeField] private float _moveSpeed;
     private Vector3 _moveDirection;
+    private Vector3 _shiftDirection;
 
     [Header("Enemy - Enemy vs. Player")]
+    [Header("Chase")]
     [SerializeField] private bool _chaseEnemy;
     [SerializeField] private float _chaseRange;
+    [Header("Shoot")]
     [SerializeField] private bool _shootEnemy;
     [SerializeField] private float _shootRange;
+    [Header("Run")]
     [SerializeField] private bool _runEnemy;
     [SerializeField] private float _runRange;
+    [Header("Shift")]
+    [SerializeField] private bool _shiftEnemy;
+    [SerializeField] private float _shiftTime;
+    [SerializeField] private float _pauseTime;
+    private float _shiftCounter;
+    private float _pauseCounter;
 
 
     [Header("Enemy - Bullet")]
@@ -50,7 +60,9 @@ public class EnemyController : MonoBehaviour
         _enemyDefaultMaterial = _enemy.material;
 
         _effectSlot = GameObject.FindGameObjectWithTag("Misc");
-        _bulletSlot = GameObject.FindGameObjectWithTag("Misc");       
+        _bulletSlot = GameObject.FindGameObjectWithTag("Misc");
+
+        EnemyShift();
     }
 
     // Update is called once per frame
@@ -61,8 +73,6 @@ public class EnemyController : MonoBehaviour
 
     private void EnemyControl()
     {
-        _rigidbody2D.velocity = Vector2.zero;
-
         if (_enemy.isVisible && PlayerController.instance.gameObject.activeInHierarchy)
         {
             EnemyMove();
@@ -77,11 +87,40 @@ public class EnemyController : MonoBehaviour
 
     private void EnemyMove()
     {
-        _rigidbody2D.velocity = Vector2.zero;
+        _moveDirection = Vector3.zero;
 
         if (Vector3.Distance(transform.position, PlayerController.instance.transform.position) <= _chaseRange && _chaseEnemy)
         {
             _moveDirection = PlayerController.instance.transform.position - transform.position;
+        }
+        else
+        {       
+            if (_shiftEnemy)
+            {
+                if (_shiftCounter > 0)
+                {
+                    _shiftCounter -= Time.deltaTime;
+
+                    _moveDirection = _shiftDirection;
+
+                    if (_shiftCounter <= 0)
+                    {
+                        _pauseCounter = Random.Range(_pauseTime * 0.5f, _pauseTime * 1.25f);
+                    }
+                }
+
+                if (_pauseCounter > 0)
+                {
+                    _pauseCounter -= Time.deltaTime;
+
+                    if (_pauseCounter <= 0)
+                    {
+                        _shiftCounter = Random.Range(_shiftTime * 0.5f, _shiftTime * 1.25f);
+
+                        _shiftDirection = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), 0f);
+                    }
+                }
+            }
         }
 
         if (Vector3.Distance(transform.position, PlayerController.instance.transform.position) <= _runRange && _runEnemy)
@@ -139,6 +178,14 @@ public class EnemyController : MonoBehaviour
             AudioManager.instance.PlaySoundClip(_enemyDeathSound);
 
             Destroy(gameObject);            
+        }
+    }
+
+    private void EnemyShift()
+    {
+        if (_shiftEnemy)
+        {
+            _pauseCounter = Random.Range(_pauseTime * 0.5f, _pauseTime * 1.25f);
         }
     }
 
