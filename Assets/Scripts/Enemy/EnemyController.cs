@@ -32,7 +32,11 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private float _pauseTime;
     private float _shiftCounter;
     private float _pauseCounter;
-
+    [Header("Patrol")]
+    [SerializeField] private bool _patrolEnemy;
+    [SerializeField] private Transform[] _patrolPoints;
+    private int _currentPoint;
+    private GameObject _pointSlot;
 
     [Header("Enemy - Bullet")]
     [SerializeField] private GameObject _bulletPrefab;
@@ -61,8 +65,10 @@ public class EnemyController : MonoBehaviour
 
         _effectSlot = GameObject.FindGameObjectWithTag("Misc");
         _bulletSlot = GameObject.FindGameObjectWithTag("Misc");
+        _pointSlot = GameObject.FindGameObjectWithTag("Misc");
 
         EnemyShift();
+        PatrolPoints();
     }
 
     // Update is called once per frame
@@ -118,6 +124,21 @@ public class EnemyController : MonoBehaviour
                         _shiftCounter = Random.Range(_shiftTime * 0.5f, _shiftTime * 1.25f);
 
                         _shiftDirection = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), 0f);
+                    }
+                }
+            }
+
+            if (_patrolEnemy)
+            {
+                _moveDirection = _patrolPoints[_currentPoint].position - transform.position;
+
+                if (Vector3.Distance(transform.position, _patrolPoints[_currentPoint].position) < 0.2f)
+                {
+                    _currentPoint = Random.Range(0, _patrolPoints.Length);
+
+                    if (_currentPoint >= _patrolPoints.Length)
+                    {
+                        _currentPoint = 0;
                     }
                 }
             }
@@ -196,5 +217,13 @@ public class EnemyController : MonoBehaviour
         yield return new WaitForSeconds(0.25f);
 
         _enemy.material = _enemyDefaultMaterial;
+    }
+
+    private void PatrolPoints()
+    {
+        foreach (var item in _patrolPoints)
+        {
+            item.parent = _pointSlot.transform;
+        }
     }
 }
