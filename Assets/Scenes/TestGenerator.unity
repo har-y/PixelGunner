@@ -319,6 +319,11 @@ MonoBehaviour:
   _centerEnd: {fileID: 7347243735464558871, guid: 9fde04e6a68a03c4182bc6f205a36672, type: 3}
   _center:
   - {fileID: 7195697288795711819, guid: 7829b206a9d6e8b4a9843225c2d1945c, type: 3}
+  - {fileID: 7195697288795711819, guid: 49580b70cc6fecc4c9042a8f3807ca8c, type: 3}
+  - {fileID: 7195697288795711819, guid: 6e26077d0c6aae148a9e6901b3e52815, type: 3}
+  - {fileID: 7195697288795711819, guid: ef7d3c6079312cd4db69ec658c2df648, type: 3}
+  - {fileID: 7195697288795711819, guid: ce35584de7eb8dc4c96fcb65cabed5b6, type: 3}
+  - {fileID: 7195697288795711819, guid: 99d9e0870a7d07640bd4d03611d603f6, type: 3}
 --- !u!1 &1875919741
 GameObject:
   m_ObjectHideFlags: 0
