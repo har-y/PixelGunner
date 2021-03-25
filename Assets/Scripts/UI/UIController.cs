@@ -15,6 +15,9 @@ public class UIController : MonoBehaviour
     [SerializeField] private Slider _healthSlider;
     [SerializeField] private Text _healthText;
 
+    [Header("UI - Coin")]
+    [SerializeField] private Text _coinText;
+
     [Header("UI - Fade Screen")]
     [SerializeField] private Image _fadeScreen;
     [SerializeField] private float _fadeSpeed;
@@ -36,7 +39,7 @@ public class UIController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        UISliderUpdate();
+        UIUpdate();
         LostScreenOff();
 
         FadeOff();
@@ -45,7 +48,7 @@ public class UIController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        UISliderUpdate();
+        UIUpdate();
         FadeScreen();
     }
 
@@ -61,11 +64,22 @@ public class UIController : MonoBehaviour
         }
     }
 
-    private void UISliderUpdate()
+    private void UIUpdate()
+    {
+        UIHealth();
+        UICoin();
+    }
+
+    private void UIHealth()
     {
         _healthSlider.maxValue = PlayerHealthController.instance.MaxHealth;
         _healthSlider.value = PlayerHealthController.instance.CurrentHealth;
         _healthText.text = PlayerHealthController.instance.CurrentHealth.ToString() + " " + "/" + " " + PlayerHealthController.instance.MaxHealth.ToString();
+    }
+
+    private void UICoin()
+    {
+        _coinText.text = LevelManager.instance.Coins.ToString();
     }
 
     public void LostScreenOn()

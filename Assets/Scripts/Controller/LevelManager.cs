@@ -86,4 +86,12 @@ public class LevelManager : MonoBehaviour
             _coins -= value;
         }
     }
+
+    public int Coins
+    {
+        get
+        {
+            return _coins;
+        }
+    }
 }
