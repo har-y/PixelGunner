@@ -54,6 +54,14 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private int _enemyHurtSound;
     [SerializeField] private int _enemyDeathSound;
 
+    [Header("Enemy - Drop")]
+    [SerializeField] private bool _drop;
+    [SerializeField] GameObject[] _dropPrefab;
+    [SerializeField] private float _dropChance;
+    private float _dropValue;
+    private int _dropItem;
+    private GameObject _dropSlot;
+
 
     // Start is called before the first frame update
     void Start()
@@ -63,9 +71,12 @@ public class EnemyController : MonoBehaviour
 
         _enemyDefaultMaterial = _enemy.material;
 
+        _dropValue = Random.Range(0f, 100f);
+
         _effectSlot = GameObject.FindGameObjectWithTag("Misc");
         _bulletSlot = GameObject.FindGameObjectWithTag("Misc");
         _pointSlot = GameObject.FindGameObjectWithTag("Misc");
+        _dropSlot = GameObject.FindGameObjectWithTag("Misc");
 
         EnemyShift();
         PatrolPoints();
@@ -198,6 +209,8 @@ public class EnemyController : MonoBehaviour
         {
             AudioManager.instance.PlaySoundClip(_enemyDeathSound);
 
+            InstantiateDrop();
+
             Destroy(gameObject);            
         }
     }
@@ -224,6 +237,17 @@ public class EnemyController : MonoBehaviour
         foreach (var item in _patrolPoints)
         {
             item.parent = _pointSlot.transform;
+        }
+    }
+    private void InstantiateDrop()
+    {
+        if (_drop)
+        {
+            if (_dropValue <= _dropChance)
+            {
+                GameObject drop = Instantiate(_dropPrefab[_dropItem], transform.position, transform.rotation);
+                drop.transform.parent = _dropSlot.transform;
+            }
         }
     }
 }

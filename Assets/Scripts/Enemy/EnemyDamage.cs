@@ -18,7 +18,7 @@ public class EnemyDamage : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Player")
+        if (other.CompareTag("Player"))
         {
             PlayerHealthController.instance.PlayerDamage();
         }
@@ -26,7 +26,7 @@ public class EnemyDamage : MonoBehaviour
 
     private void OnTriggerStay2D(Collider2D other)
     {
-        if (other.tag == "Player")
+        if (other.CompareTag("Player"))
         {
             PlayerHealthController.instance.PlayerDamage();
         }
@@ -34,7 +34,7 @@ public class EnemyDamage : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.CompareTag("Player"))
         {
             PlayerHealthController.instance.PlayerDamage();
         }
@@ -42,7 +42,7 @@ public class EnemyDamage : MonoBehaviour
 
     private void OnCollisionStay2D(Collision2D other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.CompareTag("Player"))
         {
             PlayerHealthController.instance.PlayerDamage();
         }

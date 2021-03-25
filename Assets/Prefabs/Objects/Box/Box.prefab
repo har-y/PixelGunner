@@ -82,6 +82,7 @@ MonoBehaviour:
   _drop: 1
   _dropPrefab:
   - {fileID: 1222901592076658969, guid: 779f7621d99a3204dbc1cfa4b8e27405, type: 3}
+  - {fileID: 1157064267117728740, guid: b991e45ec89b8d04f83acd4ccc7a4667, type: 3}
   _dropChance: 20
 --- !u!1 &303918321207593831
 GameObject:
@@ -126,6 +127,7 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1

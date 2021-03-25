@@ -39,14 +39,14 @@ public class Breakables : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Player")
+        if (other.CompareTag("Player"))
         {
             if (PlayerController.instance.DashCounter > 0)
             {
                 BoxDestroy();
             }
         }
-        else if (other.tag == "Player Bullet")
+        else if (other.CompareTag("Player Bullet"))
         {
             BoxDestroy();
         }

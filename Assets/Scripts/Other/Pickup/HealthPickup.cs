@@ -24,7 +24,7 @@ public class HealthPickup : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "Player" && _isCollectable)
+        if (other.CompareTag("Player") && _isCollectable)
         {
             Pickup();
         }

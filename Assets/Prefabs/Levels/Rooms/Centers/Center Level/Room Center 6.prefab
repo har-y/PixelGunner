@@ -130,7 +130,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemy: []
-  _openDoors: 1
+  _openDoors: 0
   _theRoom: {fileID: 0}
 --- !u!1 &7195697289122190910
 GameObject:
