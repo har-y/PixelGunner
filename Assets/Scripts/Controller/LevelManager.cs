@@ -14,6 +14,9 @@ public class LevelManager : MonoBehaviour
     [Header("Pause")]
     [SerializeField] private bool _isPause;
 
+    [Header("Coins")]
+    [SerializeField] private int _coins;
+
     private void Awake()
     {
         instance = this;
@@ -68,6 +71,19 @@ public class LevelManager : MonoBehaviour
         get
         {
             return _isPause;
+        }
+    }
+
+    public void GetCoins(int value)
+    {
+        _coins += value;
+    }
+
+    public void SpendCoins(int value)
+    {
+        if (_coins >= value)
+        {
+            _coins -= value;
         }
     }
 }
