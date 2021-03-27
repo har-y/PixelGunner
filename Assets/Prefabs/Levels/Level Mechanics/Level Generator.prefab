@@ -80,9 +80,13 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 32768
   _direction: 0
-  _roomValue: 10
+  _roomValue: 12
+  _shop: 1
+  _minShopDistance: 3
+  _maxShopDistance: 7
   _startColor: {r: 0, g: 1, b: 1, a: 1}
   _endColor: {r: 1, g: 0, b: 0, a: 1}
+  _shopColor: {r: 1, g: 1, b: 0, a: 1}
   _xOffset: 18
   _yOffset: 10
   _roomPrefab:
@@ -164,5 +168,11 @@ MonoBehaviour:
   _generateOutline: []
   _centerStart: {fileID: 4538312568543780567, guid: 0c332ba80974fdc42b469ae4158abfe3, type: 3}
   _centerEnd: {fileID: 7347243735464558871, guid: 9fde04e6a68a03c4182bc6f205a36672, type: 3}
+  _centerShop: {fileID: 8929017009388759803, guid: cc6787906f2cf0443bcc4f2a07432c0f, type: 3}
   _center:
   - {fileID: 7195697288795711819, guid: 7829b206a9d6e8b4a9843225c2d1945c, type: 3}
+  - {fileID: 7195697288795711819, guid: 49580b70cc6fecc4c9042a8f3807ca8c, type: 3}
+  - {fileID: 7195697288795711819, guid: 6e26077d0c6aae148a9e6901b3e52815, type: 3}
+  - {fileID: 7195697288795711819, guid: ef7d3c6079312cd4db69ec658c2df648, type: 3}
+  - {fileID: 7195697288795711819, guid: ce35584de7eb8dc4c96fcb65cabed5b6, type: 3}
+  - {fileID: 7195697288795711819, guid: 99d9e0870a7d07640bd4d03611d603f6, type: 3}

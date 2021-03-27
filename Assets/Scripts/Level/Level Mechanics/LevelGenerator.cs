@@ -13,13 +13,18 @@ public class LevelGenerator : MonoBehaviour
 
     [Header("Level Generator - Room")]
     [SerializeField] private int _roomValue;
+    [SerializeField] private bool _shop;
+    [SerializeField] private int _minShopDistance;
+    [SerializeField] private int _maxShopDistance;
     [SerializeField] private Color _startColor;
     [SerializeField] private Color _endColor;
+    [SerializeField] private Color _shopColor;
     [SerializeField] private float _xOffset = 18f;
     [SerializeField] private float _yOffset = 10f;
 
     [Header("Level Generator - Rooms")]
     private GameObject _endRoom;
+    private GameObject _shopRoom;
     private List<GameObject> _roomObject = new List<GameObject>();
     [SerializeField] private List<RoomPrefab> _roomPrefab;
     [SerializeField] private List<GameObject> _generateOutline = new List<GameObject>();
@@ -28,6 +33,7 @@ public class LevelGenerator : MonoBehaviour
     [Header("Level Generator - Rooms Center")]
     [SerializeField] private RoomCenter _centerStart;
     [SerializeField] private RoomCenter _centerEnd;
+    [SerializeField] private RoomCenter _centerShop;
     [SerializeField] private RoomCenter[] _center;
 
     private enum Direction
@@ -44,14 +50,35 @@ public class LevelGenerator : MonoBehaviour
         _roomSlot = GameObject.FindGameObjectWithTag("Misc");
 
         InstantiateRoom();
-        RoomGenerator();
+        RoomsGenerator();
     }
 
-    private void RoomGenerator()
+    private void InstantiateRoom()
+    {
+        GameObject newRoom = Instantiate(_layoutRoom, _generatorPoint.position, _generatorPoint.rotation);
+        newRoom.GetComponent<SpriteRenderer>().color = _startColor;
+        newRoom.transform.parent = _roomSlot.transform;
+
+        RandomDirection();
+    }
+
+    private void RoomsGenerator()
     {
         for (int i = 0; i < _roomValue; i++)
         {
-            InstantiateRoom(i);
+            GameObject newRoom = Instantiate(_layoutRoom, _generatorPoint.position, _generatorPoint.rotation);
+            newRoom.transform.parent = _roomSlot.transform;
+
+            _roomObject.Add(newRoom);
+
+            if (i + 1 == _roomValue)
+            {
+                newRoom.GetComponent<SpriteRenderer>().color = _endColor;
+                _endRoom = newRoom;
+                _roomObject.RemoveAt(_roomObject.Count - 1);
+            }
+
+            RandomDirection();
 
             while (Physics2D.OverlapCircle(_generatorPoint.position, 0.2f, _roomLayer))
             {
@@ -59,7 +86,20 @@ public class LevelGenerator : MonoBehaviour
             }
         }
 
+        ShopGenerator();
+
         RoomOutlineGenerator();
+    }
+
+    private void ShopGenerator()
+    {
+        if (_shop)
+        {
+            int shopSelect = Random.Range(_minShopDistance, _maxShopDistance + 1);
+            _shopRoom = _roomObject[shopSelect];
+            _shopRoom.GetComponent<SpriteRenderer>().color = _shopColor;
+            _roomObject.RemoveAt(shopSelect);
+        }
     }
 
     private void RoomOutlineGenerator()
@@ -69,6 +109,11 @@ public class LevelGenerator : MonoBehaviour
         foreach (GameObject room in _roomObject)
         {
             InstantiateRoomOutline(room.transform.position);
+        }
+
+        if (_shop)
+        {
+            InstantiateRoomOutline(_shopRoom.transform.position);
         }
 
         InstantiateRoomOutline(_endRoom.transform.position);
@@ -94,6 +139,17 @@ public class LevelGenerator : MonoBehaviour
                 generateCenter = false;
             }
 
+            if (_shop)
+            {
+                if (outline.transform.position == _shopRoom.transform.position)
+                {
+                    RoomCenter centerShopOutline = Instantiate(_centerShop, outline.transform.position, transform.rotation);
+                    centerShopOutline.TheRoom = outline.GetComponent<Room>();
+                    centerShopOutline.transform.parent = _roomSlot.transform;
+                    generateCenter = false;
+                }
+            }
+
             if (generateCenter)
             {
                 int centerSelect = Random.Range(0, _center.Length);
@@ -104,31 +160,6 @@ public class LevelGenerator : MonoBehaviour
         }
     }
 
-    private void InstantiateRoom()
-    {
-        GameObject newRoom = Instantiate(_layoutRoom, _generatorPoint.position, _generatorPoint.rotation);
-        newRoom.GetComponent<SpriteRenderer>().color = _startColor;
-        newRoom.transform.parent = _roomSlot.transform;
-
-        RandomDirection();
-    }
-
-    private void InstantiateRoom(int loopValue)
-    {
-        GameObject newRoom = Instantiate(_layoutRoom, _generatorPoint.position, _generatorPoint.rotation);
-        newRoom.transform.parent = _roomSlot.transform;
-
-        _roomObject.Add(newRoom);
-
-        if (loopValue + 1 == _roomValue)
-        {
-            newRoom.GetComponent<SpriteRenderer>().color = _endColor;
-            _endRoom = newRoom;
-            _roomObject.RemoveAt(_roomObject.Count - 1);
-        }
-
-        RandomDirection();
-    }
 
     private void RandomDirection()
     {
