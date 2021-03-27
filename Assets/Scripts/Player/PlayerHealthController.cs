@@ -105,13 +105,18 @@ public class PlayerHealthController : MonoBehaviour
         }
     }
 
+    public void PlayerHealthUpgrade(int value)
+    {
+        _maxHealth += value;
+        _currentHealth += value;
+    }
+
     public int MaxHealth
     {
         get
         {
             return _maxHealth;
-        }
-        
+        }        
     }
 
     public int CurrentHealth
