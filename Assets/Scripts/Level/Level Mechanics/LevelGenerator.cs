@@ -11,7 +11,7 @@ public class LevelGenerator : MonoBehaviour
     [SerializeField] private LayerMask _roomLayer;
     [SerializeField] private Direction _direction;
 
-    [Header("Level Generator - Room")]
+    [Header("Level Generator - Rooms")]
     [SerializeField] private int _roomValue;
     [SerializeField] private bool _shop;
     [SerializeField] private int _minShopDistance;
@@ -22,19 +22,20 @@ public class LevelGenerator : MonoBehaviour
     [SerializeField] private float _xOffset = 18f;
     [SerializeField] private float _yOffset = 10f;
 
-    [Header("Level Generator - Rooms")]
-    private GameObject _endRoom;
-    private GameObject _shopRoom;
-    private List<GameObject> _roomObject = new List<GameObject>();
-    [SerializeField] private List<RoomPrefab> _roomPrefab;
-    [SerializeField] private List<GameObject> _generateOutline = new List<GameObject>();
-    private GameObject _roomSlot;
-
     [Header("Level Generator - Rooms Center")]
     [SerializeField] private RoomCenter _centerStart;
     [SerializeField] private RoomCenter _centerEnd;
     [SerializeField] private RoomCenter _centerShop;
     [SerializeField] private RoomCenter[] _center;
+
+    [Header("Level Generator - Room")]
+    private GameObject _roomSlot;
+    private GameObject _endRoom;
+    private GameObject _shopRoom;
+    private List<GameObject> _roomObject = new List<GameObject>();
+    [SerializeField] private List<RoomPrefab> _roomPrefab;
+    [SerializeField] private List<GameObject> _generateOutline = new List<GameObject>();
+
 
     private enum Direction
     {
@@ -97,8 +98,8 @@ public class LevelGenerator : MonoBehaviour
         {
             int shopSelect = Random.Range(_minShopDistance, _maxShopDistance + 1);
             _shopRoom = _roomObject[shopSelect];
-            _shopRoom.GetComponent<SpriteRenderer>().color = _shopColor;
             _roomObject.RemoveAt(shopSelect);
+            _shopRoom.GetComponent<SpriteRenderer>().color = _shopColor;
         }
     }
 
