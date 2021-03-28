@@ -18,6 +18,9 @@ public class UIController : MonoBehaviour
     [Header("UI - Coin")]
     [SerializeField] private Text _coinText;
 
+    [Header("UI - Map")]
+    [SerializeField] private GameObject _map;
+
     [Header("UI - Fade Screen")]
     [SerializeField] private Image _fadeScreen;
     [SerializeField] private float _fadeSpeed;
@@ -146,6 +149,14 @@ public class UIController : MonoBehaviour
         get
         {
             return _pauseMenu;
+        }
+    }
+
+    public GameObject Map
+    {
+        get
+        {
+            return _map;
         }
     }
 }

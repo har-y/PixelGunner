@@ -10,6 +10,12 @@ public class CameraController : MonoBehaviour
     [SerializeField] private float _moveSpeed;
     [SerializeField] private Transform _target;
 
+    [Header("Map")]
+    [SerializeField] private Camera _mainCamera;
+    [SerializeField] private Camera _mapCamera;
+    [SerializeField] private GameObject _mapMarker;
+    private bool _mapActive;
+
     private void Awake()
     {
         instance = this;
@@ -18,13 +24,29 @@ public class CameraController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        MapDeactivate();
     }
 
     // Update is called once per frame
     void Update()
     {
         CameraMove();
+        CameraMap();
+    }
+
+    private void CameraMap()
+    {
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            if (!_mapActive)
+            {
+                MapActivate();
+            }
+            else
+            {
+                MapDeactivate();
+            }
+        }
     }
 
     private void CameraMove()
@@ -38,5 +60,39 @@ public class CameraController : MonoBehaviour
     public void ChangeTarget(Transform target)
     {
         _target = target;
+    }
+
+    public void MapActivate()
+    {
+        if (!LevelManager.instance.IsPause)
+        {
+            _mapActive = true;
+
+            _mapCamera.enabled = true;
+            _mainCamera.enabled = false;
+
+            _mapMarker.SetActive(true);
+
+            PlayerController.instance.CanMove = false;
+            Time.timeScale = 0f;
+            UIController.instance.Map.SetActive(false);
+        }
+    }
+
+    public void MapDeactivate()
+    {
+        if (!LevelManager.instance.IsPause)
+        {
+            _mapActive = false;
+
+            _mapCamera.enabled = false;
+            _mainCamera.enabled = true;
+
+            _mapMarker.SetActive(false);
+
+            PlayerController.instance.CanMove = true;
+            Time.timeScale = 1f;
+            UIController.instance.Map.SetActive(true);
+        }
     }
 }
