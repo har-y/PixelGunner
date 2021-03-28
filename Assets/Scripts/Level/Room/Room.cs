@@ -10,6 +10,9 @@ public class Room : MonoBehaviour
     [SerializeField] private bool _activeRoom;
     private bool _roomClear;
 
+    [Header("Map")]
+    [SerializeField] private GameObject _roomHider;
+
     [Header("Room - Doors")]
     [SerializeField] private GameObject[] _doors;
 
@@ -31,6 +34,7 @@ public class Room : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             CameraController.instance.ChangeTarget(transform);
+            _roomHider.SetActive(false);
         }
     }
 
@@ -69,11 +73,12 @@ public class Room : MonoBehaviour
         }
     }
 
-    private void FirstRoom()
+    public void FirstRoom()
     {
         if (_firstRoom)
         {
             _activeRoom = true;
+            _roomHider.SetActive(false);
         }
     }
 
