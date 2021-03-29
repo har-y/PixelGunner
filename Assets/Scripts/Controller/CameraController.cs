@@ -93,10 +93,7 @@ public class CameraController : MonoBehaviour
             Time.timeScale = 0f;
             UIController.instance.FullMap.SetActive(true);
 
-            if (_miniMapActive)
-            {
-                UIController.instance.MiniMap.SetActive(false);
-            }
+            UIController.instance.MiniMap.SetActive(false);
         }
     }
 
@@ -127,7 +124,11 @@ public class CameraController : MonoBehaviour
         if (!LevelManager.instance.IsPause)
         {
             _miniMapActive = true;
-            UIController.instance.MiniMap.SetActive(true);
+
+            if (!_bigMapActive)
+            {
+                UIController.instance.MiniMap.SetActive(true);
+            }
         }
     }
 
@@ -136,6 +137,7 @@ public class CameraController : MonoBehaviour
         if (!LevelManager.instance.IsPause)
         {
             _miniMapActive = false;
+
             UIController.instance.MiniMap.SetActive(false);
         }
     }
