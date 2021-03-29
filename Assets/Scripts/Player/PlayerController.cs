@@ -36,14 +36,6 @@ public class PlayerController : MonoBehaviour
     private Vector2 _offset;
     private float _angle;
 
-    [Header("Player - Bullet")]
-    [SerializeField] private GameObject _bulletPrefab;
-    [SerializeField] private Transform _bulletPoint;
-    [SerializeField] private float _bulletDelay;
-    [SerializeField] private int _bulletSound;
-    private float _bulletCounter;
-    private GameObject _bulletSlot;
-
     private void Awake()
     {
         instance = this;
@@ -57,8 +49,6 @@ public class PlayerController : MonoBehaviour
         _camera = Camera.main;
 
         _activeMoveSpeed = _moveSpeed;
-
-        _bulletSlot = GameObject.FindGameObjectWithTag("Misc");
     }
 
     // Update is called once per frame
@@ -73,22 +63,24 @@ public class PlayerController : MonoBehaviour
         {
             PlayerMove();
             PlayerWeaponMove();
-            PlayerShoot();
             PlayerAnimation();
         }
     }
 
     private void PlayerWeaponMove()
     {
-        _mousePosition = Input.mousePosition;
-        _screenPoint = _camera.WorldToScreenPoint(transform.localPosition);
+        if (_canMove)
+        {
+            _mousePosition = Input.mousePosition;
+            _screenPoint = _camera.WorldToScreenPoint(transform.localPosition);
 
-        PlayerFlipPosition(_mousePosition, _screenPoint);
+            PlayerFlipPosition(_mousePosition, _screenPoint);
 
-        _offset = new Vector2(_mousePosition.x - _screenPoint.x, _mousePosition.y - _screenPoint.y);
-        _angle = Mathf.Atan2(_offset.y, _offset.x) * Mathf.Rad2Deg;
+            _offset = new Vector2(_mousePosition.x - _screenPoint.x, _mousePosition.y - _screenPoint.y);
+            _angle = Mathf.Atan2(_offset.y, _offset.x) * Mathf.Rad2Deg;
 
-        _weapon.rotation = Quaternion.Euler(0f, 0f, _angle);
+            _weapon.rotation = Quaternion.Euler(0f, 0f, _angle);
+        }
     }
 
     private void PlayerFlipPosition(Vector3 _mousePosition, Vector3 _screenPoint)
@@ -165,43 +157,17 @@ public class PlayerController : MonoBehaviour
 
     private void PlayerAnimation()
     {
-        if (_moveInput != Vector2.zero)
+        if (_canMove)
         {
-            _animator.SetBool("isMove", true);
-        }
-        else
-        {
-            _animator.SetBool("isMove", false);
-        }
-    }
-
-    private void PlayerShoot()
-    {
-        if (Input.GetMouseButtonDown(0))
-        {
-            InstantiateBullet();
-        }
-
-
-        if (Input.GetMouseButton(0))
-        {
-            _bulletCounter -= Time.deltaTime;
-
-            if (_bulletCounter <= 0)
+            if (_moveInput != Vector2.zero)
             {
-                InstantiateBullet();
+                _animator.SetBool("isMove", true);
+            }
+            else
+            {
+                _animator.SetBool("isMove", false);
             }
         }
-    }
-
-    private void InstantiateBullet()
-    {
-        AudioManager.instance.PlaySoundClip(_bulletSound);
-
-        GameObject bullet = Instantiate(_bulletPrefab, _bulletPoint.position, _bulletPoint.rotation);
-        bullet.transform.parent = _bulletSlot.transform;
-
-        _bulletCounter = _bulletDelay;
     }
 
     public SpriteRenderer PlayerBodySprite
