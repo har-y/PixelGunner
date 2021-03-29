@@ -12,9 +12,12 @@ public class CameraController : MonoBehaviour
 
     [Header("Map")]
     [SerializeField] private Camera _mainCamera;
+    [Header("Big")]
     [SerializeField] private Camera _mapCamera;
     [SerializeField] private GameObject _mapMarker;
-    private bool _mapActive;
+    private bool _bigMapActive;
+    [Header("Mini")]
+    private bool _miniMapActive;
 
     private void Awake()
     {
@@ -24,7 +27,8 @@ public class CameraController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        MapDeactivate();
+        BigMapDeactivate();
+        MiniMapDeactivate();
     }
 
     // Update is called once per frame
@@ -38,13 +42,25 @@ public class CameraController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.M))
         {
-            if (!_mapActive)
+            if (!_bigMapActive)
             {
-                MapActivate();
+                BigMapActivate();
             }
             else
             {
-                MapDeactivate();
+                BigMapDeactivate();
+            }
+        }
+
+        if (Input.GetKeyDown(KeyCode.Tab))
+        {
+            if (!_miniMapActive)
+            {
+                MiniMapActivate();
+            }
+            else
+            {
+                MiniMapDeactivate();
             }
         }
     }
@@ -62,11 +78,11 @@ public class CameraController : MonoBehaviour
         _target = target;
     }
 
-    public void MapActivate()
+    public void BigMapActivate()
     {
         if (!LevelManager.instance.IsPause)
         {
-            _mapActive = true;
+            _bigMapActive = true;
 
             _mapCamera.enabled = true;
             _mainCamera.enabled = false;
@@ -75,16 +91,20 @@ public class CameraController : MonoBehaviour
 
             PlayerController.instance.CanMove = false;
             Time.timeScale = 0f;
-            UIController.instance.MiniMap.SetActive(false);
             UIController.instance.FullMap.SetActive(true);
+
+            if (_miniMapActive)
+            {
+                UIController.instance.MiniMap.SetActive(false);
+            }
         }
     }
 
-    public void MapDeactivate()
+    public void BigMapDeactivate()
     {
         if (!LevelManager.instance.IsPause)
         {
-            _mapActive = false;
+            _bigMapActive = false;
 
             _mapCamera.enabled = false;
             _mainCamera.enabled = true;
@@ -93,8 +113,30 @@ public class CameraController : MonoBehaviour
 
             PlayerController.instance.CanMove = true;
             Time.timeScale = 1f;
-            UIController.instance.MiniMap.SetActive(true);
             UIController.instance.FullMap.SetActive(false);
+
+            if (_miniMapActive)
+            {
+                UIController.instance.MiniMap.SetActive(true);
+            }
+        }
+    }
+
+    public void MiniMapActivate()
+    {
+        if (!LevelManager.instance.IsPause)
+        {
+            _miniMapActive = true;
+            UIController.instance.MiniMap.SetActive(true);
+        }
+    }
+
+    public void MiniMapDeactivate()
+    {
+        if (!LevelManager.instance.IsPause)
+        {
+            _miniMapActive = false;
+            UIController.instance.MiniMap.SetActive(false);
         }
     }
 }
