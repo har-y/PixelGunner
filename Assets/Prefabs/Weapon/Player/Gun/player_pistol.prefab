@@ -160,5 +160,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _bulletPrefab: {fileID: 5686117156105817253, guid: eab6409f22bce6c4a9a0356b8762f560, type: 3}
   _bulletPoint: {fileID: 5423754366632741387}
-  _bulletDelay: 0.2
   _bulletSound: 18
+  _bulletDelay: 0.65

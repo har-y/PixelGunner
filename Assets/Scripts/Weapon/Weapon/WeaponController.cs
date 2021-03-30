@@ -7,10 +7,13 @@ public class WeaponController : MonoBehaviour
     [Header("Player - Weapon")]
     [SerializeField] private GameObject _bulletPrefab;
     [SerializeField] private Transform _bulletPoint;
-    [SerializeField] private float _bulletDelay;
     [SerializeField] private int _bulletSound;
-    private float _bulletCounter;
     private GameObject _bulletSlot;
+
+    [Header("Player - Reload")]
+    [SerializeField] private float _bulletDelay;
+    private float _bulletCounter;
+
 
     // Start is called before the first frame update
     void Start()
@@ -31,17 +34,13 @@ public class WeaponController : MonoBehaviour
     {
         if (PlayerController.instance.CanMove)
         {
-            if (Input.GetMouseButtonDown(0))
-            {
-                InstantiateBullet();
-            }
-
-
-            if (Input.GetMouseButton(0))
+            if (_bulletCounter > 0)
             {
                 _bulletCounter -= Time.deltaTime;
-
-                if (_bulletCounter <= 0)
+            }
+            else
+            {
+                if (Input.GetMouseButton(0) || Input.GetMouseButtonDown(0))
                 {
                     InstantiateBullet();
                 }
