@@ -424,11 +424,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!212 &937526318 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 5814131188953212611, guid: 7915242057b20054c915c29dc5bfe14f, type: 3}
-  m_PrefabInstance: {fileID: 1345535683}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1134677552
 GameObject:
   m_ObjectHideFlags: 0
@@ -518,7 +513,7 @@ PrefabInstance:
     - target: {fileID: 3023613579336465372, guid: 7915242057b20054c915c29dc5bfe14f, type: 3}
       propertyPath: _gunSpriteRenderer
       value: 
-      objectReference: {fileID: 937526318}
+      objectReference: {fileID: 0}
     - target: {fileID: 3023613579336465373, guid: 7915242057b20054c915c29dc5bfe14f, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -561,6 +556,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3023613579336465373, guid: 7915242057b20054c915c29dc5bfe14f, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4979501677516842288, guid: 7915242057b20054c915c29dc5bfe14f, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6909519109447957884, guid: 7915242057b20054c915c29dc5bfe14f, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8827502283221529751, guid: 7915242057b20054c915c29dc5bfe14f, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

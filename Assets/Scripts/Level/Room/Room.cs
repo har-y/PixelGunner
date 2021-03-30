@@ -10,11 +10,11 @@ public class Room : MonoBehaviour
     [SerializeField] private bool _activeRoom;
     private bool _roomClear;
 
-    [Header("Map")]
-    [SerializeField] private GameObject _roomHider;
-
     [Header("Room - Doors")]
     [SerializeField] private GameObject[] _doors;
+
+    [Header("Map")]
+    [SerializeField] private GameObject _roomHider;
 
     // Start is called before the first frame update
     void Start()

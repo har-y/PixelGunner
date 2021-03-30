@@ -26,11 +26,11 @@ public class WeaponController : MonoBehaviour
     {
         if (!LevelManager.instance.IsPause)
         {
-            PlayerShoot();
+            WeaponShoot();
         }
     }
 
-    private void PlayerShoot()
+    private void WeaponShoot()
     {
         if (PlayerController.instance.CanMove)
         {
