@@ -12,8 +12,6 @@ public class PlayerController : MonoBehaviour
     private Animator _animator;
     [SerializeField] private SpriteRenderer _bodySpriteRenderer;
     [SerializeField] private SpriteRenderer _handSpriteRenderer;
-    [SerializeField] private SpriteRenderer _gunSpriteRenderer;
-
 
     [Header("Player - Movement")]
     private Vector2 _moveInput;
@@ -29,6 +27,9 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private bool _canMove;
 
     [Header("Player - Weapon")]
+    [SerializeField] private List<WeaponController> _playerWeapons = new List<WeaponController>();
+    [SerializeField] private SpriteRenderer _gunSpriteRenderer;
+    private int _currentWeapon;
     [SerializeField] private Transform _weapon;
     private Camera _camera;
     private Vector3 _mousePosition;
@@ -39,16 +40,17 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         instance = this;
+
     }
 
     // Start is called before the first frame update
     void Start()
     {
+        _activeMoveSpeed = _moveSpeed;
+
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
         _camera = Camera.main;
-
-        _activeMoveSpeed = _moveSpeed;
     }
 
     // Update is called once per frame
@@ -63,6 +65,7 @@ public class PlayerController : MonoBehaviour
         {
             PlayerMove();
             PlayerWeaponMove();
+            PlayerWeaponSwitch();
             PlayerAnimation();
         }
     }
@@ -123,7 +126,7 @@ public class PlayerController : MonoBehaviour
 
     private void PlayerDash()
     {
-        if (Input.GetKeyDown(KeyCode.Space) )
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             if (_dashCounter <= 0 && _dashCooldownCounter <= 0)
             {
@@ -170,6 +173,42 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    private void PlayerWeaponSwitch()
+    {
+        if (_canMove)
+        {
+            if (Input.GetKeyDown(KeyCode.LeftControl))
+            {
+                if (_playerWeapons.Count > 0)
+                {
+                    _currentWeapon++;
+
+                    if (_currentWeapon >= _playerWeapons.Count)
+                    {
+                        _currentWeapon = 0;
+                    }
+
+                    WeaponSwitch();
+                }
+                else
+                {
+                    Debug.LogError("no guns");
+                }
+            }
+        }
+    }
+
+    private void WeaponSwitch()
+    {
+        foreach (WeaponController item in _playerWeapons)
+        {
+            item.gameObject.SetActive(false);
+        }
+
+        _playerWeapons[_currentWeapon].gameObject.SetActive(true);
+        _gunSpriteRenderer = _playerWeapons[_currentWeapon].WeaponSprite;
+    }
+
     public SpriteRenderer PlayerBodySprite
     {
         get
@@ -199,10 +238,6 @@ public class PlayerController : MonoBehaviour
         get
         {
             return _gunSpriteRenderer;
-        }
-        set
-        {
-            _gunSpriteRenderer = value;
         }
     }
 

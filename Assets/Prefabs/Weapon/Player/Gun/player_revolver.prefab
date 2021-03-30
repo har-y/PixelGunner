@@ -158,6 +158,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a07d843b55e7c54cb4ae1a71792a48a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _weaponSpriteRenderer: {fileID: 4712855070724273899}
   _bulletPrefab: {fileID: 5686117156105817253, guid: 643db6fd04596384580712f05825e3b2, type: 3}
   _bulletPoint: {fileID: 4712855070541006612}
   _bulletSound: 18

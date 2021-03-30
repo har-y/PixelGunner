@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &5320540886286793033
 Transform:
   m_ObjectHideFlags: 0
@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a07d843b55e7c54cb4ae1a71792a48a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _weaponSpriteRenderer: {fileID: 6926627730338277418}
   _bulletPrefab: {fileID: 5686117156105817253, guid: 2da4d4e037e3cc14dbd17af4aa9b173f, type: 3}
   _bulletPoint: {fileID: 6926627730557180373}
   _bulletSound: 18

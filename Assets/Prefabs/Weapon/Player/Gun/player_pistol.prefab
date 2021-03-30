@@ -129,7 +129,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &7112031929334344343
 Transform:
   m_ObjectHideFlags: 0
@@ -158,8 +158,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a07d843b55e7c54cb4ae1a71792a48a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _weaponSpriteRenderer: {fileID: 5423754366312758260}
   _bulletPrefab: {fileID: 5686117156105817253, guid: eab6409f22bce6c4a9a0356b8762f560, type: 3}
   _bulletPoint: {fileID: 5423754366632741387}
   _bulletSound: 18
-  _gunSpriteRenderer: {fileID: 5423754366312758260}
   _bulletDelay: 0.65

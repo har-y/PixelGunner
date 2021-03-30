@@ -5,6 +5,7 @@ using UnityEngine;
 public class WeaponController : MonoBehaviour
 {
     [Header("Player - Weapon")]
+    [SerializeField] private SpriteRenderer _weaponSpriteRenderer;
     [SerializeField] private GameObject _bulletPrefab;
     [SerializeField] private Transform _bulletPoint;
     [SerializeField] private int _bulletSound;
@@ -13,7 +14,6 @@ public class WeaponController : MonoBehaviour
     [Header("Player - Reload")]
     [SerializeField] private float _bulletDelay;
     private float _bulletCounter;
-
 
     // Start is called before the first frame update
     void Start()
@@ -56,5 +56,13 @@ public class WeaponController : MonoBehaviour
         bullet.transform.parent = _bulletSlot.transform;
 
         _bulletCounter = _bulletDelay;
+    }
+
+    public SpriteRenderer WeaponSprite
+    {
+        get
+        {
+            return _weaponSpriteRenderer;
+        }
     }
 }
