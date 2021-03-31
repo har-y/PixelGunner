@@ -28,7 +28,6 @@ public class PlayerController : MonoBehaviour
 
     [Header("Player - Weapon")]
     [SerializeField] private List<WeaponController> _playerWeapons = new List<WeaponController>();
-    [SerializeField] private SpriteRenderer _gunSpriteRenderer;
     private int _currentWeapon;
     [SerializeField] private Transform _weapon;
     private Camera _camera;
@@ -40,17 +39,16 @@ public class PlayerController : MonoBehaviour
     private void Awake()
     {
         instance = this;
-
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        _activeMoveSpeed = _moveSpeed;
-
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
         _camera = Camera.main;
+
+        _activeMoveSpeed = _moveSpeed;
     }
 
     // Update is called once per frame
@@ -206,7 +204,6 @@ public class PlayerController : MonoBehaviour
         }
 
         _playerWeapons[_currentWeapon].gameObject.SetActive(true);
-        _gunSpriteRenderer = _playerWeapons[_currentWeapon].WeaponSprite;
     }
 
     public SpriteRenderer PlayerBodySprite
@@ -233,14 +230,6 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public SpriteRenderer PlayerGunSprite
-    {
-        get
-        {
-            return _gunSpriteRenderer;
-        }
-    }
-
     public float DashCounter
     {
         get
@@ -258,6 +247,14 @@ public class PlayerController : MonoBehaviour
         set
         {
             _canMove = value;
+        }
+    }
+
+    public WeaponController CurrentWeapon
+    {
+        get
+        {
+            return _playerWeapons[_currentWeapon];
         }
     }
 }

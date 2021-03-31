@@ -163,3 +163,5 @@ MonoBehaviour:
   _bulletPoint: {fileID: 5423754366632741387}
   _bulletSound: 18
   _bulletDelay: 0.65
+  _weaponName: Pistol
+  _weaponSprite: {fileID: 262978286505467586, guid: f72804754a2106a4884d758772ef2a02, type: 3}

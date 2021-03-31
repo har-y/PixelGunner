@@ -22,6 +22,10 @@ public class UIController : MonoBehaviour
     [SerializeField] private GameObject _miniMap;
     [SerializeField] private GameObject _fullMap;
 
+    [Header("UI - Weapon")]
+    [SerializeField] private Image _currentWeapon;
+    [SerializeField] private Text _weaponText;
+
     [Header("UI - Fade Screen")]
     [SerializeField] private Image _fadeScreen;
     [SerializeField] private float _fadeSpeed;
@@ -72,6 +76,7 @@ public class UIController : MonoBehaviour
     {
         UIHealth();
         UICoin();
+        UIWeapon();
     }
 
     private void UIHealth()
@@ -84,6 +89,12 @@ public class UIController : MonoBehaviour
     private void UICoin()
     {
         _coinText.text = LevelManager.instance.Coins.ToString();
+    }
+
+    private void UIWeapon()
+    {
+        _currentWeapon.sprite = PlayerController.instance.CurrentWeapon.WeaponSprite;
+        _weaponText.text = PlayerController.instance.CurrentWeapon.WeaponName;
     }
 
     public void LostScreenOn()

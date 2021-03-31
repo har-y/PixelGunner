@@ -825,12 +825,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI Canvas
       objectReference: {fileID: 0}
-    - target: {fileID: 4816443443132477393, guid: fb9c79308200155449c4e8d22e4cd764, type: 3}
-      propertyPath: m_Text
-      value: '(TAB) - MINI MAP
-
-        (M) - FULL MAP'
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fb9c79308200155449c4e8d22e4cd764, type: 3}
 --- !u!1001 &7569058464835340916

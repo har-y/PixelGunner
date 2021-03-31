@@ -34,7 +34,8 @@ public class PlayerHealthController : MonoBehaviour
 
         _bodyDefaultColor = PlayerController.instance.PlayerBodySprite.color;
         _handDefaultColor = PlayerController.instance.PlayerHandSprite.color;
-        _gunDefaultColor = PlayerController.instance.PlayerGunSprite.color;
+        _gunDefaultColor = PlayerController.instance.CurrentWeapon.WeaponSpriteRenderer.color;
+
 
         _bodyInvincibleColor = new Color(_bodyDefaultColor.r, _bodyDefaultColor.g, _bodyDefaultColor.b, 0.5f);
         _handInvincibleColor = new Color(_handDefaultColor.r, _handDefaultColor.g, _handDefaultColor.b, 0.5f);
@@ -58,7 +59,7 @@ public class PlayerHealthController : MonoBehaviour
         {
             PlayerController.instance.PlayerBodySprite.color = _bodyDefaultColor;
             PlayerController.instance.PlayerHandSprite.color = _handDefaultColor;
-            PlayerController.instance.PlayerGunSprite.color = _gunDefaultColor;
+            PlayerController.instance.CurrentWeapon.WeaponSpriteRenderer.color = _gunDefaultColor;
         }
     }
 
@@ -91,7 +92,7 @@ public class PlayerHealthController : MonoBehaviour
 
         PlayerController.instance.PlayerBodySprite.color = _bodyInvincibleColor;
         PlayerController.instance.PlayerHandSprite.color = _handInvincibleColor;
-        PlayerController.instance.PlayerGunSprite.color = _gunInvincibleColor;
+        PlayerController.instance.CurrentWeapon.WeaponSpriteRenderer.color = _gunInvincibleColor;
     }
 
     public void PlayerHeal(int value)

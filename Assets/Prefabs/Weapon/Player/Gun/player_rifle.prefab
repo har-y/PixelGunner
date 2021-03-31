@@ -50,6 +50,8 @@ MonoBehaviour:
   _bulletPoint: {fileID: 6926627730557180373}
   _bulletSound: 18
   _bulletDelay: 0.2
+  _weaponName: Rifle
+  _weaponSprite: {fileID: -2172343002418747524, guid: f72804754a2106a4884d758772ef2a02, type: 3}
 --- !u!1 &6926627730338277416
 GameObject:
   m_ObjectHideFlags: 0
