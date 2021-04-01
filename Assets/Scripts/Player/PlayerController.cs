@@ -205,6 +205,16 @@ public class PlayerController : MonoBehaviour
         _playerWeapons[_currentWeapon].gameObject.SetActive(true);
     }
 
+    public void WeaponChange()
+    {
+        foreach (WeaponController item in _playerWeapons)
+        {
+            item.gameObject.SetActive(false);
+        }
+
+        _playerWeapons[++_currentWeapon].gameObject.SetActive(true);
+    }
+
     public SpriteRenderer PlayerBodySprite
     {
         get
@@ -254,6 +264,22 @@ public class PlayerController : MonoBehaviour
         get
         {
             return _playerWeapons[_currentWeapon];
+        }
+    }
+
+    public List<WeaponController> AvilableWeapons
+    {
+        get
+        {
+            return _playerWeapons;
+        }
+    }
+
+    public Transform WeaponTransform
+    {
+        get
+        {
+            return _weapon;
         }
     }
 }
