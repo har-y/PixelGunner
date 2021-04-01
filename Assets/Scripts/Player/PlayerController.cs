@@ -32,7 +32,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Transform _weapon;
     private Camera _camera;
     private Vector3 _mousePosition;
-    private Vector3 _screenPoint;
+    private Vector3 _playerPosition;
     private Vector2 _offset;
     private float _angle;
 
@@ -72,21 +72,20 @@ public class PlayerController : MonoBehaviour
     {
         if (_canMove)
         {
-            _mousePosition = Input.mousePosition;
-            _screenPoint = _camera.WorldToScreenPoint(transform.localPosition);
+            _mousePosition = _camera.ScreenToWorldPoint(Input.mousePosition);
+            _playerPosition = transform.position;
 
-            PlayerFlipPosition(_mousePosition, _screenPoint);
+            PlayerFlipPosition(_mousePosition, _playerPosition);
 
-            _offset = new Vector2(_mousePosition.x - _screenPoint.x, _mousePosition.y - _screenPoint.y);
+            _offset = _mousePosition - _weapon.position;
             _angle = Mathf.Atan2(_offset.y, _offset.x) * Mathf.Rad2Deg;
-
             _weapon.rotation = Quaternion.Euler(0f, 0f, _angle);
         }
     }
 
-    private void PlayerFlipPosition(Vector3 _mousePosition, Vector3 _screenPoint)
+    private void PlayerFlipPosition(Vector3 mousePosition, Vector3 position)
     {
-        if (_mousePosition.x < _screenPoint.x)
+        if (mousePosition.x < position.x)
         {
             transform.localScale = new Vector3(-1f, 1f, 1f);
             _weapon.localScale = new Vector3(-1f, -1f, 1f);
