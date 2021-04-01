@@ -649,6 +649,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1531321290}
   - component: {fileID: 1531321291}
+  - component: {fileID: 1531321292}
   m_Layer: 0
   m_Name: Revolver - Pickup
   m_TagString: Untagged
@@ -697,6 +698,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.38, y: 0.815}
   m_EdgeRadius: 0
+--- !u!114 &1531321292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1531321289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc8c1e826b858874da7b4705954e8ce0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1532273163
 GameObject:
   m_ObjectHideFlags: 0
@@ -873,6 +886,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1664743001}
   - component: {fileID: 1664743002}
+  - component: {fileID: 1664743003}
   m_Layer: 0
   m_Name: Rifle - Pickup
   m_TagString: Untagged
@@ -921,6 +935,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2, y: 0.82}
   m_EdgeRadius: 0
+--- !u!114 &1664743003
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1664743000}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc8c1e826b858874da7b4705954e8ce0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1829208537 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7569058465321782189, guid: 5b2dc3a3aa0b7c94e8b4a8a2baaaa1bf, type: 3}
