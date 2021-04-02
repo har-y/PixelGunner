@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 303918320344350666}
   - component: {fileID: 303918320344350668}
-  - component: {fileID: 303918320344350667}
+  - component: {fileID: 3262137460927295605}
   m_Layer: 12
   m_Name: Box
   m_TagString: Untagged
@@ -59,7 +59,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.81, y: 1}
   m_EdgeRadius: 0
---- !u!114 &303918320344350667
+--- !u!114 &3262137460927295605
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -68,7 +68,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 303918320344350665}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 000ba3aaab6994d4480eead1c97c5e0c, type: 3}
+  m_Script: {fileID: 11500000, guid: 464360aa0168abb429b82394a31d7e3d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _brokenPieces:
@@ -81,8 +81,8 @@ MonoBehaviour:
   _boxSound: 1
   _drop: 1
   _dropPrefab:
-  - {fileID: 1222901592076658969, guid: 779f7621d99a3204dbc1cfa4b8e27405, type: 3}
   - {fileID: 1157064267117728740, guid: b991e45ec89b8d04f83acd4ccc7a4667, type: 3}
+  - {fileID: 1222901592076658969, guid: 779f7621d99a3204dbc1cfa4b8e27405, type: 3}
   _dropChance: 20
 --- !u!1 &303918321207593831
 GameObject:

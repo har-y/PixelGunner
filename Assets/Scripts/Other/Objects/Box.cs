@@ -2,16 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Breakables : MonoBehaviour
+public class Box : MonoBehaviour
 {
-    [Header("Breakable")]
+    [Header("Box")]
     [SerializeField] private GameObject[] _brokenPieces;
     private GameObject[] _brokenPiece;
     private GameObject _pieceSlot;
     [SerializeField] private int _boxSound;
 
-
-    [Header("Breakable - Drop")]
+    [Header("Box - Drop")]
     [SerializeField] private bool _drop;
     [SerializeField] GameObject[] _dropPrefab;
     [SerializeField] private float _dropChance;
