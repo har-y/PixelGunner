@@ -14,11 +14,15 @@ public class LevelGenerator : MonoBehaviour
     [Header("Level Generator - Rooms")]
     [SerializeField] private int _roomValue;
     [SerializeField] private bool _shop;
+    [SerializeField] private bool _chest;
     [SerializeField] private int _minShopDistance;
     [SerializeField] private int _maxShopDistance;
+    [SerializeField] private int _minChestDistance;
+    [SerializeField] private int _maxChestDistance;
     [SerializeField] private Color _startColor;
     [SerializeField] private Color _endColor;
     [SerializeField] private Color _shopColor;
+    [SerializeField] private Color _chestColor;
     [SerializeField] private float _xOffset = 18f;
     [SerializeField] private float _yOffset = 10f;
 
@@ -26,12 +30,14 @@ public class LevelGenerator : MonoBehaviour
     [SerializeField] private RoomCenter _centerStart;
     [SerializeField] private RoomCenter _centerEnd;
     [SerializeField] private RoomCenter _centerShop;
+    [SerializeField] private RoomCenter _centerChest;
     [SerializeField] private RoomCenter[] _center;
 
     [Header("Level Generator - Room")]
     private GameObject _roomSlot;
     private GameObject _endRoom;
     private GameObject _shopRoom;
+    private GameObject _chestRoom;
     private List<GameObject> _roomObject = new List<GameObject>();
     [SerializeField] private List<RoomPrefab> _roomPrefab;
     [SerializeField] private List<GameObject> _generateOutline = new List<GameObject>();
@@ -88,6 +94,7 @@ public class LevelGenerator : MonoBehaviour
         }
 
         ShopGenerator();
+        ChestGenerator();
 
         RoomOutlineGenerator();
     }
@@ -103,6 +110,17 @@ public class LevelGenerator : MonoBehaviour
         }
     }
 
+    private void ChestGenerator()
+    {
+        if (_chest)
+        {
+            int chestSelect = Random.Range(_minChestDistance, _maxChestDistance + 1);
+            _chestRoom = _roomObject[chestSelect];
+            _roomObject.RemoveAt(chestSelect);
+            _chestRoom.GetComponent<SpriteRenderer>().color = _chestColor;
+        }
+    }
+
     private void RoomOutlineGenerator()
     {
         InstantiateRoomOutline(Vector3.zero);
@@ -115,6 +133,11 @@ public class LevelGenerator : MonoBehaviour
         if (_shop)
         {
             InstantiateRoomOutline(_shopRoom.transform.position);
+        }
+
+        if (_chest)
+        {
+            InstantiateRoomOutline(_chestRoom.transform.position);
         }
 
         InstantiateRoomOutline(_endRoom.transform.position);
@@ -147,6 +170,17 @@ public class LevelGenerator : MonoBehaviour
                     RoomCenter centerShopOutline = Instantiate(_centerShop, outline.transform.position, transform.rotation);
                     centerShopOutline.TheRoom = outline.GetComponent<Room>();
                     centerShopOutline.transform.parent = _roomSlot.transform;
+                    generateCenter = false;
+                }
+            }
+
+            if (_chest)
+            {
+                if (outline.transform.position == _chestRoom.transform.position)
+                {
+                    RoomCenter centerChestOutline = Instantiate(_centerChest, outline.transform.position, transform.rotation);
+                    centerChestOutline.TheRoom = outline.GetComponent<Room>();
+                    centerChestOutline.transform.parent = _roomSlot.transform;
                     generateCenter = false;
                 }
             }
