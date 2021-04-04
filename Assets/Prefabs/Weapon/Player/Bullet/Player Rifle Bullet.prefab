@@ -97,7 +97,7 @@ GameObject:
   - component: {fileID: 5686117156105817255}
   - component: {fileID: -5715322737751691652}
   m_Layer: 9
-  m_Name: Player Machine Gun Bullet
+  m_Name: Player Rifle Bullet
   m_TagString: Player Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -181,7 +181,7 @@ MonoBehaviour:
   _enemyBullet: 0
   _bulletDamage: 20
   _bulletHitEffect: {fileID: 8473250600612712116, guid: 62b04dfd332d50d4496c59655213eb7f, type: 3}
-  _bulletSound: 6
+  _bulletSound: 5
   _moveSpeed: 10
 --- !u!114 &-5715322737751691652
 MonoBehaviour:

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ShopItem : MonoBehaviour
 {
@@ -12,17 +13,37 @@ public class ShopItem : MonoBehaviour
     private bool _boughtItem;
     [SerializeField] private bool _healthRestore;
     [SerializeField] private bool _healthUpgrade;
-    [SerializeField] private bool _weaponChange;
-
-    [SerializeField] private int _itemPrice;
-    [SerializeField] private int _healthUpgradeValue;
+    [SerializeField] private bool _weaponBuy;
     [SerializeField] private int _buySound;
     [SerializeField] private int _notBuySound;
+
+    [Header("Shop - Price")]
+    [SerializeField] private int _itemPrice;
+
+    [Header("Shop - Health")]
+    [SerializeField] private int _healthUpgradeValue;
+
+    [Header("Shop - Weapon")]
+    [SerializeField] private WeaponController[] _awilableWeapons;
+    [SerializeField] private SpriteRenderer _weaponSpriteRenderer;
+    [SerializeField] private Text _buyText;
+    [SerializeField ]private string _infoText;
+    private WeaponController _weapon;
+    private bool _hasWeapon;
 
     // Start is called before the first frame update
     void Start()
     {
         _purchaseText.SetActive(false);
+
+        if (_weaponBuy)
+        {
+            int selectWeapon = Random.Range(0, _awilableWeapons.Length);
+            _weapon = _awilableWeapons[selectWeapon];
+            _weaponSpriteRenderer.sprite = _weapon.WeaponShopSprite;
+            _buyText.text = _infoText + "\n" + "-" + " " + _weapon.WeaponCost + " " + "GOLD" + " " + "-";
+            _itemPrice = _weapon.WeaponCost;
+        }
     }
 
     // Update is called once per frame
@@ -36,6 +57,7 @@ public class ShopItem : MonoBehaviour
                 {
                     HealthRestore();
                     HealthUpgrade();
+                    WeaponBuy();
                 }
 
                 if (_boughtItem)
@@ -49,6 +71,31 @@ public class ShopItem : MonoBehaviour
                 {
                     AudioManager.instance.PlaySoundClip(_notBuySound);
                 }
+            }
+        }
+    }
+
+    private void WeaponBuy()
+    {
+        if (_weaponBuy)
+        {
+            _hasWeapon = false;
+
+            foreach (WeaponController item in PlayerController.instance.AvilableWeapons)
+            {
+                if (_weapon.WeaponName == item.WeaponName)
+                {
+                    _hasWeapon = true;
+                }
+            }
+
+            if (!_hasWeapon)
+            {
+                GameObject newGun = Instantiate(_weapon.gameObject, PlayerController.instance.WeaponTransform);
+                PlayerController.instance.AvilableWeapons.Add(newGun.GetComponent<WeaponController>());
+                PlayerController.instance.WeaponChange();
+
+                _boughtItem = true;
             }
         }
     }

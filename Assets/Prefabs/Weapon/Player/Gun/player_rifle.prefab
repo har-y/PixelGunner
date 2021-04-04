@@ -52,6 +52,8 @@ MonoBehaviour:
   _bulletDelay: 0.2
   _weaponName: Rifle
   _weaponSprite: {fileID: -2172343002418747524, guid: f72804754a2106a4884d758772ef2a02, type: 3}
+  _weaponShopSprite: {fileID: 6820856509940793013, guid: 48d85d1ef51430e42b6aef57f02c863d, type: 3}
+  _weaponCost: 40
 --- !u!1 &6926627730338277416
 GameObject:
   m_ObjectHideFlags: 0

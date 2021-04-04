@@ -165,3 +165,5 @@ MonoBehaviour:
   _bulletDelay: 0.65
   _weaponName: Pistol
   _weaponSprite: {fileID: 262978286505467586, guid: f72804754a2106a4884d758772ef2a02, type: 3}
+  _weaponShopSprite: {fileID: 6407226241554960098, guid: 48d85d1ef51430e42b6aef57f02c863d, type: 3}
+  _weaponCost: 20

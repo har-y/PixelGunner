@@ -18,6 +18,10 @@ public class WeaponController : MonoBehaviour
     [Header("Weapon Controller - UI")]
     [SerializeField] string _weaponName;
     [SerializeField] Sprite _weaponSprite;
+    [SerializeField] Sprite _weaponShopSprite;
+
+    [Header("Weapon Controller - Shop")]
+    [SerializeField] private int _weaponCost;
 
     // Start is called before the first frame update
     void Start()
@@ -83,6 +87,22 @@ public class WeaponController : MonoBehaviour
         get
         {
             return _weaponName;
+        }
+    }
+
+    public Sprite WeaponShopSprite
+    {
+        get
+        {
+            return _weaponShopSprite;
+        }
+    }
+
+    public int WeaponCost
+    {
+        get
+        {
+            return _weaponCost;
         }
     }
 }
