@@ -181,7 +181,7 @@ MonoBehaviour:
   _notBuySound: 20
   _itemPrice: 0
   _healthUpgradeValue: 0
-  _awilableWeapons:
+  _avilableWeapons:
   - {fileID: 8040353703489815521, guid: 3609ab9de1d362f47b8906508a8ee60c, type: 3}
   - {fileID: 7329454995774983934, guid: a95bade6ac14a7045aceedb0fc916655, type: 3}
   - {fileID: 4967553896343179327, guid: 47b585855981683449e02df35ca2aec5, type: 3}

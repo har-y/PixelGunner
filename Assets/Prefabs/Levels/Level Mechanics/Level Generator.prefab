@@ -90,7 +90,7 @@ MonoBehaviour:
   _startColor: {r: 0, g: 1, b: 1, a: 1}
   _endColor: {r: 1, g: 0, b: 0, a: 1}
   _shopColor: {r: 1, g: 1, b: 0, a: 1}
-  _chestColor: {r: 0, g: 0, b: 0, a: 0}
+  _chestColor: {r: 1, g: 0, b: 1, a: 0}
   _xOffset: 18
   _yOffset: 10
   _centerStart: {fileID: 4538312568543780567, guid: 0c332ba80974fdc42b469ae4158abfe3, type: 3}

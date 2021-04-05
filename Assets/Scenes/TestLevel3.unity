@@ -165,18 +165,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5433435530890182336, guid: 4d6afb1a2e6581e429bb591ea484e6dd, type: 3}
-      propertyPath: _chestColor.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5433435530890182336, guid: 4d6afb1a2e6581e429bb591ea484e6dd, type: 3}
-      propertyPath: _chestColor.g
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5433435530890182336, guid: 4d6afb1a2e6581e429bb591ea484e6dd, type: 3}
-      propertyPath: _chestColor.r
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5433435530890182337, guid: 4d6afb1a2e6581e429bb591ea484e6dd, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -713,7 +701,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 146233641733519333, guid: 457e15f28f56be34da4f183f20cf0f6d, type: 3}
       propertyPath: _nextLevel
-      value: TestLevel2
+      value: TestVictory
       objectReference: {fileID: 0}
     - target: {fileID: 146233641733519339, guid: 457e15f28f56be34da4f183f20cf0f6d, type: 3}
       propertyPath: m_Name

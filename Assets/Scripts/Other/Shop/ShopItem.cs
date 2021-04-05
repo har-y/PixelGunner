@@ -24,7 +24,7 @@ public class ShopItem : MonoBehaviour
     [SerializeField] private int _healthUpgradeValue;
 
     [Header("Shop - Weapon")]
-    [SerializeField] private WeaponController[] _awilableWeapons;
+    [SerializeField] private WeaponController[] _avilableWeapons;
     [SerializeField] private SpriteRenderer _weaponSpriteRenderer;
     [SerializeField] private Text _buyText;
     [SerializeField ]private string _infoText;
@@ -38,8 +38,8 @@ public class ShopItem : MonoBehaviour
 
         if (_weaponBuy)
         {
-            int selectWeapon = Random.Range(0, _awilableWeapons.Length);
-            _weapon = _awilableWeapons[selectWeapon];
+            int selectWeapon = Random.Range(0, _avilableWeapons.Length);
+            _weapon = _avilableWeapons[selectWeapon];
             _weaponSpriteRenderer.sprite = _weapon.WeaponShopSprite;
             _buyText.text = _infoText + "\n" + "-" + " " + _weapon.WeaponCost + " " + "GOLD" + " " + "-";
             _itemPrice = _weapon.WeaponCost;
