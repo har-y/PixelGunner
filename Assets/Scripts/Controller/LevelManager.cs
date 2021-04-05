@@ -55,11 +55,11 @@ public class LevelManager : MonoBehaviour
 
         yield return new WaitForSeconds(_waitTime);
 
-        DontDestroyMiscOnLoad.instance.DestroyAllPrevious();
-
         StatsManager.instance.CurrentCoins = _coins;
         StatsManager.instance.CurrentHealth = PlayerHealthController.instance.CurrentHealth;
         StatsManager.instance.MaxHealth = PlayerHealthController.instance.MaxHealth;
+
+        DontDestroyMiscOnLoad.instance.DestroyAllPrevious();
 
         SceneManager.LoadScene(_nextLevel);
     }

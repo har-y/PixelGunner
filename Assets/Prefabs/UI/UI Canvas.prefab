@@ -1243,7 +1243,7 @@ MonoBehaviour:
   _fadeOff: 0
   _pauseMenu: {fileID: 6570427455835301911}
   _mainMenu: TestTitle
-  _newGame: Test
+  _newGame: TestLevel
 --- !u!1 &1524155885986476317
 GameObject:
   m_ObjectHideFlags: 0

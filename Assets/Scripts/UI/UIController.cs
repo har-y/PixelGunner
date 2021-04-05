@@ -72,7 +72,7 @@ public class UIController : MonoBehaviour
         }
     }
 
-    private void UIUpdate()
+    public void UIUpdate()
     {
         UIHealth();
         UICoin();
