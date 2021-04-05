@@ -30,7 +30,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private List<WeaponController> _playerWeapons = new List<WeaponController>();
     private int _currentWeapon;
     [SerializeField] private Transform _weapon;
-    private Camera _camera;
     private Vector3 _mousePosition;
     private Vector3 _playerPosition;
     private Vector2 _offset;
@@ -38,7 +37,16 @@ public class PlayerController : MonoBehaviour
 
     private void Awake()
     {
-        instance = this;
+        if (instance != null && instance != this)
+        {
+            Destroy(gameObject);
+        }
+        else
+        {
+            instance = this;
+
+            DontDestroyOnLoad(gameObject);
+        }
     }
 
     // Start is called before the first frame update
@@ -46,7 +54,6 @@ public class PlayerController : MonoBehaviour
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _animator = GetComponent<Animator>();
-        _camera = Camera.main;
 
         _activeMoveSpeed = _moveSpeed;
     }
@@ -72,7 +79,7 @@ public class PlayerController : MonoBehaviour
     {
         if (_canMove)
         {
-            _mousePosition = _camera.ScreenToWorldPoint(Input.mousePosition);
+            _mousePosition = CameraController.instance.MainCamera.ScreenToWorldPoint(Input.mousePosition);
             _playerPosition = transform.position;
 
             PlayerFlipPosition(_mousePosition, _playerPosition);
@@ -157,16 +164,13 @@ public class PlayerController : MonoBehaviour
 
     private void PlayerAnimation()
     {
-        if (_canMove)
+        if (_moveInput != Vector2.zero)
         {
-            if (_moveInput != Vector2.zero)
-            {
-                _animator.SetBool("isMove", true);
-            }
-            else
-            {
-                _animator.SetBool("isMove", false);
-            }
+            _animator.SetBool("isMove", true);
+        }
+        else
+        {
+            _animator.SetBool("isMove", false);
         }
     }
 

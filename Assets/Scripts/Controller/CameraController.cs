@@ -141,4 +141,12 @@ public class CameraController : MonoBehaviour
             UIController.instance.MiniMap.SetActive(false);
         }
     }
+
+    public Camera MainCamera
+    {
+        get
+        {
+            return _mainCamera;
+        }
+    }
 }

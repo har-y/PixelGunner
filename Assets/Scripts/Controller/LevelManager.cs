@@ -11,6 +11,9 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private float _waitTime;
     [SerializeField] private string _nextLevel;
 
+    [Header("Position")]
+    private Vector3 _startPosition = Vector3.zero;
+
     [Header("Pause")]
     [SerializeField] private bool _isPause;
 
@@ -25,6 +28,9 @@ public class LevelManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        PlayerController.instance.transform.position = _startPosition;
+        PlayerController.instance.CanMove = true;
+
         _coins = StatsManager.instance.CurrentCoins;
 
         Time.timeScale = 1;
@@ -48,6 +54,8 @@ public class LevelManager : MonoBehaviour
         UIController.instance.FadeOn();
 
         yield return new WaitForSeconds(_waitTime);
+
+        DontDestroyMiscOnLoad.instance.DestroyAllPrevious();
 
         StatsManager.instance.CurrentCoins = _coins;
         StatsManager.instance.CurrentHealth = PlayerHealthController.instance.CurrentHealth;
