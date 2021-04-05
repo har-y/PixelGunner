@@ -695,6 +695,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e783ad3a6fac27e4d996792c6dcdec13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _maxHealth: 5
+  _currentHealth: 5
+  _currentCoins: 0
 --- !u!4 &1829208537 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7569058465321782189, guid: 5b2dc3a3aa0b7c94e8b4a8a2baaaa1bf, type: 3}

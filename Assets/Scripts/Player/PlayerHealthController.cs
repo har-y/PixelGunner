@@ -30,7 +30,8 @@ public class PlayerHealthController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _currentHealth = _maxHealth;
+        _maxHealth = StatsManager.instance.MaxHealth;
+        _currentHealth = StatsManager.instance.CurrentHealth;
 
         _bodyDefaultColor = PlayerController.instance.PlayerBodySprite.color;
         _handDefaultColor = PlayerController.instance.PlayerHandSprite.color;

@@ -25,6 +25,8 @@ public class LevelManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        _coins = StatsManager.instance.CurrentCoins;
+
         Time.timeScale = 1;
     }
 
@@ -46,6 +48,10 @@ public class LevelManager : MonoBehaviour
         UIController.instance.FadeOn();
 
         yield return new WaitForSeconds(_waitTime);
+
+        StatsManager.instance.CurrentCoins = _coins;
+        StatsManager.instance.CurrentHealth = PlayerHealthController.instance.CurrentHealth;
+        StatsManager.instance.MaxHealth = PlayerHealthController.instance.MaxHealth;
 
         SceneManager.LoadScene(_nextLevel);
     }
