@@ -471,7 +471,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2b843845ca583d439e4b8d76048a9a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _levelLoad: TestLevel
+  _levelLoad: TestCharacterSelect
 --- !u!1 &1448054766
 GameObject:
   m_ObjectHideFlags: 0

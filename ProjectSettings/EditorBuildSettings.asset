@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/TestTitle.unity
     guid: 61a615e6e5cf4fc4d8712b10d111167f
   - enabled: 1
+    path: Assets/Scenes/TestCharacterSelect.unity
+    guid: 7565f85a8b7d843488ebd27d51bec79e
+  - enabled: 1
     path: Assets/Scenes/TestLevel.unity
     guid: 46339c923fbc99e42a5e7faef9d9b569
   - enabled: 1
