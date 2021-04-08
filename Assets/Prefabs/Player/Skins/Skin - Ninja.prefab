@@ -238,6 +238,7 @@ GameObject:
   - component: {fileID: 5668860803606451736}
   - component: {fileID: 5668860803606451737}
   - component: {fileID: 5668860803606451738}
+  - component: {fileID: 4239969792949851789}
   m_Layer: 0
   m_Name: Skin - Ninja
   m_TagString: Untagged
@@ -313,6 +314,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.85, y: 2}
   m_EdgeRadius: 0
+--- !u!114 &4239969792949851789
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5668860803606451739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 012ec385e05f1d845aff77002393ac36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _skinMessageText: {fileID: 5016484287586815528}
+  _playerSpawn: {fileID: 1783294393053284721, guid: 2a9ad139696d90946a20ce6ab7d6a73e, type: 3}
 --- !u!1 &5668860804257640099
 GameObject:
   m_ObjectHideFlags: 0

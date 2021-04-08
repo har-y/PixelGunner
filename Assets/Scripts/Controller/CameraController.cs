@@ -149,4 +149,16 @@ public class CameraController : MonoBehaviour
             return _mainCamera;
         }
     }
+
+    public Transform CameraTarget
+    {
+        get
+        {
+            return _target;
+        }
+        set
+        {
+            _target = value;
+        }
+    }
 }

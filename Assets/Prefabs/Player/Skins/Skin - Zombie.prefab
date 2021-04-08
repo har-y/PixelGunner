@@ -189,6 +189,7 @@ GameObject:
   - component: {fileID: 213220559019139573}
   - component: {fileID: 213220559019139572}
   - component: {fileID: 213220559019139575}
+  - component: {fileID: 4524150365546738374}
   m_Layer: 0
   m_Name: Skin - Zombie
   m_TagString: Untagged
@@ -264,6 +265,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.85, y: 2}
   m_EdgeRadius: 0
+--- !u!114 &4524150365546738374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 213220559019139574}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 012ec385e05f1d845aff77002393ac36, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _skinMessageText: {fileID: 702691059860027845}
+  _playerSpawn: {fileID: 4116800534303583169, guid: 27c828784eb812d42bed88cd8d5d00e3, type: 3}
 --- !u!1 &702691059012007639
 GameObject:
   m_ObjectHideFlags: 0
