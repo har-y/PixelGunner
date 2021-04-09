@@ -40,6 +40,10 @@ public class PlayerSkinSelect : MonoBehaviour
         gameObject.SetActive(false);
 
         CameraController.instance.CameraTarget = newPlayer.transform;
+
+        PlayerSkinManager.instance.ActivePlayer = newPlayer;
+        PlayerSkinManager.instance.ActiveCharacterSelect.gameObject.SetActive(true);
+        PlayerSkinManager.instance.ActiveCharacterSelect = this;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
