@@ -63,4 +63,16 @@ public class PlayerSkinSelect : MonoBehaviour
             _skinMessageText.SetActive(false);
         }
     }
+
+    public PlayerController PlayerSpawn
+    {
+        get
+        {
+            return _playerSpawn;
+        }
+        set
+        {
+            _playerSpawn = value;
+        }
+    }
 }
