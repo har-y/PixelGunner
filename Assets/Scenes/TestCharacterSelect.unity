@@ -7139,10 +7139,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Skin - Rambo
       objectReference: {fileID: 0}
-    - target: {fileID: 2996610578862465940, guid: f49582dcb592c924cab6a1704493dde5, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 4474780704261367817, guid: f49582dcb592c924cab6a1704493dde5, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -7185,10 +7181,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4474780704261367817, guid: f49582dcb592c924cab6a1704493dde5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7454969675603003274, guid: f49582dcb592c924cab6a1704493dde5, type: 3}
-      propertyPath: _toLock
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -8015,14 +8007,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Skin - Zombie
       objectReference: {fileID: 0}
-    - target: {fileID: 213220559019139574, guid: 67cb27b83ba4e4249b46c7b5453eb517, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4524150365546738374, guid: 67cb27b83ba4e4249b46c7b5453eb517, type: 3}
-      propertyPath: _toLock
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67cb27b83ba4e4249b46c7b5453eb517, type: 3}
 --- !u!1001 &1680286036
@@ -8524,10 +8508,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1812838617692887921, guid: 351b87ebb3a49234aa41087b8bfc4248, type: 3}
-      propertyPath: _toLock
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 2939888824194352769, guid: 351b87ebb3a49234aa41087b8bfc4248, type: 3}
       propertyPath: m_RootOrder
       value: 11
@@ -8575,10 +8555,6 @@ PrefabInstance:
     - target: {fileID: 4558506392565959964, guid: 351b87ebb3a49234aa41087b8bfc4248, type: 3}
       propertyPath: m_Name
       value: Skin - Devil
-      objectReference: {fileID: 0}
-    - target: {fileID: 4558506392565959964, guid: 351b87ebb3a49234aa41087b8bfc4248, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 351b87ebb3a49234aa41087b8bfc4248, type: 3}
@@ -8787,10 +8763,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Skin - Astro
       objectReference: {fileID: 0}
-    - target: {fileID: 5625968741050291839, guid: ae7f491c88367f545961a126afde6d2a, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6457300833854954978, guid: ae7f491c88367f545961a126afde6d2a, type: 3}
       propertyPath: m_RootOrder
       value: 12
@@ -8834,10 +8806,6 @@ PrefabInstance:
     - target: {fileID: 6457300833854954978, guid: ae7f491c88367f545961a126afde6d2a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7527796139396759570, guid: ae7f491c88367f545961a126afde6d2a, type: 3}
-      propertyPath: _toLock
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ae7f491c88367f545961a126afde6d2a, type: 3}
@@ -8953,14 +8921,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Skin - Ginger
       objectReference: {fileID: 0}
-    - target: {fileID: 6773234417330257568, guid: 4c546ac38cde9e44087f473686de4f3b, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8904798052987398349, guid: 4c546ac38cde9e44087f473686de4f3b, type: 3}
-      propertyPath: _toLock
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4c546ac38cde9e44087f473686de4f3b, type: 3}
 --- !u!1001 &5668860804728438695
@@ -8970,10 +8930,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 4239969792949851789, guid: 6d9397a4476b8f847a8a93b1fd7820b4, type: 3}
-      propertyPath: _toLock
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5668860803606451736, guid: 6d9397a4476b8f847a8a93b1fd7820b4, type: 3}
       propertyPath: m_RootOrder
       value: 9
