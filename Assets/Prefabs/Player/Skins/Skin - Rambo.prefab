@@ -49,7 +49,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &4474780704261367817
 Transform:
   m_ObjectHideFlags: 0
@@ -132,6 +132,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _skinMessageText: {fileID: 9139479630855176855}
   _playerSpawn: {fileID: 3023613579336465372, guid: 7915242057b20054c915c29dc5bfe14f, type: 3}
+  _toLock: 0
 --- !u!1 &5427023424103868590
 GameObject:
   m_ObjectHideFlags: 0

@@ -506,3 +506,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _skinMessageText: {fileID: 773688870807510947}
   _playerSpawn: {fileID: 5680518049355787045, guid: 56c85101c41798a4186ce1148ebdc68f, type: 3}
+  _toLock: 1

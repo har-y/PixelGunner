@@ -7,13 +7,31 @@ public class PlayerSkinSelect : MonoBehaviour
     [Header("Player Skin Select")]
     [SerializeField] private GameObject _skinMessageText;
     [SerializeField] private PlayerController _playerSpawn;
+    [SerializeField] private bool _toLock;
     private Vector3 _position;
     private bool _canSelect;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (_toLock)
+        {
+            if (PlayerPrefs.HasKey(_playerSpawn.name))
+            {
+                if (PlayerPrefs.GetInt(_playerSpawn.name) == 1)
+                {
+                    gameObject.SetActive(true);
+                }
+                else
+                {
+                    gameObject.SetActive(false);
+                }
+            }
+            else
+            {
+                gameObject.SetActive(false);
+            }
+        }
     }
 
     // Update is called once per frame

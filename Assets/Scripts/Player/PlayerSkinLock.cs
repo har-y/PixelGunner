@@ -26,7 +26,9 @@ public class PlayerSkinLock : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.E))
             {
-                Instantiate(_skinUnlock, transform.position, transform.rotation);
+                PlayerPrefs.SetInt(_skinUnlock.PlayerSpawn.name, 1);
+
+                Instantiate(_skinUnlock, _skinUnlock.transform.position, _skinUnlock.transform.rotation);
 
                 gameObject.SetActive(false);
             }
