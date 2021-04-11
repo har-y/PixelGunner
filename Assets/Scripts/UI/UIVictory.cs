@@ -15,6 +15,8 @@ public class UIVictory : MonoBehaviour
     {
         Time.timeScale = 1;
 
+        Destroy(PlayerController.instance.gameObject);
+
         _anyKeyText.SetActive(false);
     }
 

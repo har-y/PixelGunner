@@ -5,7 +5,8 @@ using UnityEngine;
 public class PlayerSkinLock : MonoBehaviour
 {
     [Header("Player Skin Lock")]
-    [SerializeField] private PlayerSkinSelect[] _skinsSelect;
+    //[SerializeField] private PlayerSkinSelect[] _skinsSelect;
+    [SerializeField] private List<PlayerSkinSelect> _skinsSelect;
     [SerializeField] private GameObject _skinLockMessageText;
     [SerializeField] private SpriteRenderer _lockSpriteRenderer;
     private PlayerSkinSelect _skinUnlock;
@@ -15,7 +16,7 @@ public class PlayerSkinLock : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _skinUnlock = _skinsSelect[Random.Range(0, _skinsSelect.Length)];
+        _skinUnlock = _skinsSelect[Random.Range(0, _skinsSelect.Count)];
         _lockSpriteRenderer.sprite = _skinUnlock.PlayerSpawn.PlayerBodySprite.sprite;
     }
 
@@ -29,6 +30,8 @@ public class PlayerSkinLock : MonoBehaviour
                 PlayerPrefs.SetInt(_skinUnlock.PlayerSpawn.name, 1);
 
                 Instantiate(_skinUnlock, _skinUnlock.transform.position, _skinUnlock.transform.rotation);
+
+                _skinsSelect.Remove(_skinUnlock);
 
                 gameObject.SetActive(false);
             }
