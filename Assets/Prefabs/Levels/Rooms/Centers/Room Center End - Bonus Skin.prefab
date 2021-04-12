@@ -1820,6 +1820,30 @@ PrefabInstance:
       propertyPath: m_Name
       value: Skin - Lock
       objectReference: {fileID: 0}
+    - target: {fileID: 3211771846190968567, guid: 42ab788fa8bad1c439e936d02d14f5ee, type: 3}
+      propertyPath: _skinsSelect.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3211771846190968567, guid: 42ab788fa8bad1c439e936d02d14f5ee, type: 3}
+      propertyPath: _skinsSelect.Array.data[1]
+      value: 
+      objectReference: {fileID: 4239969792949851789, guid: 6d9397a4476b8f847a8a93b1fd7820b4, type: 3}
+    - target: {fileID: 3211771846190968567, guid: 42ab788fa8bad1c439e936d02d14f5ee, type: 3}
+      propertyPath: _skinsSelect.Array.data[2]
+      value: 
+      objectReference: {fileID: 8904798052987398349, guid: 4c546ac38cde9e44087f473686de4f3b, type: 3}
+    - target: {fileID: 3211771846190968567, guid: 42ab788fa8bad1c439e936d02d14f5ee, type: 3}
+      propertyPath: _skinsSelect.Array.data[3]
+      value: 
+      objectReference: {fileID: 1812838617692887921, guid: 351b87ebb3a49234aa41087b8bfc4248, type: 3}
+    - target: {fileID: 3211771846190968567, guid: 42ab788fa8bad1c439e936d02d14f5ee, type: 3}
+      propertyPath: _skinsSelect.Array.data[4]
+      value: 
+      objectReference: {fileID: 7527796139396759570, guid: ae7f491c88367f545961a126afde6d2a, type: 3}
+    - target: {fileID: 3211771846190968567, guid: 42ab788fa8bad1c439e936d02d14f5ee, type: 3}
+      propertyPath: _skinsSelect.Array.data[5]
+      value: 
+      objectReference: {fileID: 7454969675603003274, guid: f49582dcb592c924cab6a1704493dde5, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 42ab788fa8bad1c439e936d02d14f5ee, type: 3}
 --- !u!4 &4235754372395434809 stripped
