@@ -9,6 +9,7 @@ public class CameraController : MonoBehaviour
     [Header("Camera")]
     [SerializeField] private float _moveSpeed;
     [SerializeField] private Transform _target;
+    [SerializeField] private bool _isBossRoom;
 
     [Header("Map")]
     [SerializeField] private Camera _mainCamera;
@@ -29,6 +30,11 @@ public class CameraController : MonoBehaviour
     {
         BigMapDeactivate();
         MiniMapDeactivate();
+
+        if (_isBossRoom)
+        {
+            _target = PlayerController.instance.transform;
+        }
     }
 
     // Update is called once per frame
@@ -40,7 +46,7 @@ public class CameraController : MonoBehaviour
 
     private void CameraMap()
     {
-        if (Input.GetKeyDown(KeyCode.M))
+        if (Input.GetKeyDown(KeyCode.M) && !_isBossRoom)
         {
             if (!_bigMapActive)
             {
@@ -52,7 +58,7 @@ public class CameraController : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Tab))
+        if (Input.GetKeyDown(KeyCode.Tab) && !_isBossRoom)
         {
             if (!_miniMapActive)
             {
