@@ -7139,6 +7139,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Skin - Rambo
       objectReference: {fileID: 0}
+    - target: {fileID: 2996610578862465940, guid: f49582dcb592c924cab6a1704493dde5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4474780704261367817, guid: f49582dcb592c924cab6a1704493dde5, type: 3}
       propertyPath: m_RootOrder
       value: 8

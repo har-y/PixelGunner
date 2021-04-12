@@ -16,8 +16,26 @@ public class PlayerSkinLock : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        _skinUnlock = _skinsSelect[Random.Range(0, _skinsSelect.Count)];
-        _lockSpriteRenderer.sprite = _skinUnlock.PlayerSpawn.PlayerBodySprite.sprite;
+        for (int i = 0; i < _skinsSelect.Count; i++)
+        {
+            if (PlayerPrefs.HasKey(_skinsSelect[i].PlayerSpawn.name))
+            {
+                if (PlayerPrefs.GetInt(_skinsSelect[i].PlayerSpawn.name) == 1)
+                {
+                    _skinsSelect.Remove(_skinsSelect[i]);
+                }
+            }
+        }
+
+        if (_skinsSelect != null)
+        {
+            _skinUnlock = _skinsSelect[Random.Range(0, _skinsSelect.Count)];
+            _lockSpriteRenderer.sprite = _skinUnlock.PlayerSpawn.PlayerBodySprite.sprite;
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
     }
 
     // Update is called once per frame
