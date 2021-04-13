@@ -1145,10 +1145,10 @@ MonoBehaviour:
     _targetPointMove: {fileID: 0}
     _shootEnemy: 1
     _weaponPoints:
-    - {fileID: 332480163}
-    - {fileID: 924619064}
-    - {fileID: 1937333233}
-    - {fileID: 1150283422}
+    - {fileID: 995189721}
+    - {fileID: 351009396}
+    - {fileID: 1862667039}
+    - {fileID: 161106569}
     _bulletPrefab: {fileID: 4944873468802563567, guid: 31f297d845a2f6b4a8eb2767ed06c56a, type: 3}
     _bulletDelay: 0.5
 --- !u!1 &1322954575

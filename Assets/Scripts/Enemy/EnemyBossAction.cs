@@ -24,4 +24,88 @@ public class EnemyBossAction
 
     [Header("Shoot - Values")]
     [SerializeField] private float _bulletDelay;
+
+    public bool MoveAction
+    {
+        get
+        {
+            return _moveAction;
+        }
+    }
+
+    public bool ChaseAction
+    {
+        get
+        {
+            return _chaseAction;
+        }
+    }
+
+    public bool PointMoveAction
+    {
+        get
+        {
+            return _pointMoveAction;
+        }
+    }
+
+    public float ActionTime
+    {
+        get
+        {
+            return _actionTime;
+        }
+    }
+
+    public float MoveSpeed
+    {
+        get
+        {
+            return _moveSpeed;
+        }
+    }
+
+    public Transform TargetPointMove
+    {
+        get
+        {
+            return _targetPointMove;
+        }
+        set
+        {
+            _targetPointMove = value;
+        }
+    }
+
+    public bool ShootEnemy
+    {
+        get
+        {
+            return _shootEnemy;
+        }
+    }
+
+    public Transform[] WeaponPoints
+    {
+        get
+        {
+            return _weaponPoints;
+        }
+    }
+
+    public GameObject BulletPrefab
+    {
+        get
+        {
+            return _bulletPrefab;
+        }
+    }
+
+    public float BulletDelay
+    {
+        get
+        {
+            return _bulletDelay;
+        }
+    }
 }
