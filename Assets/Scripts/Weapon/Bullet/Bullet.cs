@@ -59,6 +59,8 @@ public class Bullet : MonoBehaviour
         }
         else if (_bossBullet)
         {
+            transform.position += _direction * _moveSpeed * Time.deltaTime;
+
             if (!EnemyBossController.instance.gameObject.activeInHierarchy)
             {
                 Destroy(gameObject);

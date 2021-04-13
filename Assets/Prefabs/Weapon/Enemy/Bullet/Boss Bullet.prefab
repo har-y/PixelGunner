@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 4944873468802563571}
   - component: {fileID: 4944873468802563565}
   - component: {fileID: 4944873468802563562}
-  - component: {fileID: 4240566851942424374}
   m_Layer: 11
   m_Name: Boss Bullet
   m_TagString: Untagged
@@ -91,18 +90,6 @@ MonoBehaviour:
   _bulletHitEffect: {fileID: 8473250600612712116, guid: 62b04dfd332d50d4496c59655213eb7f, type: 3}
   _bulletSound: 5
   _moveSpeed: 5
---- !u!114 &4240566851942424374
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4944873468802563567}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 68c05097254dab9409fd202c87062c1c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &4944873469909810823
 GameObject:
   m_ObjectHideFlags: 0

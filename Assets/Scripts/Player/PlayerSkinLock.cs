@@ -5,7 +5,6 @@ using UnityEngine;
 public class PlayerSkinLock : MonoBehaviour
 {
     [Header("Player Skin Lock")]
-    //[SerializeField] private PlayerSkinSelect[] _skinsSelect;
     [SerializeField] private List<PlayerSkinSelect> _skinsSelect;
     [SerializeField] private GameObject _skinLockMessageText;
     [SerializeField] private SpriteRenderer _lockSpriteRenderer;

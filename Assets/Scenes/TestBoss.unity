@@ -1052,6 +1052,7 @@ GameObject:
   - component: {fileID: 1317135900}
   - component: {fileID: 1317135902}
   - component: {fileID: 1317135901}
+  - component: {fileID: 1317135903}
   m_Layer: 10
   m_Name: Enemy - Boss
   m_TagString: Enemy - Boss
@@ -1113,6 +1114,43 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &1317135903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1317135899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c66c01d8b433c5f4aa010082cf0740d9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _action:
+  - _moveAction: 1
+    _chaseAction: 1
+    _pointMoveAction: 0
+    _actionTime: 2
+    _moveSpeed: 4
+    _targetPointMove: {fileID: 0}
+    _shootEnemy: 0
+    _weaponPoints: []
+    _bulletPrefab: {fileID: 0}
+    _bulletDelay: 0
+  - _moveAction: 0
+    _chaseAction: 0
+    _pointMoveAction: 0
+    _actionTime: 2
+    _moveSpeed: 4
+    _targetPointMove: {fileID: 0}
+    _shootEnemy: 1
+    _weaponPoints:
+    - {fileID: 332480163}
+    - {fileID: 924619064}
+    - {fileID: 1937333233}
+    - {fileID: 1150283422}
+    _bulletPrefab: {fileID: 4944873468802563567, guid: 31f297d845a2f6b4a8eb2767ed06c56a, type: 3}
+    _bulletDelay: 0.5
 --- !u!1 &1322954575
 GameObject:
   m_ObjectHideFlags: 0
