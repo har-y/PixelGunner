@@ -8,6 +8,7 @@ public class Bullet : MonoBehaviour
     private Rigidbody2D _rigidbody2D;
     [SerializeField] private bool _playerBullet;
     [SerializeField] private bool _enemyBullet;
+    [SerializeField] private bool _bossBullet;
 
 
     [Header("Bullet - Damage")]
@@ -28,8 +29,16 @@ public class Bullet : MonoBehaviour
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _effectSlot = GameObject.FindGameObjectWithTag("Misc");
 
-        _direction = PlayerController.instance.transform.position - transform.position;
-        _direction.Normalize();
+        if (_enemyBullet)
+        {
+            _direction = PlayerController.instance.transform.position - transform.position;
+            _direction.Normalize();
+        }
+
+        if (_bossBullet)
+        {
+            _direction = transform.right;
+        }
     }
 
     // Update is called once per frame
@@ -47,6 +56,13 @@ public class Bullet : MonoBehaviour
         else if (_enemyBullet)
         {
             transform.position += _direction * _moveSpeed * Time.deltaTime;
+        }
+        else if (_bossBullet)
+        {
+            if (!EnemyBossController.instance.gameObject.activeInHierarchy)
+            {
+                Destroy(gameObject);
+            }
         }
     }
 
