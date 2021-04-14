@@ -81,6 +81,11 @@ public class Bullet : MonoBehaviour
         {
             PlayerHealthController.instance.PlayerDamage();
         }
+
+        if (other.CompareTag("Enemy - Boss"))
+        {
+            other.GetComponent<EnemyBossController>().EnemyBossDamageReceive(_bulletDamage);
+        }
     }
 
     private void BulletHitObject()

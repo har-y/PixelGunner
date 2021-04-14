@@ -7,22 +7,22 @@ public class EnemyBossAction
 {
     [Header("Enemy Boss Action")]
 
-    [Header("Move")]
+    [Header("Enemy Boss Action - Move")]
     [SerializeField] private bool _moveAction;
     [SerializeField] private bool _chaseAction;
     [SerializeField] private bool _pointMoveAction;
 
-    [Header("Move - Values")]
+    [Header("Enemy Boss Action - Move - Values")]
     [SerializeField] private float _actionTime;
     [SerializeField] private float _moveSpeed;
     [SerializeField] private Transform _targetPointMove;
 
-    [Header("Shoot")]
+    [Header("Enemy Boss Action - Shoot")]
     [SerializeField] private bool _shootEnemy;
     [SerializeField] private Transform[] _weaponPoints;
     [SerializeField] private GameObject _bulletPrefab;
 
-    [Header("Shoot - Values")]
+    [Header("Enemy Boss Action - Shoot - Values")]
     [SerializeField] private float _bulletDelay;
 
     public bool MoveAction
