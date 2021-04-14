@@ -49,6 +49,10 @@ public class EnemyBossController : MonoBehaviour
 
         _effectSlot = GameObject.FindGameObjectWithTag("Misc");
         _bulletSlot = GameObject.FindGameObjectWithTag("Misc");
+
+        UIController.instance.BossName.text = "Eye Watch";
+        UIController.instance.BossSlider.maxValue = _currentHealth;
+        UIController.instance.BossSlider.value = _currentHealth;
     }
 
     // Update is called once per frame
@@ -79,6 +83,7 @@ public class EnemyBossController : MonoBehaviour
     {
         _currentHealth -= value;
 
+
         StartCoroutine(EnemyMaterialCoroutine());
 
         if (_currentHealth <= 0)
@@ -92,7 +97,11 @@ public class EnemyBossController : MonoBehaviour
             {
                 _levelExit.SetActive(true);
             }
+
+            UIController.instance.BossHealthBar.SetActive(false);
         }
+
+        UIController.instance.BossSlider.value = _currentHealth;
     }
 
     private void EnemyBossShoot()
@@ -143,5 +152,13 @@ public class EnemyBossController : MonoBehaviour
         yield return new WaitForSeconds(0.25f);
 
         _bossSpriteRenderer.material = _bossDefaultMaterial;
+    }
+
+    public int CurrentHealth
+    {
+        get
+        {
+            return _currentHealth;
+        }
     }
 }

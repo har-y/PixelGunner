@@ -11,9 +11,14 @@ public class UIController : MonoBehaviour
     [Header("UI")]
     [SerializeField] private GameObject _lostScreen;
 
-    [Header("UI - Health Bar")]
+    [Header("UI - Player Health Bar")]
     [SerializeField] private Slider _healthSlider;
     [SerializeField] private Text _healthText;
+
+    [Header("UI - Boss Health Bar")]
+    [SerializeField] GameObject _bossHealthBar;
+    [SerializeField] private Slider _bossHealthSlider;
+    [SerializeField] private Text _bossText;
 
     [Header("UI - Coin")]
     [SerializeField] private Text _coinText;
@@ -48,6 +53,7 @@ public class UIController : MonoBehaviour
     void Start()
     {
         UIUpdate();
+
         LostScreenOff();
 
         FadeOff();
@@ -181,6 +187,38 @@ public class UIController : MonoBehaviour
         get
         {
             return _fullMap;
+        }
+    }
+
+    public Slider BossSlider
+    {
+        get
+        {
+            return _bossHealthSlider;
+        }
+        set
+        {
+            _bossHealthSlider = value;
+        }
+    }
+
+    public Text BossName
+    {
+        get
+        {
+            return _bossText;
+        }
+        set
+        {
+            _bossText = value;
+        }
+    }
+
+    public GameObject BossHealthBar
+    {
+        get
+        {
+            return _bossHealthBar;
         }
     }
 }
