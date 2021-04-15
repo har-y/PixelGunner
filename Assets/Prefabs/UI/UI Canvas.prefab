@@ -1322,8 +1322,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _lostScreen: {fileID: 1524155884961228899}
-  _healthSlider: {fileID: 1524155885782422308}
-  _healthText: {fileID: 1524155886035158059}
+  _playerHealthSlider: {fileID: 1524155885782422308}
+  _playerHealthText: {fileID: 1524155886035158059}
   _bossHealthBar: {fileID: 5111178374532763771}
   _bossHealthSlider: {fileID: 7686199860255350544}
   _bossText: {fileID: 1372786020303614780}
@@ -1333,7 +1333,7 @@ MonoBehaviour:
   _currentWeapon: {fileID: 1925360185423063536}
   _weaponText: {fileID: 9185246281264741377}
   _fadeScreen: {fileID: 1524155886132685933}
-  _fadeSpeed: 0.75
+  _fadeSpeed: 0.5
   _fadeOn: 0
   _fadeOff: 0
   _pauseMenu: {fileID: 6570427455835301911}
@@ -1850,7 +1850,7 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -2117,7 +2117,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &8508103192848052360
 RectTransform:
   m_ObjectHideFlags: 0

@@ -8,6 +8,7 @@ public class EnemyBossController : MonoBehaviour
 
     [Header("Enemy Boss Controller")]
     [SerializeField] private SpriteRenderer _bossSpriteRenderer;
+    [SerializeField] private Transform[] _enemyMovePoints;
     private Rigidbody2D _rigidbody2D;    
     private Vector2 _direction;
 
@@ -18,6 +19,12 @@ public class EnemyBossController : MonoBehaviour
     private int _currentAction;
     private float _actionCounter;
     private float _bulletCounter;
+
+    [Header("Enemy Boss Controller - Sequence")]
+    [SerializeField] private EnemyBossSequence[] _sequence;
+
+    [Header("Enemy Boss Controller - Sequence - Values")]
+    private int _currentSequence;
 
     [Header("Enemy Boss Controller - Health")]
     [SerializeField] private int _currentHealth;
@@ -33,6 +40,7 @@ public class EnemyBossController : MonoBehaviour
     [Header("Enemy Boss Controller - Slot")]
     private GameObject _bulletSlot;
     private GameObject _effectSlot;
+    private GameObject _transformSlot;
 
     private void Awake()
     {
@@ -42,15 +50,23 @@ public class EnemyBossController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        _action = _sequence[_currentSequence].EnemyBossAction;
         _rigidbody2D = GetComponent<Rigidbody2D>();
         _actionCounter = _action[_currentAction].ActionTime;
         _bossDefaultMaterial = _bossSpriteRenderer.material;
         _levelExit.SetActive(false);
 
+
         _effectSlot = GameObject.FindGameObjectWithTag("Misc");
         _bulletSlot = GameObject.FindGameObjectWithTag("Misc");
+        _transformSlot = GameObject.FindGameObjectWithTag("Misc");
 
-        UIController.instance.BossName.text = "Eye Watch";
+        foreach (Transform item in _enemyMovePoints)
+        {
+            item.transform.parent = _transformSlot.transform;
+        }
+
+        UIController.instance.BossHealthBarActive();
         UIController.instance.BossSlider.maxValue = _currentHealth;
         UIController.instance.BossSlider.value = _currentHealth;
     }
@@ -98,7 +114,18 @@ public class EnemyBossController : MonoBehaviour
                 _levelExit.SetActive(true);
             }
 
-            UIController.instance.BossHealthBar.SetActive(false);
+            UIController.instance.BossHealthBarDeactive();
+        }
+        else
+        {
+            if (_currentHealth <= _sequence[_currentSequence].EndSequence && _currentSequence < _sequence.Length - 1)
+            {
+                _currentSequence++;
+
+                _action = _sequence[_currentSequence].EnemyBossAction;
+                _currentAction = 0;
+                _actionCounter = _action[_currentAction].ActionTime;
+            }
         }
 
         UIController.instance.BossSlider.value = _currentHealth;
@@ -135,7 +162,7 @@ public class EnemyBossController : MonoBehaviour
                 _direction.Normalize();
             }
 
-            if (_action[_currentAction].PointMoveAction)
+            if (_action[_currentAction].PointMoveAction && Vector3.Distance(transform.position, _action[_currentAction].TargetPointMove.position) > 0.5f)
             {
                 _direction = _action[_currentAction].TargetPointMove.position - transform.position;
                 _direction.Normalize();

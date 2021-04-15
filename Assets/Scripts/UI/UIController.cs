@@ -12,8 +12,8 @@ public class UIController : MonoBehaviour
     [SerializeField] private GameObject _lostScreen;
 
     [Header("UI - Player Health Bar")]
-    [SerializeField] private Slider _healthSlider;
-    [SerializeField] private Text _healthText;
+    [SerializeField] private Slider _playerHealthSlider;
+    [SerializeField] private Text _playerHealthText;
 
     [Header("UI - Boss Health Bar")]
     [SerializeField] GameObject _bossHealthBar;
@@ -87,9 +87,9 @@ public class UIController : MonoBehaviour
 
     private void UIHealth()
     {
-        _healthSlider.maxValue = PlayerHealthController.instance.MaxHealth;
-        _healthSlider.value = PlayerHealthController.instance.CurrentHealth;
-        _healthText.text = PlayerHealthController.instance.CurrentHealth.ToString() + " " + "/" + " " + PlayerHealthController.instance.MaxHealth.ToString();
+        _playerHealthSlider.maxValue = PlayerHealthController.instance.MaxHealth;
+        _playerHealthSlider.value = PlayerHealthController.instance.CurrentHealth;
+        _playerHealthText.text = PlayerHealthController.instance.CurrentHealth.ToString() + " " + "/" + " " + PlayerHealthController.instance.MaxHealth.ToString();
     }
 
     private void UICoin()
@@ -202,23 +202,14 @@ public class UIController : MonoBehaviour
         }
     }
 
-    public Text BossName
+    public void BossHealthBarDeactive()
     {
-        get
-        {
-            return _bossText;
-        }
-        set
-        {
-            _bossText = value;
-        }
+        _bossHealthBar.SetActive(false);   
     }
 
-    public GameObject BossHealthBar
+    public void BossHealthBarActive()
     {
-        get
-        {
-            return _bossHealthBar;
-        }
+        _bossHealthBar.SetActive(true);
+        _bossText.text = "Eye Watch";
     }
 }
