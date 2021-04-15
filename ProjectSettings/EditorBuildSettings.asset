@@ -21,6 +21,9 @@ EditorBuildSettings:
     path: Assets/Scenes/TestLevel3.unity
     guid: 4d8b361b93c7e7c408ba792269c31f4a
   - enabled: 1
+    path: Assets/Scenes/TestBoss.unity
+    guid: 42a15630cbfbae9408e3844bebb332b5
+  - enabled: 1
     path: Assets/Scenes/TestVictory.unity
     guid: b1d122112e07a1541a5ebe264c337f74
   m_configObjects: {}
